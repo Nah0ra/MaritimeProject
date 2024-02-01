@@ -1,7 +1,4 @@
-using DocumentFormat.OpenXml.Spreadsheet;
 using System.Collections;
-using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class GaugeScript : MonoBehaviour
