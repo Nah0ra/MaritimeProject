@@ -1,7 +1,3 @@
-using ClosedXML.Excel;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -52,16 +48,12 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Initialise();
-        StartCoroutine(SaveData());
     }
 
     private void LoadPanel()
     {
         //Determine the tag of the currently selected button
         string currentTag = EventSystem.current.currentSelectedGameObject.tag;
-        XLWorkbook wb = new XLWorkbook(Application.dataPath + "/ValuesAndParameters.xlsx");
-        var ws = wb.Worksheet("Saved_Data");
-
         switch (currentTag)
         {
             case "MainButton":
@@ -443,34 +435,5 @@ public class GameManager : MonoBehaviour
         CoolButton.onClick.AddListener(LoadPanel);
         MiscButton.onClick.AddListener(LoadPanel);
     }
-
-    private IEnumerator SaveData()
-    {
-
-        XLWorkbook wb = new XLWorkbook(Application.dataPath + "/ValuesAndParameters.xlsx");
-        var ws = wb.Worksheet("Saved_Data");
-
-        while (true)
-        {
-            yield return new WaitForSeconds(1);
-            GameObject[] dials = GameObject.FindGameObjectsWithTag("Dial");
-
-            int Count = 2;
-
-            foreach (GameObject dial in dials)
-            {
-                string DialName = dial.name;
-                float DialValue = dial.GetComponent<GaugeScript>().Value;
-
-                ws.Cell("A" + Count).Value = DialName;
-                ws.Cell("B" + Count).Value = DialValue;
-                Count++;
-            }
-            wb.Save();
-            Count = 2;
-        }
-        
-    }
-
 
 }
