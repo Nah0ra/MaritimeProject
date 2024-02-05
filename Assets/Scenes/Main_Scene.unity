@@ -2483,7 +2483,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1775370600569414212, guid: 9731eb99d4eff8b429ffec84e39dc368, type: 3}
       propertyPath: m_Name
-      value: Cooling_Dg sw bef.clr
+      value: Cooling_Dg sw bef clr
       objectReference: {fileID: 0}
     - target: {fileID: 1775370600569414212, guid: 9731eb99d4eff8b429ffec84e39dc368, type: 3}
       propertyPath: m_TagString
@@ -2507,7 +2507,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1775370601287562875, guid: 9731eb99d4eff8b429ffec84e39dc368, type: 3}
       propertyPath: m_Name
-      value: Cooling_SW bef. clr. (C)
+      value: Cooling_SW bef clr (C)
       objectReference: {fileID: 0}
     - target: {fileID: 1775370601287562875, guid: 9731eb99d4eff8b429ffec84e39dc368, type: 3}
       propertyPath: m_TagString
@@ -2515,7 +2515,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1775370601417684217, guid: 9731eb99d4eff8b429ffec84e39dc368, type: 3}
       propertyPath: m_Name
-      value: Cooling_SW bef. clr. (MPa)
+      value: Cooling_SW bef clr (MPa)
       objectReference: {fileID: 0}
     - target: {fileID: 1775370601417684217, guid: 9731eb99d4eff8b429ffec84e39dc368, type: 3}
       propertyPath: m_TagString
@@ -4242,7 +4242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6363453200600351293, guid: 889397c4e643f2e4b884566a6dba1a0e, type: 3}
       propertyPath: m_Name
-      value: Comp_Air after Compr.2
+      value: Comp_Air after Compr2
       objectReference: {fileID: 0}
     - target: {fileID: 6363453200600351293, guid: 889397c4e643f2e4b884566a6dba1a0e, type: 3}
       propertyPath: m_TagString
@@ -4290,7 +4290,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6363453201097014900, guid: 889397c4e643f2e4b884566a6dba1a0e, type: 3}
       propertyPath: m_Name
-      value: Comp_Air after Compr.1
+      value: Comp_Air after Compr1
       objectReference: {fileID: 0}
     - target: {fileID: 6363453201097014900, guid: 889397c4e643f2e4b884566a6dba1a0e, type: 3}
       propertyPath: m_TagString
@@ -4314,7 +4314,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6363453201724477100, guid: 889397c4e643f2e4b884566a6dba1a0e, type: 3}
       propertyPath: m_Name
-      value: Comp_Air bef. Start val.
+      value: Comp_Air bef Start val
       objectReference: {fileID: 0}
     - target: {fileID: 6363453201724477100, guid: 889397c4e643f2e4b884566a6dba1a0e, type: 3}
       propertyPath: m_TagString
@@ -7273,7 +7273,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7014769024517261831, guid: 9ffce430e2ff78a4ebf1b0a29836f965, type: 3}
       propertyPath: m_Name
-      value: Lube_Lo. Bef. Pistons Mpa
+      value: Lube_Lo Bef Pistons Mpa
       objectReference: {fileID: 0}
     - target: {fileID: 7014769024517261831, guid: 9ffce430e2ff78a4ebf1b0a29836f965, type: 3}
       propertyPath: m_TagString
@@ -7281,7 +7281,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7014769024550128065, guid: 9ffce430e2ff78a4ebf1b0a29836f965, type: 3}
       propertyPath: m_Name
-      value: Lube_Lo. Bef. Shaft Mpa
+      value: Lube_Lo Bef Shaft Mpa
       objectReference: {fileID: 0}
     - target: {fileID: 7014769024550128065, guid: 9ffce430e2ff78a4ebf1b0a29836f965, type: 3}
       propertyPath: m_TagString

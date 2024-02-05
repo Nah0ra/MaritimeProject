@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Firebase.Database;
+using Firebase.Extensions;
 
 public class GameManager : MonoBehaviour
 {
@@ -45,9 +47,19 @@ public class GameManager : MonoBehaviour
     private Button CoolButton;
     private Button MiscButton;
 
+    DatabaseReference reference;
+    GameObject[] dials;
+
     private void Awake()
     {
         Initialise();
+        reference = FirebaseDatabase.DefaultInstance.RootReference;
+        dials = GameObject.FindGameObjectsWithTag("Dial");
+    }
+
+    private void Start() 
+    {
+        LoadData("Default");
     }
 
     private void LoadPanel()
@@ -434,6 +446,36 @@ public class GameManager : MonoBehaviour
         SteamButton.onClick.AddListener(LoadPanel);
         CoolButton.onClick.AddListener(LoadPanel);
         MiscButton.onClick.AddListener(LoadPanel);
+    }
+
+    private void SaveData(string SaveSlotName)
+    {
+        foreach (GameObject dial in dials)
+        {
+            float DialValue = dial.GetComponent<GaugeScript>().Value;
+            reference.Child(SaveSlotName).Child(dial.name).SetValueAsync(DialValue);
+        }
+    }
+
+    private void LoadData(string SaveSlotName)
+    {
+        int i = 0;
+        foreach (GameObject dial in dials)
+        {
+            reference.Child(SaveSlotName).Child(dials[i].name).GetValueAsync().ContinueWithOnMainThread(task => 
+            {
+                if (task.IsFaulted) 
+                {
+                    // Handle the error...
+                }
+                else if (task.IsCompleted) 
+                {   
+                    Debug.Log(task.Result.Value);
+                }
+            });
+
+            i++;
+        }
     }
 
 }
