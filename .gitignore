@@ -64,3 +64,5 @@ Assets/ValuesandParameters.xlsx
 UserSettings/Layouts/CurrentMaximizeLayout.dwlt
 *.dwlt
 *.meta
+*.dwlt
+*.meta
