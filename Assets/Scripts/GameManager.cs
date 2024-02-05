@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
 
     private void Start() 
     {
-        LoadData("Default");
+        
     }
 
     private void LoadPanel()
