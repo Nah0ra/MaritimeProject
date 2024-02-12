@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
 
     private void Start() 
     {
-        
+        LoadData("Default");
     }
 
     private void LoadPanel()
@@ -470,7 +470,7 @@ public class GameManager : MonoBehaviour
                 }
                 else if (task.IsCompleted) 
                 {   
-                    Debug.Log(task.Result.Value);
+                    Debug.Log("The value of " + dial.name + " is " + task.Result.Value);
                 }
             });
 
