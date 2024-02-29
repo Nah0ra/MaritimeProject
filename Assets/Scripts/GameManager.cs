@@ -66,6 +66,7 @@ public class GameManager : MonoBehaviour
         Initialise();
         reference = FirebaseDatabase.DefaultInstance.RootReference;
         dials = GameObject.FindGameObjectsWithTag("Dial");
+        StartCoroutine(SyncData());
 
         if (Instance == null)
         {
@@ -78,10 +79,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    IEnumerator SyncData()
     {
-        LoadData("Default");
+        while (true)
+        {
+            LoadData("Default");
+            yield return new WaitForSeconds(1f);
+            Debug.Log("Data Synced!");
+        }
     }
+
 
     private void LoadPanel()
     {
@@ -573,13 +580,14 @@ public class GameManager : MonoBehaviour
         {
             reference.Child(SaveSlotName).Child(dials[i].name).GetValueAsync().ContinueWithOnMainThread(task => 
             {
-                if (task.IsFaulted) 
+                if (task.IsFaulted)
                 {
                     // Handle the error...
                 }
                 else if (task.IsCompleted)
-                { 
-                    dials[i].GetComponent<GaugeScript>().Value = float.Parse(task.Result.Value.ToString());
+                {
+                    Debug.Log("Dial " + dial.name + " has a value of " + task.Result.Value);
+                   //dials[i].GetComponent<GaugeScript>().Value = float.Parse(task.Result.Value.ToString());
                 }
             });
 

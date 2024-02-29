@@ -18,6 +18,7 @@ TagManager:
   - SaveGUIButton
   - SaveButton
   - LoadButton
+  - InputField
   layers:
   - Default
   - TransparentFX
