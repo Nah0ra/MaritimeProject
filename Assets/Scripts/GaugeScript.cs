@@ -32,7 +32,7 @@ public class GaugeScript : MonoBehaviour
                 while (Forward)
                 {
                     float count = _simplegaugemaker.gaugeInputs[0].value;
-                    while (count < Max + 1)
+                    while (count != Max)
                     {
                         if (!Forward || !Active)
                         {
@@ -40,13 +40,13 @@ public class GaugeScript : MonoBehaviour
                         }
                         else
                         {
+                            count++;
                             Value = count;
                             _simplegaugemaker.setInputValue("Fuel Pressure", count);
-                            count++;
+                            GameManager.Instance.SaveData("Default");
+                            Debug.Log("Updating" + count);
                             yield return new WaitForSeconds(Rate);
-
                         }
-
                     }
                  yield return new WaitForEndOfFrame();
                 }
@@ -54,7 +54,7 @@ public class GaugeScript : MonoBehaviour
                 while (!Forward)
                 {
                     float count = _simplegaugemaker.gaugeInputs[0].value;
-                    while (count > Min - 1)
+                    while (count != Min)
                     {
                         if (Forward || !Active)
                         {
@@ -62,9 +62,11 @@ public class GaugeScript : MonoBehaviour
                         }
                         else
                         {
+                            count--;
                             Value = count;
                             _simplegaugemaker.setInputValue("Fuel Pressure", count);
-                            count--;
+                            GameManager.Instance.SaveData("Default");
+                            Debug.Log("Updating" + count);
                             yield return new WaitForSeconds(Rate);
                         }
                     }
