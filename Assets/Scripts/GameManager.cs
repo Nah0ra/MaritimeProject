@@ -366,6 +366,7 @@ public class GameManager : MonoBehaviour
 
     }
 
+    //Initialise the scene and load the appropriate dials
     private void Initialise()
     {
         //Assigning panels
@@ -448,6 +449,8 @@ public class GameManager : MonoBehaviour
         MiscButton.onClick.AddListener(LoadPanel);
     }
 
+
+    //Saves the current dial values to Firebase, using the saveslot names as an input
     private void SaveData(string SaveSlotName)
     {
         foreach (GameObject dial in dials)
@@ -457,6 +460,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //Loads the current dial values from Firebase, using the saveslot names as an input
     private void LoadData(string SaveSlotName)
     {
         int i = 0;
