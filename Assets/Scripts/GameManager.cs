@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Firebase.Database;
 using Firebase.Extensions;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -59,7 +60,18 @@ public class GameManager : MonoBehaviour
 
     private void Start() 
     {
-        LoadData("Default");
+        StartCoroutine(ValueSync());
+    }
+
+    //Save and load data once every second per client to ensure they remain synced
+    IEnumerator ValueSync()
+    {
+        while (true)
+        {
+            SaveData("Default");
+            yield return new WaitForSeconds(1f);
+            LoadData("Default");
+        }
     }
 
     private void LoadPanel()

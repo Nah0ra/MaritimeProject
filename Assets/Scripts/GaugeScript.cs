@@ -23,6 +23,7 @@ public class GaugeScript : MonoBehaviour
     }
 
 
+    //Increae value by rate of change per second
     IEnumerator GaugeManager(float Rate, float Min, float Max)
     {
         while (true)
