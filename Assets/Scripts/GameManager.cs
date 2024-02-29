@@ -68,9 +68,9 @@ public class GameManager : MonoBehaviour
     {
         while (true)
         {
-            SaveData("Default");
-            yield return new WaitForSeconds(1f);
             LoadData("Default");
+            yield return new WaitForSeconds(1f);
+            SaveData("Default");
         }
     }
 
