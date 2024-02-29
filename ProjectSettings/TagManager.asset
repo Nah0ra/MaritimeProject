@@ -15,6 +15,9 @@ TagManager:
   - CoolButton
   - MiscButton
   - Dial
+  - SaveGUIButton
+  - SaveButton
+  - LoadButton
   layers:
   - Default
   - TransparentFX
