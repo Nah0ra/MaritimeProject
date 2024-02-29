@@ -484,9 +484,9 @@ public class GameManager : MonoBehaviour
                 {
                     // Handle the error...
                 }
-                else if (task.IsCompleted) 
-                {   
-                    Debug.Log("The value of " + dial.name + " is " + task.Result.Value);
+                else if (task.IsCompleted)
+                { 
+                    dials[i].GetComponent<GaugeScript>().Value = float.Parse(task.Result.Value.ToString());
                 }
             });
 
