@@ -51,27 +51,28 @@ public class GameManager : MonoBehaviour
     DatabaseReference reference;
     GameObject[] dials;
 
+    public static GameManager Instance { get; private set; }
+
     private void Awake()
     {
         Initialise();
         reference = FirebaseDatabase.DefaultInstance.RootReference;
         dials = GameObject.FindGameObjectsWithTag("Dial");
-    }
 
-    private void Start() 
-    {
-        StartCoroutine(ValueSync());
-    }
-
-    //Save and load data once every second per client to ensure they remain synced
-    IEnumerator ValueSync()
-    {
-        while (true)
+        if (Instance == null)
         {
-            LoadData("Default");
-            yield return new WaitForSeconds(1f);
-            SaveData("Default");
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        LoadData("Default");
     }
 
     private void LoadPanel()
@@ -463,7 +464,7 @@ public class GameManager : MonoBehaviour
 
 
     //Saves the current dial values to Firebase, using the saveslot names as an input
-    private void SaveData(string SaveSlotName)
+    public void SaveData(string SaveSlotName)
     {
         foreach (GameObject dial in dials)
         {
@@ -473,7 +474,7 @@ public class GameManager : MonoBehaviour
     }
 
     //Loads the current dial values from Firebase, using the saveslot names as an input
-    private void LoadData(string SaveSlotName)
+    public void LoadData(string SaveSlotName)
     {
         int i = 0;
         foreach (GameObject dial in dials)
