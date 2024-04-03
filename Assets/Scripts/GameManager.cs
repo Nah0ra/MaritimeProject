@@ -106,7 +106,7 @@ public class GameManager : MonoBehaviour
             GameObject dialObject = GameObject.Find(dialName);
             if (dialObject != null)
             {
-                Debug.Log(" Dial" + dialName + " was changed with value ");
+                Debug.Log(" Dial" + dialName + " was changed with value " + dialValue);
             }
         }
 
