@@ -5,6 +5,7 @@ using Firebase.Database;
 using Firebase.Extensions;
 using TMPro;
 using System.Collections;
+using System.Threading.Tasks;
 
 public class GameManager : MonoBehaviour
 {
@@ -567,11 +568,24 @@ public class GameManager : MonoBehaviour
     {
         foreach (GameObject dial in dials)
         {
-            float DialValue = dial.GetComponent<SimpleGaugeMaker>().gaugeInputs[0].value;
+            float DialValue = dial.GetComponent<GaugeScript>().Value;
             bool DialDir = dial.GetComponent<GaugeScript>().Forward;
             float RoC = dial.GetComponent<GaugeScript>().RateOfChange;
 
-            reference.Child(SaveSlotName).Child(dial.name).Child("Value").SetValueAsync(DialValue);
+            reference.Child(SaveSlotName).Child(dial.name).Child("Value").RunTransaction(transaction => {
+                transaction.Value = DialValue;
+                return TransactionResult.Success(transaction);
+            }).ContinueWith(task =>{
+                if (task.Exception != null)
+                {
+                    Debug.LogError($"Transation failed: {task.Exception}");
+                }
+                else if (task.IsCompleted)
+                {
+                    Debug.Log("Successfully updated value");
+                }
+            });
+
             reference.Child(SaveSlotName).Child(dial.name).Child("Direction").SetValueAsync(DialDir);
             reference.Child(SaveSlotName).Child(dial.name).Child("Rate of Change").SetValueAsync(RoC);
         }
@@ -593,12 +607,12 @@ public class GameManager : MonoBehaviour
                 else if (task.IsCompleted)
                 {
                     Debug.Log("Dial " + dial.name + " has a value of " + task.Result.Value);
-                    GameObject.Find(dial.name).GetComponent<SimpleGaugeMaker>().gaugeInputs[0].value = (float)task.Result.Value;
+                    GameObject.Find(dial.name).GetComponent<GaugeScript>().Value = (float)task.Result.Value;
                 }
             });
 
             //Get direction
-            /*reference.Child(SaveSlotName).Child(dials[i].name).Child("Direction").GetValueAsync().ContinueWithOnMainThread(task => 
+            reference.Child(SaveSlotName).Child(dials[i].name).Child("Direction").GetValueAsync().ContinueWithOnMainThread(task => 
             {
                 if (task.IsFaulted)
                 {
@@ -609,10 +623,10 @@ public class GameManager : MonoBehaviour
                     Debug.Log("Dial " + dial.name + " is going forward? " + task.Result.Value);
                     GameObject.Find(dial.name).GetComponent<GaugeScript>().Forward = (bool)task.Result.Value;
                 }
-            })*/
+            });
 
             //Get direction
-            /*reference.Child(SaveSlotName).Child(dials[i].name).Child("Rate of Change").GetValueAsync().ContinueWithOnMainThread(task => 
+            reference.Child(SaveSlotName).Child(dials[i].name).Child("Rate of Change").GetValueAsync().ContinueWithOnMainThread(task => 
             {
                 if (task.IsFaulted)
                 {
@@ -623,7 +637,7 @@ public class GameManager : MonoBehaviour
                     Debug.Log("Dial " + dial.name + "'s rate of change is  " + task.Result.Value);
                     GameObject.Find(dial.name).GetComponent<GaugeScript>().RateOfChange = (float)task.Result.Value;
                 }
-            });*/
+            });
 
             i++;
         }
