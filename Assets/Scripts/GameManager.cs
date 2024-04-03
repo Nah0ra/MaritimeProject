@@ -77,6 +77,48 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        StartListeningForDataChanges();
+
+    }
+
+    private void StartListeningForDataChanges()
+    {
+        // Listen for changes in the database
+        reference.ChildChanged += HandleChildChanged;
+    }
+
+    private void HandleChildChanged(object sender, ChildChangedEventArgs args)
+    {
+        if (args.DatabaseError != null)
+        {
+            Debug.LogError(args.DatabaseError.Message);
+            return;
+        }
+
+        // Update UI based on the changed data
+        UpdateUI(args.Snapshot);
+    }
+
+    private void UpdateUI(DataSnapshot snapshot)
+    {
+        // Update UI elements based on the data snapshot
+        // You may need to modify this based on your UI structure and data format
+        foreach (var dialSnapshot in snapshot.Children)
+        {
+            string dialName = dialSnapshot.Key;
+            float dialValue = float.Parse(dialSnapshot.Child("Value").Value.ToString());
+            bool dialDirection = bool.Parse(dialSnapshot.Child("Direction").Value.ToString());
+            float dialRoC = float.Parse(dialSnapshot.Child("Rate of Change").Value.ToString());
+
+            // Find the corresponding UI element and update its values
+            GameObject dialObject = GameObject.Find(dialName);
+            if (dialObject != null)
+            {
+                dialObject.GetComponent<GaugeScript>().Value = dialValue;
+                dialObject.GetComponent<GaugeScript>().Forward = dialDirection;
+                dialObject.GetComponent<GaugeScript>().RateOfChange = dialRoC;
+            }
+        }
     }
 
     IEnumerator SyncData()
