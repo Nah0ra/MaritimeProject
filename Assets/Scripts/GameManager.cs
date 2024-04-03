@@ -578,13 +578,11 @@ public class GameManager : MonoBehaviour
     }
 
     //Loads the current dial values from Firebase, using the saveslot names as an input
-    public void LoadData(string SaveSlotName)
+    public void LoadData(string saveSlotName)
     {
-        int i = 0;
         foreach (GameObject dial in dials)
         {
-            //Get the Value of the dial
-            reference.Child(SaveSlotName).Child(dials[i].name).Child("Value").GetValueAsync().ContinueWithOnMainThread(task => 
+            reference.Child(saveSlotName).Child(dial.name).GetValueAsync().ContinueWithOnMainThread(task =>
             {
                 if (task.IsFaulted)
                 {
@@ -592,41 +590,21 @@ public class GameManager : MonoBehaviour
                 }
                 else if (task.IsCompleted)
                 {
-                    Debug.Log("Dial " + dial.name + " has a value of " + task.Result.Value);
-                    GameObject.Find(dial.name).GetComponent<GaugeScript>().Value = (float)task.Result.Value;
+                    DataSnapshot snapshot = task.Result;
+                    float dialValue = float.Parse(snapshot.Child("Value").Value.ToString());
+                    bool dialDir = bool.Parse(snapshot.Child("Direction").Value.ToString());
+                    float rateOfChange = float.Parse(snapshot.Child("RateOfChange").Value.ToString());
+
+                    dial.GetComponent<GaugeScript>().Value = dialValue;
+                    dial.GetComponent<GaugeScript>().Forward = dialDir;
+                    dial.GetComponent<GaugeScript>().RateOfChange = rateOfChange;
+
+                    // Update UI or trigger UI update event
+                    //dial.GetComponent<GaugeScript>().UpdateUI(); // Assuming you have an UpdateUI method in your GaugeScript
                 }
             });
-
-            //Get direction
-            reference.Child(SaveSlotName).Child(dials[i].name).Child("Direction").GetValueAsync().ContinueWithOnMainThread(task => 
-            {
-                if (task.IsFaulted)
-                {
-                    // Handle the error...
-                }
-                else if (task.IsCompleted)
-                {
-                    Debug.Log("Dial " + dial.name + " is going forward? " + task.Result.Value);
-                    GameObject.Find(dial.name).GetComponent<GaugeScript>().Forward = (bool)task.Result.Value;
-                }
-            });
-
-            //Get direction
-            reference.Child(SaveSlotName).Child(dials[i].name).Child("Rate of Change").GetValueAsync().ContinueWithOnMainThread(task => 
-            {
-                if (task.IsFaulted)
-                {
-                    // Handle the error...
-                }
-                else if (task.IsCompleted)
-                {
-                    Debug.Log("Dial " + dial.name + "'s rate of change is  " + task.Result.Value);
-                    GameObject.Find(dial.name).GetComponent<GaugeScript>().RateOfChange = (float)task.Result.Value;
-                }
-            });
-
-            i++;
         }
     }
+
 
 }
