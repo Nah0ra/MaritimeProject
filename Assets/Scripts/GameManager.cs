@@ -567,7 +567,7 @@ public class GameManager : MonoBehaviour
     {
         foreach (GameObject dial in dials)
         {
-            float DialValue = dial.GetComponent<GaugeScript>().Value;
+            float DialValue = dial.GetComponent<SimpleGaugeMaker>().gaugeInputs[0].value;
             bool DialDir = dial.GetComponent<GaugeScript>().Forward;
             float RoC = dial.GetComponent<GaugeScript>().RateOfChange;
 
@@ -593,7 +593,7 @@ public class GameManager : MonoBehaviour
                 else if (task.IsCompleted)
                 {
                     Debug.Log("Dial " + dial.name + " has a value of " + task.Result.Value);
-                    GameObject.Find(dial.name).GetComponent<GaugeScript>().Value = (float)task.Result.Value;
+                    GameObject.Find(dial.name).GetComponent<SimpleGaugeMaker>().gaugeInputs[0].value = (float)task.Result.Value;
                 }
             });
 
