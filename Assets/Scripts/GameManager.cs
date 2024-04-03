@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
         Initialise();
         reference = FirebaseDatabase.DefaultInstance.RootReference;
         dials = GameObject.FindGameObjectsWithTag("Dial");
-        StartCoroutine(SyncData());
+        //StartCoroutine(SyncData());
 
         if (Instance == null)
         {
