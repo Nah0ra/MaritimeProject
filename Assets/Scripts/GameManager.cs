@@ -5,6 +5,7 @@ using Firebase.Database;
 using Firebase.Extensions;
 using TMPro;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -573,38 +574,39 @@ public class GameManager : MonoBehaviour
     }
 
     //Saves the current dial values to Firebase, using the saveslot names as an input
-    public void SaveData(string SaveSlotName)
+    public void SaveData(string saveSlotName)
     {
         foreach (GameObject dial in dials)
         {
-            reference.Child(SaveSlotName).Child(dial.name).RunTransaction(transaction =>
-            {
-                // Get current value from the transaction snapshot
-                var currentValue = transaction.Value;
+            DatabaseReference dialRef = reference.Child(saveSlotName).Child(dial.name);
 
-                // If data does not exist or is null, initialize it
-                if (currentValue == null)
+            dialRef.RunTransaction(transaction =>
+            {
+                // Get the current data at this location
+                var currentData = transaction.Value as Dictionary<string, object>;
+
+                // If data doesn't exist or is null, initialize it
+                if (currentData == null)
                 {
-                    transaction.Value = new Dictionary<string, object>();
+                    currentData = new Dictionary<string, object>();
+                    transaction.Value = currentData;
                 }
 
-                // Update the value of the dial
-                var dialData = (Dictionary<string, object>)transaction.Value;
-                dialData[dial.name] = new Dictionary<string, object>
-            {
-                { "Value", dial.GetComponent<GaugeScript>().Value },
-                { "Direction", dial.GetComponent<GaugeScript>().Forward },
-                { "Rate of Change", dial.GetComponent<GaugeScript>().RateOfChange }
-            };
+                // Update the values
+                currentData["Value"] = dial.GetComponent<GaugeScript>().Value;
+                currentData["Direction"] = dial.GetComponent<GaugeScript>().Forward;
+                currentData["RateOfChange"] = dial.GetComponent<GaugeScript>().RateOfChange;
 
-                // Set the updated value back to the transaction
-                transaction.Value = dialData;
+                // Set the updated data
+                transaction.Value = currentData;
 
                 // Return the updated transaction
                 return TransactionResult.Success(transaction);
             });
         }
     }
+
+
 
 
     //Loads the current dial values from Firebase, using the saveslot names as an input
