@@ -568,7 +568,12 @@ public class GameManager : MonoBehaviour
         foreach (GameObject dial in dials)
         {
             float DialValue = dial.GetComponent<GaugeScript>().Value;
-            reference.Child(SaveSlotName).Child(dial.name).SetValueAsync(DialValue);
+            bool DialDir = dial.GetComponent<GaugeScript>().Forward;
+            float RoC = dial.GetComponent<GaugeScript>().RateOfChange;
+
+            reference.Child(SaveSlotName).Child(dial.name).Child("Value").SetValueAsync(DialValue);
+            reference.Child(SaveSlotName).Child(dial.name).Child("Direction").SetValueAsync(DialDir);
+            reference.Child(SaveSlotName).Child(dial.name).Child("Rate of Change").SetValueAsync(RoC);
         }
     }
 
@@ -578,7 +583,8 @@ public class GameManager : MonoBehaviour
         int i = 0;
         foreach (GameObject dial in dials)
         {
-            reference.Child(SaveSlotName).Child(dials[i].name).GetValueAsync().ContinueWithOnMainThread(task => 
+            //Get the Value of the dial
+            reference.Child(SaveSlotName).Child(dials[i].name).Child("Value").GetValueAsync().ContinueWithOnMainThread(task => 
             {
                 if (task.IsFaulted)
                 {
@@ -587,7 +593,35 @@ public class GameManager : MonoBehaviour
                 else if (task.IsCompleted)
                 {
                     Debug.Log("Dial " + dial.name + " has a value of " + task.Result.Value);
-                   //dials[i].GetComponent<GaugeScript>().Value = float.Parse(task.Result.Value.ToString());
+                    GameObject.Find(dial.name).GetComponent<GaugeScript>().Value = (float)task.Result.Value;
+                }
+            });
+
+            //Get direction
+            reference.Child(SaveSlotName).Child(dials[i].name).Child("Direction").GetValueAsync().ContinueWithOnMainThread(task => 
+            {
+                if (task.IsFaulted)
+                {
+                    // Handle the error...
+                }
+                else if (task.IsCompleted)
+                {
+                    Debug.Log("Dial " + dial.name + " is going forward? " + task.Result.Value);
+                    GameObject.Find(dial.name).GetComponent<GaugeScript>().Forward = (bool)task.Result.Value;
+                }
+            });
+
+            //Get direction
+            reference.Child(SaveSlotName).Child(dials[i].name).Child("Rate of Change").GetValueAsync().ContinueWithOnMainThread(task => 
+            {
+                if (task.IsFaulted)
+                {
+                    // Handle the error...
+                }
+                else if (task.IsCompleted)
+                {
+                    Debug.Log("Dial " + dial.name + "'s rate of change is  " + task.Result.Value);
+                    GameObject.Find(dial.name).GetComponent<GaugeScript>().RateOfChange = (float)task.Result.Value;
                 }
             });
 
