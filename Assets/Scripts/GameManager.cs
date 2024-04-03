@@ -66,6 +66,7 @@ public class GameManager : MonoBehaviour
         Initialise();
         reference = FirebaseDatabase.DefaultInstance.RootReference;
         dials = GameObject.FindGameObjectsWithTag("Dial");
+        reference.Child("Default").ValueChanged += StateChanged;
         StartCoroutine(SyncData());
 
         if (Instance == null)
@@ -77,6 +78,38 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void StateChanged(object sender, ValueChangedEventArgs args)
+    {
+        if (args.DatabaseError != null)
+        {
+            Debug.LogError(args.DatabaseError.Message);
+            return;
+        }
+
+        // Update UI based on the changed data
+        UpdateValues(args.Snapshot);
+
+    }
+
+    private void UpdateValues(DataSnapshot snapshot)
+    {
+        foreach (var dialSnapshot in snapshot.Children)
+        {
+            string dialName = dialSnapshot.Key;
+            float dialValue = float.Parse(dialSnapshot.Child("Value").Value.ToString());
+            bool dialDirection = bool.Parse(dialSnapshot.Child("Direction").Value.ToString());
+            float dialRoC = float.Parse(dialSnapshot.Child("Rate of Change").Value.ToString());
+
+            // Find the corresponding UI element and update its values
+            GameObject dialObject = GameObject.Find(dialName);
+            if (dialObject != null)
+            {
+                Debug.Log(" Dial" + dialName + " was changed with value ");
+            }
+        }
+
     }
 
     IEnumerator SyncData()
