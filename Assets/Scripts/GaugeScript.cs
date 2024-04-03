@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using Firebase.Database;
 
 public class GaugeScript : MonoBehaviour
 {
@@ -44,6 +43,8 @@ public class GaugeScript : MonoBehaviour
                             count++;
                             Value = count;
                             _simplegaugemaker.setInputValue("Fuel Pressure", count);
+                            GameManager.Instance.SaveData("Default");
+                            Debug.Log("Updating" + count);
                             yield return new WaitForSeconds(Rate);
                         }
                     }
@@ -64,6 +65,8 @@ public class GaugeScript : MonoBehaviour
                             count--;
                             Value = count;
                             _simplegaugemaker.setInputValue("Fuel Pressure", count);
+                            GameManager.Instance.SaveData("Default");
+                            Debug.Log("Updating" + count);
                             yield return new WaitForSeconds(Rate);
                         }
                     }
