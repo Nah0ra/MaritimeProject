@@ -5,7 +5,6 @@ using Firebase.Database;
 using Firebase.Extensions;
 using TMPro;
 using System.Collections;
-using System.Threading.Tasks;
 
 public class GameManager : MonoBehaviour
 {
@@ -572,20 +571,7 @@ public class GameManager : MonoBehaviour
             bool DialDir = dial.GetComponent<GaugeScript>().Forward;
             float RoC = dial.GetComponent<GaugeScript>().RateOfChange;
 
-            reference.Child(SaveSlotName).Child(dial.name).Child("Value").RunTransaction(transaction => {
-                transaction.Value = DialValue;
-                return TransactionResult.Success(transaction);
-            }).ContinueWith(task =>{
-                if (task.Exception != null)
-                {
-                    Debug.LogError($"Transation failed: {task.Exception}");
-                }
-                else if (task.IsCompleted)
-                {
-                    Debug.Log("Successfully updated value");
-                }
-            });
-
+            reference.Child(SaveSlotName).Child(dial.name).Child("Value").SetValueAsync(DialValue);
             reference.Child(SaveSlotName).Child(dial.name).Child("Direction").SetValueAsync(DialDir);
             reference.Child(SaveSlotName).Child(dial.name).Child("Rate of Change").SetValueAsync(RoC);
         }
