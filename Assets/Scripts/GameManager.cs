@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
         Initialise();
         reference = FirebaseDatabase.DefaultInstance.RootReference;
         dials = GameObject.FindGameObjectsWithTag("Dial");
-        //StartCoroutine(SyncData());
+        StartCoroutine(SyncData());
 
         if (Instance == null)
         {
@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
     {
         while (true)
         {
-            LoadData("Default");
+            SaveData("Default");
             yield return new WaitForSeconds(1f);
             Debug.Log("Data Synced!");
         }
