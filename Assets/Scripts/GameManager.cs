@@ -578,33 +578,38 @@ public class GameManager : MonoBehaviour
     }
 
     //Loads the current dial values from Firebase, using the saveslot names as an input
-    public void LoadData(string saveSlotName)
+    public void LoadData(string SaveSlotName)
     {
-        foreach (GameObject dial in dials)
-        {
-            reference.Child(saveSlotName).Child(dial.name).GetValueAsync().ContinueWithOnMainThread(task =>
-            {
-                if (task.IsFaulted)
-                {
-                    // Handle the error...
-                }
-                else if (task.IsCompleted)
-                {
-                    DataSnapshot snapshot = task.Result;
-                    float dialValue = float.Parse(snapshot.Child("Value").Value.ToString());
-                    bool dialDir = bool.Parse(snapshot.Child("Direction").Value.ToString());
-                    float rateOfChange = float.Parse(snapshot.Child("RateOfChange").Value.ToString());
-
-                    dial.GetComponent<GaugeScript>().Value = dialValue;
-                    dial.GetComponent<GaugeScript>().Forward = dialDir;
-                    dial.GetComponent<GaugeScript>().RateOfChange = rateOfChange;
-
-                    // Update UI or trigger UI update event
-                    //dial.GetComponent<GaugeScript>().UpdateUI(); // Assuming you have an UpdateUI method in your GaugeScript
-                }
-            });
-        }
+        reference.Child(SaveSlotName).ValueChanged += HandleDataChanged;
     }
 
+    private void HandleDataChanged(object sender, ValueChangedEventArgs args)
+    {
+        if (args.DatabaseError != null)
+        {
+            Debug.LogError(args.DatabaseError.Message);
+            return;
+        }
+
+        if (args.Snapshot != null && args.Snapshot.Exists)
+        {
+            foreach (var dialSnapshot in args.Snapshot.Children)
+            {
+                string dialName = dialSnapshot.Key;
+                float dialValue = float.Parse(dialSnapshot.Child("Value").Value.ToString());
+                bool dialDirection = bool.Parse(dialSnapshot.Child("Direction").Value.ToString());
+                float dialRateOfChange = float.Parse(dialSnapshot.Child("Rate of Change").Value.ToString());
+
+                // Update the corresponding dial object in your scene
+                GameObject dialObject = GameObject.Find(dialName);
+                if (dialObject != null)
+                {
+                    dialObject.GetComponent<GaugeScript>().Value = dialValue;
+                    dialObject.GetComponent<GaugeScript>().Forward = dialDirection;
+                    dialObject.GetComponent<GaugeScript>().RateOfChange = dialRateOfChange;
+                }
+            }
+        }
+    }
 
 }
