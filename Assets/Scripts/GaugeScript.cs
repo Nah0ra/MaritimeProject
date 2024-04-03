@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using Firebase.Database;
 
 public class GaugeScript : MonoBehaviour
 {
