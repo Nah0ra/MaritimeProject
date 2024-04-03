@@ -106,7 +106,7 @@ public class GameManager : MonoBehaviour
             GameObject dialObject = GameObject.Find(dialName);
             if (dialObject != null)
             {
-                Debug.Log(" Dial" + dialName + " was changed with value " + dialValue);
+                dialObject.GetComponent<GaugeScript>().Value = dialValue;
             }
         }
 
@@ -117,7 +117,7 @@ public class GameManager : MonoBehaviour
         while (true)
         {
             SaveData("Default");
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.1f);
             Debug.Log("Data Synced!");
         }
     }
