@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     [PunRPC]
     void Testing()
     {
-        Debug.Log("This is networked");
+        Debug.Log("Client number " + photonView.OwnerActorNr + " is connected");
     }
 
     private void LoadPanel()
