@@ -119,8 +119,14 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
-    [PunRPC]
+    
     private void TestDialRPC()
+    {
+        photonView.RPC("TestDial", RpcTarget.All);
+    }
+
+    [PunRPC]
+    private void TestDial()
     {
         Debug.Log("Client number " + PhotonNetwork.LocalPlayer.ToString() + " flicked the switch!");
         GameObject.Find("45").GetComponent<GaugeScript>().Forward = !GameObject.Find("45").GetComponent<GaugeScript>().Forward;
