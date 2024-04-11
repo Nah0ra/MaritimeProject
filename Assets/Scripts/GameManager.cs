@@ -2,9 +2,11 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
-using System.Collections;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class GameManager : MonoBehaviour
+
+public class GameManager : MonoBehaviourPunCallbacks
 {
     //Panels
     private GameObject MainOBJ;
@@ -58,10 +60,13 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance { get; private set; }
 
+    PhotonView photonView;
+
     private void Awake()
     {
         Initialise();
         dials = GameObject.FindGameObjectsWithTag("Dial");
+        photonView = PhotonView.Get(this);
 
         if (Instance == null)
         {
@@ -72,6 +77,37 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        Connect();
+    }
+
+    public override void OnConnectedToMaster()
+    {
+        Debug.Log("Connected!");
+        PhotonNetwork.JoinOrCreateRoom("Default", roomOptions:default, TypedLobby.Default);
+    }
+
+    public override void OnJoinedRoom()
+    {
+        photonView.RPC("Testing", RpcTarget.All);
+    }
+    public void Connect()
+    {
+        if (PhotonNetwork.IsConnected)
+        {
+            
+            PhotonNetwork.JoinRandomRoom();
+        }
+        else
+        {
+            PhotonNetwork.ConnectUsingSettings();
+        }
+    }
+
+    [PunRPC]
+    void Testing()
+    {
+        Debug.Log("This is networked");
     }
 
     private void LoadPanel()
