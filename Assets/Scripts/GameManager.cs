@@ -1,8 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using Firebase.Database;
-using Firebase.Extensions;
 using TMPro;
 using System.Collections;
 using System.Collections.Generic;
@@ -57,7 +55,6 @@ public class GameManager : MonoBehaviour
     
     // private InputField saveInputField;
 
-    DatabaseReference reference;
     GameObject[] dials;
 
     public static GameManager Instance { get; private set; }
@@ -65,10 +62,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Initialise();
-        reference = FirebaseDatabase.DefaultInstance.RootReference;
         dials = GameObject.FindGameObjectsWithTag("Dial");
-        reference.Child("Default").ValueChanged += StateChanged;
-        StartCoroutine(SyncData());
 
         if (Instance == null)
         {
@@ -81,49 +75,6 @@ public class GameManager : MonoBehaviour
         }
         StartCoroutine(SaveDataPeriodically("Default", 1f));
     }
-
-    private void StateChanged(object sender, ValueChangedEventArgs args)
-    {
-        if (args.DatabaseError != null)
-        {
-            Debug.LogError(args.DatabaseError.Message);
-            return;
-        }
-
-        // Update UI based on the changed data
-        UpdateValues(args.Snapshot);
-
-    }
-
-    private void UpdateValues(DataSnapshot snapshot)
-    {
-        foreach (var dialSnapshot in snapshot.Children)
-        {
-            string dialName = dialSnapshot.Key;
-            float dialValue = float.Parse(dialSnapshot.Child("Value").Value.ToString());
-            bool dialDirection = bool.Parse(dialSnapshot.Child("Direction").Value.ToString());
-            float dialRoC = float.Parse(dialSnapshot.Child("Rate of Change").Value.ToString());
-
-            // Find the corresponding UI element and update its values
-            GameObject dialObject = GameObject.Find(dialName);
-            if (dialObject != null)
-            {
-                dialObject.GetComponent<GaugeScript>().Value = dialValue;
-            }
-        }
-
-    }
-
-    IEnumerator SyncData()
-    {
-        while (true)
-        {
-            SaveData("Default");
-            yield return new WaitForSeconds(0.1f);
-            Debug.Log("Data Synced!");
-        }
-    }
-
 
     private void LoadPanel()
     {
@@ -588,93 +539,11 @@ public class GameManager : MonoBehaviour
             switch (currentTag)
             {
                 case "SaveButton":
-                    SaveData(inputValue);
                     break;
                 case "LoadButton":
-                    LoadData(inputValue);
                     break;
             }
         }
     }
-
-    private IEnumerator SaveDataPeriodically(string saveSlotName, float interval)
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(interval);
-            SaveData(saveSlotName);
-        }
-    }
-
-    //Saves the current dial values to Firebase, using the saveslot names as an input
-    public void SaveData(string saveSlotName)
-    {
-        foreach (GameObject dial in dials)
-        {
-            DatabaseReference dialRef = reference.Child(saveSlotName).Child(dial.name);
-
-            dialRef.RunTransaction(transaction =>
-            {
-                // Get the current data at this location
-                var currentData = transaction.Value as Dictionary<string, object>;
-
-                // If data doesn't exist or is null, initialize it
-                if (currentData == null)
-                {
-                    currentData = new Dictionary<string, object>();
-                    transaction.Value = currentData;
-                }
-
-                // Update the values
-                currentData["Value"] = dial.GetComponent<GaugeScript>().Value;
-                currentData["Direction"] = dial.GetComponent<GaugeScript>().Forward;
-                currentData["RateOfChange"] = dial.GetComponent<GaugeScript>().RateOfChange;
-
-                // Set the updated data
-                transaction.Value = currentData;
-
-                // Return the updated transaction
-                return TransactionResult.Success(transaction);
-            });
-        }
-    }
-
-
-
-
-    //Loads the current dial values from Firebase, using the saveslot names as an input
-    public void LoadData(string SaveSlotName)
-    {
-        reference.Child(SaveSlotName).ValueChanged += HandleDataChanged;
-    }
-
-    private void HandleDataChanged(object sender, ValueChangedEventArgs args)
-    {
-        if (args.DatabaseError != null)
-        {
-            Debug.LogError(args.DatabaseError.Message);
-            return;
-        }
-
-        if (args.Snapshot != null && args.Snapshot.Exists)
-        {
-            foreach (var dialSnapshot in args.Snapshot.Children)
-            {
-                string dialName = dialSnapshot.Key;
-                float dialValue = float.Parse(dialSnapshot.Child("Value").Value.ToString());
-                bool dialDirection = bool.Parse(dialSnapshot.Child("Direction").Value.ToString());
-                float dialRateOfChange = float.Parse(dialSnapshot.Child("Rate of Change").Value.ToString());
-
-                // Update the corresponding dial object in your scene
-                GameObject dialObject = GameObject.Find(dialName);
-                if (dialObject != null)
-                {
-                    dialObject.GetComponent<GaugeScript>().Value = dialValue;
-                    dialObject.GetComponent<GaugeScript>().Forward = dialDirection;
-                    dialObject.GetComponent<GaugeScript>().RateOfChange = dialRateOfChange;
-                }
-            }
-        }
-    }
-
+        
 }
