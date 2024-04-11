@@ -4,6 +4,8 @@ using UnityEngine.UI;
 using TMPro;
 using Photon.Pun;
 using Photon.Realtime;
+using System.Collections;
+using Unity.VisualScripting.FullSerializer;
 
 
 public class GameManager : MonoBehaviourPunCallbacks
@@ -68,6 +70,8 @@ public class GameManager : MonoBehaviourPunCallbacks
         dials = GameObject.FindGameObjectsWithTag("Dial");
         photonView = PhotonView.Get(this);
 
+        GameObject.Find("TestingButton").GetComponent<Button>().onClick.AddListener(TestDialRPC);
+
         if (Instance == null)
         {
             Instance = this;
@@ -89,6 +93,17 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
+        StartCoroutine(WaitForClients());
+    }
+
+    private IEnumerator WaitForClients()
+    {
+        while (PhotonNetwork.PlayerList.Length != 3)
+        {
+            Debug.Log("Waiting for clients");
+            yield return new WaitForSeconds(1f);
+        }
+
         photonView.RPC("Testing", RpcTarget.All);
     }
     public void Connect()
@@ -105,9 +120,17 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
+    private void TestDialRPC()
+    {
+        Debug.Log("Client number " + PhotonNetwork.LocalPlayer.ToString() + " flicked the switch!");
+        GameObject.Find("45").GetComponent<GaugeScript>().Forward = !GameObject.Find("45").GetComponent<GaugeScript>().Forward;
+    }
+
+    
+    [PunRPC]
     void Testing()
     {
-        Debug.Log("Client number " + photonView.OwnerActorNr + " is connected");
+        Debug.Log("Client number " + PhotonNetwork.LocalPlayer.ActorNumber + " is connected");
     }
 
     private void LoadPanel()
