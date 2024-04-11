@@ -1,8 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using Firebase.Database;
-using Firebase.Extensions;
 using TMPro;
 using System.Collections;
 
@@ -56,7 +54,6 @@ public class GameManager : MonoBehaviour
     
     // private InputField saveInputField;
 
-    DatabaseReference reference;
     GameObject[] dials;
 
     public static GameManager Instance { get; private set; }
@@ -64,10 +61,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Initialise();
-        reference = FirebaseDatabase.DefaultInstance.RootReference;
         dials = GameObject.FindGameObjectsWithTag("Dial");
-        reference.Child("Default").ValueChanged += StateChanged;
-        StartCoroutine(SyncData());
 
         if (Instance == null)
         {
@@ -79,49 +73,6 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    private void StateChanged(object sender, ValueChangedEventArgs args)
-    {
-        if (args.DatabaseError != null)
-        {
-            Debug.LogError(args.DatabaseError.Message);
-            return;
-        }
-
-        // Update UI based on the changed data
-        UpdateValues(args.Snapshot);
-
-    }
-
-    private void UpdateValues(DataSnapshot snapshot)
-    {
-        foreach (var dialSnapshot in snapshot.Children)
-        {
-            string dialName = dialSnapshot.Key;
-            float dialValue = float.Parse(dialSnapshot.Child("Value").Value.ToString());
-            bool dialDirection = bool.Parse(dialSnapshot.Child("Direction").Value.ToString());
-            float dialRoC = float.Parse(dialSnapshot.Child("Rate of Change").Value.ToString());
-
-            // Find the corresponding UI element and update its values
-            GameObject dialObject = GameObject.Find(dialName);
-            if (dialObject != null)
-            {
-                dialObject.GetComponent<GaugeScript>().Value = dialValue;
-            }
-        }
-
-    }
-
-    IEnumerator SyncData()
-    {
-        while (true)
-        {
-            SaveData("Default");
-            yield return new WaitForSeconds(0.1f);
-            Debug.Log("Data Synced!");
-        }
-    }
-
 
     private void LoadPanel()
     {
@@ -586,80 +537,11 @@ public class GameManager : MonoBehaviour
             switch (currentTag)
             {
                 case "SaveButton":
-                    SaveData(inputValue);
                     break;
                 case "LoadButton":
-                    LoadData(inputValue);
                     break;
             }
         }
     }
         
-    //Saves the current dial values to Firebase, using the saveslot names as an input
-    public void SaveData(string SaveSlotName)
-    {
-        foreach (GameObject dial in dials)
-        {
-            float DialValue = dial.GetComponent<GaugeScript>().Value;
-            bool DialDir = dial.GetComponent<GaugeScript>().Forward;
-            float RoC = dial.GetComponent<GaugeScript>().RateOfChange;
-
-            reference.Child(SaveSlotName).Child(dial.name).Child("Value").SetValueAsync(DialValue);
-            reference.Child(SaveSlotName).Child(dial.name).Child("Direction").SetValueAsync(DialDir);
-            reference.Child(SaveSlotName).Child(dial.name).Child("Rate of Change").SetValueAsync(RoC);
-        }
-    }
-
-    //Loads the current dial values from Firebase, using the saveslot names as an input
-    public void LoadData(string SaveSlotName)
-    {
-        int i = 0;
-        foreach (GameObject dial in dials)
-        {
-            //Get the Value of the dial
-            reference.Child(SaveSlotName).Child(dials[i].name).Child("Value").GetValueAsync().ContinueWithOnMainThread(task => 
-            {
-                if (task.IsFaulted)
-                {
-                    // Handle the error...
-                }
-                else if (task.IsCompleted)
-                {
-                    Debug.Log("Dial " + dial.name + " has a value of " + task.Result.Value);
-                    GameObject.Find(dial.name).GetComponent<GaugeScript>().Value = (float)task.Result.Value;
-                }
-            });
-
-            //Get direction
-            reference.Child(SaveSlotName).Child(dials[i].name).Child("Direction").GetValueAsync().ContinueWithOnMainThread(task => 
-            {
-                if (task.IsFaulted)
-                {
-                    // Handle the error...
-                }
-                else if (task.IsCompleted)
-                {
-                    Debug.Log("Dial " + dial.name + " is going forward? " + task.Result.Value);
-                    GameObject.Find(dial.name).GetComponent<GaugeScript>().Forward = (bool)task.Result.Value;
-                }
-            });
-
-            //Get direction
-            reference.Child(SaveSlotName).Child(dials[i].name).Child("Rate of Change").GetValueAsync().ContinueWithOnMainThread(task => 
-            {
-                if (task.IsFaulted)
-                {
-                    // Handle the error...
-                }
-                else if (task.IsCompleted)
-                {
-                    Debug.Log("Dial " + dial.name + "'s rate of change is  " + task.Result.Value);
-                    GameObject.Find(dial.name).GetComponent<GaugeScript>().RateOfChange = (float)task.Result.Value;
-                }
-            });
-
-            i++;
-        }
-    }
-
 }
