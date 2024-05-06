@@ -54,10 +54,12 @@ public class GameManager : MonoBehaviourPunCallbacks
     private Button SaveGUIButton;
     // private Button SaveButton;
     // private Button LoadButton;
-    
+
     // private InputField saveInputField;
 
     GameObject[] dials;
+
+    bool shore=false;
 
     public static GameManager Instance { get; private set; }
 
@@ -114,6 +116,11 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
+    public void onButtonPress()
+    {
+        shore = true;
+        Debug.Log("Shore on");
+    }
 
     private void LoadPanel()
     {
@@ -427,10 +434,10 @@ public class GameManager : MonoBehaviourPunCallbacks
                 SteamUI.SetActive(false);
                 MiscUI.SetActive(false);
                 SaveGUI.SetActive(true);
-                
+
                 GameObject.FindGameObjectWithTag("SaveButton").GetComponent<Button>().onClick.AddListener(CheckInputField);
                 GameObject.FindGameObjectWithTag("LoadButton").GetComponent<Button>().onClick.AddListener(CheckInputField);
-                
+
 
                 foreach (Transform child in MainDials.transform)
                     child.GetComponent<SimpleGaugeMaker>().Hide = true;
@@ -558,14 +565,14 @@ public class GameManager : MonoBehaviourPunCallbacks
         // SaveButton.onClick.AddListener(CheckInputField);
         // LoadButton.onClick.AddListener(CheckInputField);
     }
-    
+
     private void CheckInputField()
     {
         Debug.Log("fjisjfies");
         // InputField saveInputField = GameObject.FindGameObjectWithTag("InputField").GetComponent<InputField>().text;
         string inputValue = GameObject.FindGameObjectWithTag("InputField").GetComponent<TMP_InputField>().text;
         string currentTag = EventSystem.current.currentSelectedGameObject.tag;
-        
+
         if (string.IsNullOrEmpty(inputValue))
         {
             Debug.Log("Error: Input field cannot be empty!");
