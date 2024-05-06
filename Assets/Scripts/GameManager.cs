@@ -61,10 +61,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     GameObject[] dials;
 
-    bool shore=false;
-
-    public static GameManager Instance { get; private set; }
-
+    public bool shore = false;
     PhotonView photonView;
 
     private void Awake()
@@ -73,6 +70,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         dials = GameObject.FindGameObjectsWithTag("Dial");
         photonView = PhotonView.Get(this);
         ShorePower.SetActive(false);
+
         Connect();
     }
 
@@ -89,7 +87,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     private IEnumerator WaitForClients()
     {
-        while (PhotonNetwork.PlayerList.Length != 3)
+        while (PhotonNetwork.PlayerList.Length != 2)
         {
             Debug.Log("Waiting for clients");
             yield return new WaitForSeconds(1f);
