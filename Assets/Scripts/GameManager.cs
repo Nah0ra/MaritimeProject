@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     GameObject[] dials;
 
-    bool shore=false;
+    public bool shore=false;
 
     public static GameManager Instance { get; private set; }
 
