@@ -5,7 +5,6 @@ using TMPro;
 using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
-using Unity.VisualScripting.FullSerializer;
 
 
 public class GameManager : MonoBehaviourPunCallbacks
