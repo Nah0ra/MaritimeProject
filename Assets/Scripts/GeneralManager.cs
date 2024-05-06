@@ -6,11 +6,9 @@ public class GeneralManager : MonoBehaviour
 {
     public GaugeScript TestDial;
     public bool TestTheDial;
+    
+    public GameManager gameManager;
 
-    private void Update() 
-    {
-            
-    }
 
 
 }
