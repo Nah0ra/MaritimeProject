@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     private GameObject MiscOBJ;
     private GameObject SaveGUI_OBJ;
 
-    public GameObject ShorePower;
+    private GameObject ShorePower;
 
     //UI
     private GameObject MainUI;
@@ -61,10 +61,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     GameObject[] dials;
 
-    bool shore=false;
-
-    public static GameManager Instance { get; private set; }
-
+    public bool shore = false;
     PhotonView photonView;
 
     private void Awake()
@@ -73,16 +70,6 @@ public class GameManager : MonoBehaviourPunCallbacks
         dials = GameObject.FindGameObjectsWithTag("Dial");
         photonView = PhotonView.Get(this);
         ShorePower.SetActive(false);
-
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
 
         Connect();
     }
