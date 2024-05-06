@@ -60,6 +60,8 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     GameObject[] dials;
 
+    bool shore=false;
+
     public static GameManager Instance { get; private set; }
 
     PhotonView photonView;
@@ -115,6 +117,11 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
+    public void onButtonPress()
+    {
+        shore = true;
+        Debug.Log("Shore on");
+    }
 
     private void LoadPanel()
     {
