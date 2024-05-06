@@ -9,7 +9,12 @@ public class GaugeScript : MonoBehaviour
     private float _MinValue;
     public bool Forward;
     public float Value;
+
+    public float idealValue;
+
     public bool Active;
+
+    public bool IdealReached;
 
     [Tooltip("Input rate of change in seconds, i.e the time it takes for the liquid to heat by one degree")]
     public float RateOfChange;
@@ -43,6 +48,16 @@ public class GaugeScript : MonoBehaviour
                             count++;
                             Value = count;
                             _simplegaugemaker.setInputValue("Fuel Pressure", count);
+
+                            if (Value == idealValue)
+                            {
+                                IdealReached = true;
+                            }
+                            else
+                            {
+                                IdealReached = false;
+                            }
+
                             yield return new WaitForSeconds(Rate);
                         }
                     }
@@ -63,6 +78,16 @@ public class GaugeScript : MonoBehaviour
                             count--;
                             Value = count;
                             _simplegaugemaker.setInputValue("Fuel Pressure", count);
+
+                            if (Value == idealValue)
+                            {
+                                IdealReached = true;
+                            }
+                            else
+                            {
+                                IdealReached = false;
+                            }
+                            
                             yield return new WaitForSeconds(Rate);
                         }
                     }

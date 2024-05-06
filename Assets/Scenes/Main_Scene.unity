@@ -142,7 +142,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 1
 --- !u!1 &19826077 stripped
 GameObject:
@@ -163,7 +165,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!1 &20230726 stripped
 GameObject:
@@ -184,7 +188,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!1 &38657239
 GameObject:
@@ -923,7 +929,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!1 &113484480 stripped
 GameObject:
@@ -944,7 +952,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!1001 &144695105
 PrefabInstance:
@@ -1202,7 +1212,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!1 &188145344
 GameObject:
@@ -1843,7 +1855,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!1 &334526959
 GameObject:
@@ -2689,7 +2703,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!224 &517932532 stripped
 RectTransform:
@@ -3039,7 +3055,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!1 &594615448
 GameObject:
@@ -3100,7 +3118,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!1 &610656221
 GameObject:
@@ -3390,7 +3410,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!1 &752172015
 GameObject:
@@ -3534,7 +3556,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!1 &765386673 stripped
 GameObject:
@@ -3555,7 +3579,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 1
 --- !u!1 &777181346
 GameObject:
@@ -3652,7 +3678,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 1
 --- !u!1 &791203303
 GameObject:
@@ -3808,7 +3836,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!1 &881115564 stripped
 GameObject:
@@ -3829,7 +3859,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!1 &927429122 stripped
 GameObject:
@@ -3850,7 +3882,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!1 &955565194
 GameObject:
@@ -3947,7 +3981,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!1 &975938555 stripped
 GameObject:
@@ -3968,7 +4004,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!1 &983813743
 GameObject:
@@ -4026,7 +4064,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!1 &1049339626
 GameObject:
@@ -4169,7 +4209,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 1
 --- !u!1 &1117065947
 GameObject:
@@ -4479,7 +4521,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!1 &1186043987
 GameObject:
@@ -4611,7 +4655,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!1 &1209609725 stripped
 GameObject:
@@ -4632,7 +4678,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!1 &1239043111
 GameObject:
@@ -5002,7 +5050,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 1
 --- !u!1001 &1281231297
 PrefabInstance:
@@ -5092,7 +5142,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!1001 &1306158351
 PrefabInstance:
@@ -5251,7 +5303,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!1001 &1337015668
 PrefabInstance:
@@ -5989,7 +6043,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 1
   Value: 0
+  idealValue: 120
   Active: 1
+  IdealReached: 0
   RateOfChange: 0.02
 --- !u!114 &1413758871
 MonoBehaviour:
@@ -6639,7 +6695,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!1 &1522876173
 GameObject:
@@ -6797,7 +6855,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 1
 --- !u!1 &1537972616
 GameObject:
@@ -6898,7 +6958,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!1 &1568168436
 GameObject:
@@ -7054,7 +7116,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!1 &1598776106
 GameObject:
@@ -7553,7 +7617,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!1 &1670493891
 GameObject:
@@ -8129,7 +8195,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!1 &1805605354 stripped
 GameObject:
@@ -8150,7 +8218,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!1 &1836273267 stripped
 GameObject:
@@ -8171,7 +8241,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!1001 &1838180560
 PrefabInstance:
@@ -8543,7 +8615,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!1 &1909672611 stripped
 GameObject:
@@ -8564,7 +8638,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 1
 --- !u!1001 &1915390424
 PrefabInstance:
@@ -8818,7 +8894,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!1 &1949231396
 GameObject:
@@ -9042,7 +9120,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!1 &2015423292
 GameObject:
@@ -9139,7 +9219,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!1 &2024014993
 GameObject:
@@ -9534,7 +9616,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!1 &2070239586
 GameObject:
@@ -9631,7 +9715,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!1 &2086784715 stripped
 GameObject:
@@ -9652,7 +9738,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Forward: 0
   Value: 0
+  idealValue: 0
   Active: 0
+  IdealReached: 0
   RateOfChange: 0
 --- !u!1001 &686322437240216873
 PrefabInstance:
