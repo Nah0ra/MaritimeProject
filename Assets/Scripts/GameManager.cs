@@ -61,9 +61,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     GameObject[] dials;
 
-
     public bool shore = false;
-
     PhotonView photonView;
 
     private void Awake()
