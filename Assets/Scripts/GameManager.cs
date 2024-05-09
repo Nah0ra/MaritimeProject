@@ -151,9 +151,6 @@ public class GameManager : MonoBehaviourPunCallbacks
                 foreach (Transform child in SteamDials.transform)
                     child.GetComponent<SimpleGaugeMaker>().Hide = true;
 
-                foreach (Transform child in MiscDials.transform)
-                    child.GetComponent<SimpleGaugeMaker>().Hide = true;
-
                 break;
 
             case "FuelButton":
@@ -189,9 +186,6 @@ public class GameManager : MonoBehaviourPunCallbacks
                 foreach (Transform child in SteamDials.transform)
                     child.GetComponent<SimpleGaugeMaker>().Hide = true;
 
-                foreach (Transform child in MiscDials.transform)
-                    child.GetComponent<SimpleGaugeMaker>().Hide = true;
-
                 break;
 
             case "LubeButton":
@@ -225,9 +219,6 @@ public class GameManager : MonoBehaviourPunCallbacks
                     child.GetComponent<SimpleGaugeMaker>().Hide = true;
 
                 foreach (Transform child in SteamDials.transform)
-                    child.GetComponent<SimpleGaugeMaker>().Hide = true;
-
-                foreach (Transform child in MiscDials.transform)
                     child.GetComponent<SimpleGaugeMaker>().Hide = true;
 
                 break;
@@ -266,9 +257,6 @@ public class GameManager : MonoBehaviourPunCallbacks
                 foreach (Transform child in SteamDials.transform)
                     child.GetComponent<SimpleGaugeMaker>().Hide = true;
 
-                foreach (Transform child in MiscDials.transform)
-                    child.GetComponent<SimpleGaugeMaker>().Hide = true;
-
                 break;
 
             case "CompButton":
@@ -302,9 +290,6 @@ public class GameManager : MonoBehaviourPunCallbacks
                     child.GetComponent<SimpleGaugeMaker>().Hide = true;
 
                 foreach (Transform child in SteamDials.transform)
-                    child.GetComponent<SimpleGaugeMaker>().Hide = true;
-
-                foreach (Transform child in MiscDials.transform)
                     child.GetComponent<SimpleGaugeMaker>().Hide = true;
 
                 break;
@@ -342,9 +327,6 @@ public class GameManager : MonoBehaviourPunCallbacks
                 foreach (Transform child in SteamDials.transform)
                     child.GetComponent<SimpleGaugeMaker>().Hide = true;
 
-                foreach (Transform child in MiscDials.transform)
-                    child.GetComponent<SimpleGaugeMaker>().Hide = true;
-
                 break;
 
             case "SteamButton":
@@ -380,9 +362,6 @@ public class GameManager : MonoBehaviourPunCallbacks
                 foreach (Transform child in SteamDials.transform)
                     child.GetComponent<SimpleGaugeMaker>().Hide = false;
 
-                foreach (Transform child in MiscDials.transform)
-                    child.GetComponent<SimpleGaugeMaker>().Hide = true;
-
                 break;
 
             case "MiscButton":
@@ -417,9 +396,6 @@ public class GameManager : MonoBehaviourPunCallbacks
 
                 foreach (Transform child in SteamDials.transform)
                     child.GetComponent<SimpleGaugeMaker>().Hide = true;
-
-                foreach (Transform child in MiscDials.transform)
-                    child.GetComponent<SimpleGaugeMaker>().Hide = false;
 
                 break;
             case "SaveGUIButton":
@@ -457,9 +433,6 @@ public class GameManager : MonoBehaviourPunCallbacks
                     child.GetComponent<SimpleGaugeMaker>().Hide = true;
 
                 foreach (Transform child in SteamDials.transform)
-                    child.GetComponent<SimpleGaugeMaker>().Hide = true;
-
-                foreach (Transform child in MiscDials.transform)
                     child.GetComponent<SimpleGaugeMaker>().Hide = true;
 
                 break;
@@ -515,7 +488,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         CompDials = CompOBJ.transform.GetChild(1).gameObject;
         PowerDials = PowerOBJ.transform.GetChild(1).gameObject;
         SteamDials = SteamOBJ.transform.GetChild(1).gameObject;
-        MiscDials = MiscOBJ.transform.GetChild(1).gameObject;
+        MiscDials = MiscOBJ.transform.GetChild(0).gameObject;
 
         foreach (Transform child in FuelDials.transform)
             child.GetComponent<SimpleGaugeMaker>().Hide = true;
@@ -534,10 +507,6 @@ public class GameManager : MonoBehaviourPunCallbacks
 
         foreach (Transform child in SteamDials.transform)
             child.GetComponent<SimpleGaugeMaker>().Hide = true;
-
-        foreach (Transform child in MiscDials.transform)
-            child.GetComponent<SimpleGaugeMaker>().Hide = true;
-
 
         //Assinging Buttons
         MainButton = GameObject.FindGameObjectWithTag("MainButton").GetComponent<Button>();

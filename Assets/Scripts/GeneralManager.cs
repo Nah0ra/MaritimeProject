@@ -11,10 +11,10 @@ public class GeneralManager : MonoBehaviour
     private void Awake() 
     {
         gameManager = transform.parent.transform.GetComponent<GameManager>();
-        StartCoroutine(CheckStatus()); 
+        //StartCoroutine(CheckStatus()); 
     }
 
-    public IEnumerator CheckStatus()
+    /*public IEnumerator CheckStatus()
     {
         while (gameManager.shore == false)
         {
@@ -23,6 +23,6 @@ public class GeneralManager : MonoBehaviour
         }
         
         Debug.Log("MAIN SCRIPT REPORTS SHORE POWER UP");
-    }
+    }*/
 
 }
