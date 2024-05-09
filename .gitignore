@@ -63,3 +63,6 @@ crashlytics-build.properties
 .vscode/settings.json
 .vscode/launch.json
 .vscode/extensions.json
+Assets/Photon.meta
+ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json
+UserSettings/EditorUserSettings.asset
