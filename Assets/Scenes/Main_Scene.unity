@@ -4170,10 +4170,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc5f4498cb2c6664eadb07d861b95d17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AAC1: {fileID: 6363453202024923904}
-  AR1: {fileID: 6363453201521220538}
-  AAC2: {fileID: 6363453201448599369}
-  AR2: {fileID: 6363453201582880088}
+  AAC1: {fileID: 6363453201448599369}
+  AR1: {fileID: 6363453201582880088}
+  AAC2: {fileID: 6363453202024923904}
+  AR2: {fileID: 6363453201521220538}
+  SA: {fileID: 254917270}
 --- !u!1 &308947529
 GameObject:
   m_ObjectHideFlags: 0

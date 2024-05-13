@@ -6,6 +6,9 @@ public class CompressedAirScript : MonoBehaviour
 {
     private GameManager _gameManager;
     private bool shoreOn;
+    private bool AC1;
+    private bool AC2;
+    
     [SerializeField]
     private GameObject AAC1;
     [SerializeField]
@@ -14,6 +17,8 @@ public class CompressedAirScript : MonoBehaviour
     private GameObject AAC2;
     [SerializeField]
     private GameObject AR2;
+    [SerializeField]
+    private GameObject SA;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +32,18 @@ public class CompressedAirScript : MonoBehaviour
          {
              shoreOn = true;
          }
+
+         if (AC1 && AC2)
+         {
+             SA.GetComponent<GaugeScript>().Active = true;
+             SA.GetComponent<GaugeScript>().Forward = true;
+         }
+         else
+         {
+             SA.GetComponent<GaugeScript>().Active = true;
+             SA.GetComponent<GaugeScript>().Forward = false;
+             SA.GetComponent<GaugeScript>().Value = 0;
+         }
     }
     
     public void onAir1ButtonPressOn()
@@ -38,6 +55,7 @@ public class CompressedAirScript : MonoBehaviour
             AR1.GetComponent<GaugeScript>().Active = true;
             AAC1.GetComponent<GaugeScript>().Forward = true;
             AR1.GetComponent<GaugeScript>().Forward = true;
+            AC1 = true;
         }
     }
     
@@ -50,6 +68,7 @@ public class CompressedAirScript : MonoBehaviour
             AR2.GetComponent<GaugeScript>().Active = true;
             AAC2.GetComponent<GaugeScript>().Forward = true;
             AR2.GetComponent<GaugeScript>().Forward = true;
+            AC2 = true;
         }
     }
     
@@ -64,6 +83,7 @@ public class CompressedAirScript : MonoBehaviour
             AR1.GetComponent<GaugeScript>().Forward = false;
             AR1.GetComponent<GaugeScript>().Value = 0;
             AAC1.GetComponent<GaugeScript>().Value = 0;
+            AC1 = false;
         }
     }
     
@@ -78,6 +98,7 @@ public class CompressedAirScript : MonoBehaviour
             AR2.GetComponent<GaugeScript>().Forward = false;
             AR2.GetComponent<GaugeScript>().Value = 0;
             AAC2.GetComponent<GaugeScript>().Value = 0;
+            AC2 = false;
         }
     }
 }
