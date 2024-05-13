@@ -26,7 +26,7 @@ public class PowerPlantScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_lubricationScript.gaugeFullMe && _lubricationScript.gaugeFullDg && _gameManager.shore)
+        if(_lubricationScript.gaugeFullMe && _lubricationScript.gaugeFullDg && _gameManager.shore && _lubricationScript.LoHeaterCheck)
         {
             Dg1.interactable = true;
             Dg2.interactable = true;

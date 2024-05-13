@@ -14,7 +14,7 @@ public class LubricationScript : MonoBehaviour
     public Slider DgLoSlider;
     bool DgLoSliderOn;
     private bool check;
-    private bool LoHeaterCheck;
+    public bool LoHeaterCheck;
     public bool gaugeFullMe;
     public bool gaugeFullDg;
     // Start is called before the first frame update
