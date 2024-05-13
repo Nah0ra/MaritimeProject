@@ -86,7 +86,7 @@ public class LubricationScript : MonoBehaviour
     {
         while (check)
         {
-            DgLoSlider.value += 0.1f;
+            DgLoSlider.value+=0.1f;
             yield return new WaitForSeconds(1f);
             if (DgLoSlider.value == DgLoSlider.maxValue)
             {
