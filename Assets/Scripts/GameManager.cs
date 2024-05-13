@@ -5,6 +5,7 @@ using TMPro;
 using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
+using ExitGames.Client.Photon.StructWrapping;
 
 
 public class GameManager : MonoBehaviourPunCallbacks
@@ -37,6 +38,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     private GameObject MainDials;
     private GameObject FuelDials;
     private GameObject LubeDials;
+    private GameObject LubeTanks;
     private GameObject CompDials;
     private GameObject PowerDials;
     private GameObject SteamDials;
@@ -453,6 +455,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         MainOBJ = GameObject.Find("Main_OBJ");
         FuelOBJ = GameObject.Find("Fuel_OBJ");
         LubeOBJ = GameObject.Find("Lubricating_OBJ");
+        LubeTanks = GameObject.Find("Lubricating_Tanks_OBJ");
         CoolOBJ = GameObject.Find("Cooling_OBJ");
         CompOBJ = GameObject.Find("Compressed_OBJ");
         PowerOBJ = GameObject.Find("Power_Plant_OBJ");
@@ -473,6 +476,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         SaveGUI = SaveGUI_OBJ.transform.GetChild(0).gameObject;
         FuelUI.SetActive(false);
         LubeUI.SetActive(false);
+        LubeTanks.SetActive(false);
         CoolUI.SetActive(false);
         CompUI.SetActive(false);
         PowerUI.SetActive(false);
@@ -494,7 +498,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             child.GetComponent<SimpleGaugeMaker>().Hide = true;
 
         foreach (Transform child in LubeDials.transform)
-            child.GetComponent<SimpleGaugeMaker>().Hide = true;
+                child.GetComponent<SimpleGaugeMaker>().Hide = true;
 
         foreach (Transform child in CoolDials.transform)
             child.GetComponent<SimpleGaugeMaker>().Hide = true;
@@ -561,4 +565,27 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
         
+    public void EnableLubeTanks()
+    {
+        if (!LubeTanks.activeSelf)
+        {
+            LubeTanks.SetActive(true);
+            LubeUI.transform.GetChild(0).gameObject.SetActive(false);
+            GameObject.Find("30").GetComponent<SimpleGaugeMaker>().Hide = true;
+            GameObject.Find("32").GetComponent<SimpleGaugeMaker>().Hide = true;
+            GameObject.Find("33").GetComponent<SimpleGaugeMaker>().Hide = true;
+            GameObject.Find("35").GetComponent<SimpleGaugeMaker>().Hide = true;
+            GameObject.Find("36").GetComponent<SimpleGaugeMaker>().Hide = true;
+        }
+        else
+        {   
+            LubeTanks.SetActive(false);
+            LubeUI.transform.GetChild(0).gameObject.SetActive(true);
+            GameObject.Find("30").GetComponent<SimpleGaugeMaker>().Hide = false;
+            GameObject.Find("32").GetComponent<SimpleGaugeMaker>().Hide = false;
+            GameObject.Find("33").GetComponent<SimpleGaugeMaker>().Hide = false;
+            GameObject.Find("35").GetComponent<SimpleGaugeMaker>().Hide = false;
+            GameObject.Find("36").GetComponent<SimpleGaugeMaker>().Hide = false;
+        }
+    }
 }
