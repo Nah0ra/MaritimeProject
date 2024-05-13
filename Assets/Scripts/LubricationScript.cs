@@ -8,9 +8,13 @@ public class LubricationScript : MonoBehaviour
 {
     private GameManager _gameManager;
     private bool shoreOn;
+    [SerializeField]
+    private Button LoHeater;
     public Slider MeLoSlider;
     public Slider DgLoSlider;
+    bool DgLoSliderOn;
     private bool check;
+    private bool LoHeaterCheck;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +30,14 @@ public class LubricationScript : MonoBehaviour
         }
     }
 
+    public void changeColour()
+    {
+        if(shoreOn) 
+        {
+            LoHeater.GetComponent<Image>().color = Color.green;
+            LoHeaterCheck = true;
+        }
+    }
     public void MeLoIntakeButtonPressOn()
     {
         if (shoreOn)
@@ -34,6 +46,7 @@ public class LubricationScript : MonoBehaviour
             Debug.Log("Lub Tank ON");
             StopCoroutine(MeLoTankOff());
             StartCoroutine(MeLoTankOn());
+            DgLoSliderOn = true;
         }
     }
 
@@ -45,6 +58,7 @@ public class LubricationScript : MonoBehaviour
             Debug.Log("Lub Tank OFF");
             StopCoroutine(MeLoTankOn());
             StartCoroutine(MeLoTankOff());
+            DgLoSliderOn = false;
         }
     }
 
@@ -56,6 +70,7 @@ public class LubricationScript : MonoBehaviour
             Debug.Log("DgLo Tank ON");
             StopCoroutine(DgLoTankOff());
             StartCoroutine(DgLoTankOn());
+            DgLoSliderOn=true;
         }
     }
 
@@ -67,6 +82,7 @@ public class LubricationScript : MonoBehaviour
             Debug.Log("Lub Tank OFF");
             StopCoroutine(DgLoTankOn());
             StartCoroutine(DgLoTankOff());
+            DgLoSliderOn=false;
         }
     }
 
@@ -86,7 +102,7 @@ public class LubricationScript : MonoBehaviour
     {
         while (check)
         {
-            DgLoSlider.value += 0.1f;
+            DgLoSlider.value+=0.1f;
             yield return new WaitForSeconds(1f);
             if (DgLoSlider.value == DgLoSlider.maxValue)
             {
