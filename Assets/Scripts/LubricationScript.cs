@@ -14,7 +14,9 @@ public class LubricationScript : MonoBehaviour
     public Slider DgLoSlider;
     bool DgLoSliderOn;
     private bool check;
-    private bool LoHeaterCheck;
+    public bool LoHeaterCheck;
+    public bool gaugeFullMe;
+    public bool gaugeFullDg;
     // Start is called before the first frame update
     void Start()
     {
@@ -95,6 +97,7 @@ public class LubricationScript : MonoBehaviour
             if(MeLoSlider.value == MeLoSlider.maxValue)
             {
                 check = false;
+                gaugeFullMe = true;
             }
         }
     }    
@@ -107,6 +110,7 @@ public class LubricationScript : MonoBehaviour
             if (DgLoSlider.value == DgLoSlider.maxValue)
             {
                 check = false;
+                gaugeFullDg = true;
             }
         }
     }    
@@ -119,6 +123,7 @@ public class LubricationScript : MonoBehaviour
             if (MeLoSlider.value == MeLoSlider.minValue)
             {
                 check = true;
+                gaugeFullMe = false;
             }
         }
     }    
@@ -131,6 +136,7 @@ public class LubricationScript : MonoBehaviour
             if (DgLoSlider.value == DgLoSlider.minValue)
             {
                 check = true;
+                gaugeFullDg = false;
             }
         }
     }
