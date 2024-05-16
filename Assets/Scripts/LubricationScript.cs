@@ -17,6 +17,8 @@ public class LubricationScript : MonoBehaviour
     public bool LoHeaterCheck;
     public bool gaugeFullMe;
     public bool gaugeFullDg;
+    [SerializeField]
+    private GameObject LO;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,12 +36,31 @@ public class LubricationScript : MonoBehaviour
 
     public void changeColour()
     {
-        if(shoreOn) 
+        if(shoreOn)
         {
-            LoHeater.GetComponent<Image>().color = Color.green;
-            LoHeaterCheck = true;
+            LoHeaterCheck = !LoHeaterCheck;
+            if (LoHeaterCheck)
+            {
+                LoHeater.GetComponent<Image>().color = Color.green;
+                LO.GetComponent<GaugeScript>().Active = true;
+                LO.GetComponent<GaugeScript>().Forward = true;
+            }
+            else
+            {
+                LoHeater.GetComponent<Image>().color = Color.red;
+                LO.GetComponent<GaugeScript>().Active = true;
+                LO.GetComponent<GaugeScript>().Forward = false;
+                LO.GetComponent<GaugeScript>().Value = 0;
+            }
+
+
+
+            // LoHeater.GetComponent<Image>().color = Color.green;
+            // LoHeaterCheck = true;
         }
+        
     }
+    
     public void MeLoIntakeButtonPressOn()
     {
         if (shoreOn)

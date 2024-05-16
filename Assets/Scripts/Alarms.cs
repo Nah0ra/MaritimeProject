@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.UI;
@@ -6,33 +7,50 @@ using UnityEngine.UI;
 
 public class Alarms : MonoBehaviour
 {
-    private bool alarm = false;
+    public bool alarm;
+    [SerializeField]
+    private Image _alarmImage;
     private Color color1 = new Color(0.925f, 0.412f, 0.412f); // #EC6969
     private Color color2 = Color.red; // #FF0000
-    
 
-    IEnumerator ChangeColor(Image image)
+    // private IEnumerator coroutine;
+
+    private void Start()
     {
-        while (true)
+        _alarmImage.GetComponent<Image>();
+        //coroutine = ChangeColor();
+    }
+
+    private void Update()
+    {
+        if (alarm) 
+            _alarmImage.color = _alarmImage.color == color1 ? color2 : color1;
+        else
         {
-            image = GetComponent<Image>();
-            if (alarm)
-            {
-                image.color = image.color == color1 ? color2 : color1;
-                yield return new WaitForSeconds(0.5f);
-            }
-            else
-            {
-                image.color = color1;
-                yield return new WaitForSeconds(0.5f); // Added to ensure the loop does not spin out of control
-            }
+            _alarmImage.color = color1;
         }
     }
 
-    public void ToggleAlarm(Image img)
-    {
-        alarm = !alarm;
-        
-        StartCoroutine(ChangeColor(img));
-    }
+    // public void ToggleAlarm()
+    // {
+    //     alarm = !alarm;
+    //     if (alarm)
+    //     {
+    //         StartCoroutine(coroutine);
+    //     }
+    //     else
+    //     {
+    //         StopCoroutine(coroutine);
+    //         _alarmImage.color = color1;
+    //     }
+    // }
+
+    // private IEnumerator ChangeColor()
+    // {
+    //     while (alarm)
+    //     {
+    //         _alarmImage.color = _alarmImage.color == color1 ? color2 : color1;
+    //         yield return new WaitForSeconds(0.5f);
+    //     }
+    // }
 }
