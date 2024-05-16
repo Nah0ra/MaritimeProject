@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,16 +11,27 @@ public class PowerPlantScript : MonoBehaviour
     private GameManager _gameManager;
     private LubricationScript _lubricationScript;
     private CoolingScript _coolingScript;
+    private CompressedAirScript _compressedAirScript;
     private bool shoreOn;
     public Button Dg1;
     public Button Dg2;
     public Button Dg3;
+
+    public bool generator;
+    public bool DG1;
+    public bool DG2;
+    public bool DG3;
+    
+    [SerializeField] private GameObject DG1_Dial;
+    [SerializeField] private GameObject DG2_Dial;
+    [SerializeField] private GameObject DG3_Dial;
 
     void Start()
     {
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         _lubricationScript=GameObject.Find("LubricationManager").GetComponent<LubricationScript>();
         _coolingScript= GameObject.Find("CoolingManager").GetComponent<CoolingScript>();
+        _compressedAirScript = GameObject.Find("CompressedAirManager").GetComponent<CompressedAirScript>();
         Dg1.interactable = false;
         Dg2.interactable = false;
         Dg3.interactable = false;
@@ -28,19 +40,52 @@ public class PowerPlantScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if((_lubricationScript.gaugeFullMe && _lubricationScript.gaugeFullDg && _gameManager.shore && _lubricationScript.LoHeaterCheck && _coolingScript.SWpumpOn))
+        if((_lubricationScript.gaugeFullMe && _lubricationScript.gaugeFullDg && _gameManager.shore && _lubricationScript.LoHeaterCheck && _coolingScript.SWpumpOn && _compressedAirScript.AC1 && _compressedAirScript.AC2))
         {
             Dg1.interactable = true;
             Dg2.interactable = true;
             Dg3.interactable = true;
-            Debug.Log("Power On");
+
+            generator = true;
+            //Debug.Log("Power On");
         }
-        else if((!_lubricationScript.gaugeFullMe || !_lubricationScript.gaugeFullDg || !_gameManager.shore || !_lubricationScript.LoHeaterCheck || !_coolingScript.SWpumpOn))
+        else if((!_lubricationScript.gaugeFullMe || !_lubricationScript.gaugeFullDg || !_gameManager.shore || !_lubricationScript.LoHeaterCheck || !_coolingScript.SWpumpOn || !_compressedAirScript.AC1 || !_compressedAirScript.AC2))
         {
             Dg1.interactable = false;
             Dg2.interactable = false;
             Dg3.interactable = false;
+            
+            generator = false;
             changeColourRed();
+        }
+        
+        if (!generator)
+        {
+            DG1 = false;
+            DG1_Dial.GetComponent<GaugeScript>().Active = true;
+            DG1_Dial.GetComponent<GaugeScript>().Forward = false;
+            DG1_Dial.GetComponent<GaugeScript>().Value = 0;
+            
+            DG2 = false;
+            DG2_Dial.GetComponent<GaugeScript>().Active = true;
+            DG2_Dial.GetComponent<GaugeScript>().Forward = false;
+            DG2_Dial.GetComponent<GaugeScript>().Value = 0;
+            
+            DG3 = false;
+            DG3_Dial.GetComponent<GaugeScript>().Active = true;
+            DG3_Dial.GetComponent<GaugeScript>().Forward = false;
+            DG3_Dial.GetComponent<GaugeScript>().Value = 0;
+        }
+
+        if (!generator && !shoreOn)
+        {
+            _lubricationScript.gaugeFullMe = false;
+            _lubricationScript.gaugeFullDg = false;
+            _lubricationScript.LoHeaterCheck = false;
+            _coolingScript.SWpumpOn = false;
+            _compressedAirScript.AC1 = false;
+            _compressedAirScript.AC2 = false;
+
         }
     }
     public void changeColourGreen(string buttonName)
@@ -65,5 +110,68 @@ public class PowerPlantScript : MonoBehaviour
        Dg1.GetComponent<Image>().color = Color.red;
        Dg2.GetComponent<Image>().color = Color.red;
        Dg3.GetComponent<Image>().color = Color.red;     
+    }
+    
+    public void onDG1BTNOn()
+    {
+        if (generator)
+        {
+            DG1 = true;
+            DG1_Dial.GetComponent<GaugeScript>().Active = true;
+            DG1_Dial.GetComponent<GaugeScript>().Forward = true;
+        }
+    }
+    
+    public void onDG1BTNOff()
+    {
+        if (generator)
+        {
+            DG1 = false;
+            DG1_Dial.GetComponent<GaugeScript>().Active = true;
+            DG1_Dial.GetComponent<GaugeScript>().Forward = false;
+            DG1_Dial.GetComponent<GaugeScript>().Value = 0;
+        }
+    }
+    
+    public void onDG2BTNOn()
+    {
+        if (generator)
+        {
+            DG2 = true;
+            DG2_Dial.GetComponent<GaugeScript>().Active = true;
+            DG2_Dial.GetComponent<GaugeScript>().Forward = true;
+        }
+    }
+    
+    public void onDG2BTNOff()
+    {
+        if (generator)
+        {
+            DG2 = false;
+            DG2_Dial.GetComponent<GaugeScript>().Active = true;
+            DG2_Dial.GetComponent<GaugeScript>().Forward = false;
+            DG2_Dial.GetComponent<GaugeScript>().Value = 0;
+        }
+    }
+    
+    public void onDG3BTNOn()
+    {
+        if (generator)
+        {
+            DG3 = true;
+            DG3_Dial.GetComponent<GaugeScript>().Active = true;
+            DG3_Dial.GetComponent<GaugeScript>().Forward = true;
+        }
+    }
+    
+    public void onDG3BTNOff()
+    {
+        if (generator)
+        {
+            DG3 = false;
+            DG3_Dial.GetComponent<GaugeScript>().Active = true;
+            DG3_Dial.GetComponent<GaugeScript>().Forward = false;
+            DG3_Dial.GetComponent<GaugeScript>().Value = 0;
+        }
     }
 }

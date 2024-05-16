@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CompressedAirScript : MonoBehaviour
 {
     private GameManager _gameManager;
     private bool shoreOn;
-    private bool AC1;
-    private bool AC2;
+    public bool AC1;
+    public bool AC2;
     
     [SerializeField]
     private GameObject AAC1;
@@ -28,12 +29,12 @@ public class CompressedAirScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         if(_gameManager.shore)
-         {
-             shoreOn = true;
-         }
+        if (_gameManager.shore)
+        {
+            shoreOn = true;
+        }
 
-         if (AC1 && AC2)
+        if (AC1 && AC2)
          {
              SA.GetComponent<GaugeScript>().Active = true;
              SA.GetComponent<GaugeScript>().Forward = true;
@@ -57,6 +58,7 @@ public class CompressedAirScript : MonoBehaviour
             AR1.GetComponent<GaugeScript>().Forward = true;
             AC1 = true;
         }
+        
     }
     
     public void onAir2ButtonPressOn()
