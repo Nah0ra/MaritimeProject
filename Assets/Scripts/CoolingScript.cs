@@ -13,7 +13,7 @@ public class CoolingScript : MonoBehaviour
     public bool SWpump2;
     public bool DGFWpump1;
     public bool DGFWpump2;
-
+    public bool SWpumpOn;
     // gauges
 
     [SerializeField]
@@ -51,7 +51,7 @@ public class CoolingScript : MonoBehaviour
 
     // if SWpump1 && SWpump1 == true, then SWafterME, SWbeforeME1, SWbeforeME2 gauges are active and forward
     public void seaWaterOn()
-    {
+    {    
         if (shoreOn)
         {
             if (SWpump1 == true && SWpump2 == true)
@@ -65,9 +65,44 @@ public class CoolingScript : MonoBehaviour
 
                 SWbeforeME2.GetComponent<GaugeScript>().Active = true;
                 SWbeforeME2.GetComponent<GaugeScript>().Forward = true;
+                SWpumpOn = true;
             }
+            else if ((SWpump1 == false && SWpump2 == false)){
+
+                Debug.Log("Sea Water Off");
+                SWafterME.GetComponent<GaugeScript>().Active = true;
+                SWafterME.GetComponent<GaugeScript>().Forward = false;
+
+                SWbeforeME1.GetComponent<GaugeScript>().Active = true;
+                SWbeforeME1.GetComponent<GaugeScript>().Forward = false;
+
+                SWbeforeME2.GetComponent<GaugeScript>().Active = true;
+                SWbeforeME2.GetComponent<GaugeScript>().Forward = false;
+                SWpumpOn = false;
+            }
+
         }
     }
+     public void SWpump1On()
+    {
+        SWpump1 = true;
+        seaWaterOn();
+    }
+    public void SWpump2On()
+    {
+        SWpump2 = true;
+        seaWaterOn();
+    }
 
+    public void SWpump1Off()
+    {
+        SWpump1 = false;
+        seaWaterOn();
+    }
+    public void SWpump2Off()
+    {
+        SWpump2 = false;
+        seaWaterOn();
+    }
 
 }
