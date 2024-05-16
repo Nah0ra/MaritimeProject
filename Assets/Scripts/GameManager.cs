@@ -124,6 +124,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                 MainUI.SetActive(true);
                 FuelUI.SetActive(false);
                 LubeUI.SetActive(false);
+                LubeTanks.SetActive(false);
                 CoolUI.SetActive(false);
                 CompUI.SetActive(false);
                 PowerUI.SetActive(false);
@@ -159,6 +160,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                 MainUI.SetActive(false);
                 FuelUI.SetActive(true);
                 LubeUI.SetActive(false);
+                LubeTanks.SetActive(false);
                 CoolUI.SetActive(false);
                 CompUI.SetActive(false);
                 PowerUI.SetActive(false);
@@ -194,6 +196,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                 MainUI.SetActive(false);
                 FuelUI.SetActive(false);
                 LubeUI.SetActive(true);
+                LubeTanks.SetActive(false);
                 CoolUI.SetActive(false);
                 CompUI.SetActive(false);
                 PowerUI.SetActive(false);
@@ -201,6 +204,8 @@ public class GameManager : MonoBehaviourPunCallbacks
                 MiscUI.SetActive(false);
                 SaveGUI.SetActive(false);
                 ShorePower.SetActive(false);
+
+                LubeUI.transform.GetChild(0).gameObject.SetActive(true);
 
                 foreach (Transform child in MainDials.transform)
                     child.GetComponent<SimpleGaugeMaker>().Hide = true;
@@ -230,6 +235,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                 MainUI.SetActive(false);
                 FuelUI.SetActive(false);
                 LubeUI.SetActive(false);
+                LubeTanks.SetActive(false);
                 CoolUI.SetActive(true);
                 CompUI.SetActive(false);
                 PowerUI.SetActive(false);
@@ -265,6 +271,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                 MainUI.SetActive(false);
                 FuelUI.SetActive(false);
                 LubeUI.SetActive(false);
+                LubeTanks.SetActive(false);
                 CoolUI.SetActive(false);
                 CompUI.SetActive(true);
                 PowerUI.SetActive(false);
@@ -300,6 +307,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                 MainUI.SetActive(false);
                 FuelUI.SetActive(false);
                 LubeUI.SetActive(false);
+                LubeTanks.SetActive(false);
                 CoolUI.SetActive(false);
                 CompUI.SetActive(false);
                 PowerUI.SetActive(true);
@@ -335,6 +343,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                 MainUI.SetActive(false);
                 FuelUI.SetActive(false);
                 LubeUI.SetActive(false);
+                LubeTanks.SetActive(false);
                 CoolUI.SetActive(false);
                 CompUI.SetActive(false);
                 PowerUI.SetActive(false);
@@ -370,6 +379,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                 MainUI.SetActive(false);
                 FuelUI.SetActive(false);
                 LubeUI.SetActive(false);
+                LubeTanks.SetActive(false);
                 CoolUI.SetActive(false);
                 CompUI.SetActive(false);
                 PowerUI.SetActive(false);
@@ -404,6 +414,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                 MainUI.SetActive(false);
                 FuelUI.SetActive(false);
                 LubeUI.SetActive(false);
+                LubeTanks.SetActive(false);
                 CoolUI.SetActive(false);
                 CompUI.SetActive(false);
                 PowerUI.SetActive(false);
