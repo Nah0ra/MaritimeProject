@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     GameObject[] dials;
 
+    public Button ShoreButton;
     public bool shore = false;
     PhotonView photonView;
 
@@ -72,6 +73,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         dials = GameObject.FindGameObjectsWithTag("Dial");
         photonView = PhotonView.Get(this);
         ShorePower.SetActive(false);
+        ShoreButton.GetComponent<Image>().color = Color.red;
 
         Connect();
     }
@@ -110,8 +112,20 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public void onButtonPress()
     {
-        shore = true;
-        Debug.Log("Shore on");
+        shore = !shore;
+
+        if (shore)
+        {
+            shore = true;
+            ShoreButton.GetComponent<Image>().color = Color.green;
+            Debug.Log("Shore on");
+        }
+        else
+        {
+            shore = false;
+            ShoreButton.GetComponent<Image>().color = Color.red;
+            Debug.Log("Shore off");
+        }
     }
 
     private void LoadPanel()
