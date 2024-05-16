@@ -52,11 +52,6 @@ public class LubricationScript : MonoBehaviour
                 LO.GetComponent<GaugeScript>().Forward = false;
                 LO.GetComponent<GaugeScript>().Value = 0;
             }
-
-
-
-            // LoHeater.GetComponent<Image>().color = Color.green;
-            // LoHeaterCheck = true;
         }
         
     }
