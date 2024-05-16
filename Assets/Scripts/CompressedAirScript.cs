@@ -7,8 +7,8 @@ public class CompressedAirScript : MonoBehaviour
 {
     private GameManager _gameManager;
     private bool shoreOn;
-    private bool AC1;
-    private bool AC2;
+    public bool AC1;
+    public bool AC2;
     
     [SerializeField]
     private GameObject AAC1;
