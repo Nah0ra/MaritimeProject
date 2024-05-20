@@ -4563,7 +4563,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &300602610
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16461,7 +16461,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 900, y: -354.99994}
+  m_AnchoredPosition: {x: 560, y: -354.99994}
   m_SizeDelta: {x: 279.65, y: 97.3}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &942513289
@@ -32340,6 +32340,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1936367885}
   - component: {fileID: 1936367886}
+  - component: {fileID: 1936367887}
   m_Layer: 0
   m_Name: MiscManager
   m_TagString: Untagged
@@ -32383,6 +32384,29 @@ MonoBehaviour:
   start: 0
   powerPlant: {fileID: 1777898241}
   overlay: {fileID: 1522906059}
+  photonview: {fileID: 0}
+--- !u!114 &1936367887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936367884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 2
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1945540522
 GameObject:
   m_ObjectHideFlags: 0
