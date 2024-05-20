@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
 public class CoolingScript : MonoBehaviour
 {
     private GameManager _gameManager;
     public PowerPlantScript _powerPlantScript;
+
+    private PhotonView photonView;
+
     private bool shoreOn;
 
     // buttons
@@ -41,19 +45,31 @@ public class CoolingScript : MonoBehaviour
     void Start()
     {
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        photonView = gameObject.GetComponent<PhotonView>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(_gameManager.shore)
+        if (_gameManager.AllClients)
         {
-           shoreOn = true;
+            if(_gameManager.shore)
+            {
+                shoreOn = true;
+            }
         }
     }
 
     // if SWpump1 && SWpump1 == true, then SWafterME, SWbeforeME1, SWbeforeME2 gauges are active and forward
+
+
     public void seaWaterOn()
+    {
+        photonView.RPC("RPCseaWaterOn", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RPCseaWaterOn()
     {    
         if (shoreOn)
         {
@@ -118,12 +134,27 @@ public class CoolingScript : MonoBehaviour
         }
         
     }
-     public void SWpump1On()
+    
+    public void SWpump1On()
+    {
+        photonView.RPC("RPCSWpump1On", RpcTarget.All);
+    }
+    
+    [PunRPC]
+    public void RPCSWpump1On()
     {
         SWpump1 = true;
         seaWaterOn();
     }
+
+
     public void SWpump2On()
+    {
+       photonView.RPC("RPCSWpump2On", RpcTarget.All);
+    }
+    
+    [PunRPC]
+    public void RPCSWpump2On()
     {
         SWpump2 = true;
         seaWaterOn();
@@ -131,17 +162,37 @@ public class CoolingScript : MonoBehaviour
 
     public void DGFWpump1On()
     {
+        photonView.RPC("RPCDGFWpump1On", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RPCDGFWpump1On()
+    {
         DGFWpump1 = true;
         seaWaterOn();
     }
 
+
     public void DGFWpump2On()
+    {
+        photonView.RPC("RPCDGFWpump2On", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RPCDGFWpump2On()
     {
         DGFWpump2 = true;
         seaWaterOn();
     }
 
+
     public void DGFWpump1Off()
+    {
+        photonView.RPC("RPCDGFWpump1Off", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RPCDGFWpump1Off()
     {
         DGFWpump1 = false;
         seaWaterOn();
@@ -149,16 +200,35 @@ public class CoolingScript : MonoBehaviour
 
     public void DGFWpump2Off()
     {
+        photonView.RPC("RPCDGFWpump2Off", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RPCDGFWpump2Off()
+    {
         DGFWpump2 = false;
         seaWaterOn();
     }
 
     public void SWpump1Off()
     {
+        photonView.RPC("RPCSWpump1Off", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RPCSWpump1Off()
+    {
         SWpump1 = false;
         seaWaterOn();
     }
+
     public void SWpump2Off()
+    {
+        photonView.RPC("RPCSWpump2Off", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RPCSWpump2Off()
     {
         SWpump2 = false;
         seaWaterOn();
