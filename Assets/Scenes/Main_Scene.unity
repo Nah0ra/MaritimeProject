@@ -2730,6 +2730,7 @@ GameObject:
   - component: {fileID: 188145345}
   - component: {fileID: 188145347}
   - component: {fileID: 188145346}
+  - component: {fileID: 188145348}
   m_Layer: 5
   m_Name: Fuel_Light
   m_TagString: Untagged
@@ -2795,6 +2796,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 188145344}
   m_CullTransparentMesh: 1
+--- !u!114 &188145348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188145344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4817dcf9300e9464493a68c6b794a038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alarm: 0
+  _alarmImage: {fileID: 188145346}
 --- !u!1 &190762749
 GameObject:
   m_ObjectHideFlags: 0
@@ -21665,6 +21680,7 @@ GameObject:
   - component: {fileID: 1323680005}
   - component: {fileID: 1323680007}
   - component: {fileID: 1323680006}
+  - component: {fileID: 1323680008}
   m_Layer: 5
   m_Name: Lubricating_Light
   m_TagString: Untagged
@@ -21730,6 +21746,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1323680004}
   m_CullTransparentMesh: 1
+--- !u!114 &1323680008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323680004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4817dcf9300e9464493a68c6b794a038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alarm: 0
+  _alarmImage: {fileID: 1323680006}
 --- !u!1 &1327163842
 GameObject:
   m_ObjectHideFlags: 0
@@ -23745,6 +23775,7 @@ GameObject:
   - component: {fileID: 1416656240}
   - component: {fileID: 1416656242}
   - component: {fileID: 1416656241}
+  - component: {fileID: 1416656243}
   m_Layer: 5
   m_Name: Miscellaneous_Light
   m_TagString: Untagged
@@ -23810,6 +23841,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1416656239}
   m_CullTransparentMesh: 1
+--- !u!114 &1416656243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416656239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4817dcf9300e9464493a68c6b794a038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alarm: 0
+  _alarmImage: {fileID: 1416656241}
 --- !u!1 &1424250852
 GameObject:
   m_ObjectHideFlags: 0
@@ -23956,6 +24001,7 @@ GameObject:
   - component: {fileID: 1426046740}
   - component: {fileID: 1426046742}
   - component: {fileID: 1426046741}
+  - component: {fileID: 1426046743}
   m_Layer: 5
   m_Name: Power_Plant_Light
   m_TagString: Untagged
@@ -24021,6 +24067,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426046739}
   m_CullTransparentMesh: 1
+--- !u!114 &1426046743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426046739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4817dcf9300e9464493a68c6b794a038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alarm: 0
+  _alarmImage: {fileID: 1426046741}
 --- !u!1 &1427594572
 GameObject:
   m_ObjectHideFlags: 0
@@ -25537,7 +25597,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1522906060
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27056,6 +27116,7 @@ GameObject:
   - component: {fileID: 1610959851}
   - component: {fileID: 1610959853}
   - component: {fileID: 1610959852}
+  - component: {fileID: 1610959854}
   m_Layer: 5
   m_Name: Main_Engine_Light
   m_TagString: Untagged
@@ -27121,6 +27182,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1610959850}
   m_CullTransparentMesh: 1
+--- !u!114 &1610959854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610959850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4817dcf9300e9464493a68c6b794a038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alarm: 0
+  _alarmImage: {fileID: 1610959852}
 --- !u!1 &1613289779
 GameObject:
   m_ObjectHideFlags: 0
@@ -32883,6 +32958,7 @@ GameObject:
   - component: {fileID: 2015423293}
   - component: {fileID: 2015423295}
   - component: {fileID: 2015423294}
+  - component: {fileID: 2015423296}
   m_Layer: 5
   m_Name: Cooling_Light
   m_TagString: Untagged
@@ -32948,6 +33024,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2015423292}
   m_CullTransparentMesh: 1
+--- !u!114 &2015423296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015423292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4817dcf9300e9464493a68c6b794a038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alarm: 0
+  _alarmImage: {fileID: 2015423294}
 --- !u!1 &2016522671
 GameObject:
   m_ObjectHideFlags: 0
@@ -33112,6 +33202,7 @@ GameObject:
   - component: {fileID: 2024014994}
   - component: {fileID: 2024014996}
   - component: {fileID: 2024014995}
+  - component: {fileID: 2024014997}
   m_Layer: 5
   m_Name: Steam_Light
   m_TagString: Untagged
@@ -33177,6 +33268,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2024014993}
   m_CullTransparentMesh: 1
+--- !u!114 &2024014997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024014993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4817dcf9300e9464493a68c6b794a038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alarm: 0
+  _alarmImage: {fileID: 2024014995}
 --- !u!1 &2033610234
 GameObject:
   m_ObjectHideFlags: 0
@@ -33917,6 +34022,7 @@ GameObject:
   - component: {fileID: 2070239587}
   - component: {fileID: 2070239589}
   - component: {fileID: 2070239588}
+  - component: {fileID: 2070239590}
   m_Layer: 5
   m_Name: Compressed_air_Light
   m_TagString: Untagged
@@ -33982,6 +34088,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2070239586}
   m_CullTransparentMesh: 1
+--- !u!114 &2070239590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070239586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4817dcf9300e9464493a68c6b794a038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alarm: 0
+  _alarmImage: {fileID: 2070239588}
 --- !u!1 &2074055174
 GameObject:
   m_ObjectHideFlags: 0
