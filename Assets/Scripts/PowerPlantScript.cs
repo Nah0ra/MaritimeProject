@@ -108,7 +108,7 @@ public class PowerPlantScript : MonoBehaviour
         {
             _gameManager.shore = false;
             _gameManager.ShoreButton.GetComponent<Image>().color = Color.red;
-            Debug.Log("Shore off");
+            //Debug.Log("Shore off");
         }
     }
     public void changeColourGreen(string buttonName)
