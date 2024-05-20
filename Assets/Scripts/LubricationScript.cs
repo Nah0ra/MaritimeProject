@@ -1,3 +1,4 @@
+using Photon.Pun;
 using Photon.Pun.Demo.PunBasics;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,6 +8,8 @@ using UnityEngine.UI;
 public class LubricationScript : MonoBehaviour
 {
     private GameManager _gameManager;
+
+    private PhotonView photonView;
     public PowerPlantScript _powerPlantScript;
     private bool shoreOn;
     [SerializeField]
@@ -30,18 +33,28 @@ public class LubricationScript : MonoBehaviour
     void Start()
     {
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        photonView = gameObject.GetComponent<PhotonView>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_gameManager.shore)
+        if (_gameManager.AllClients)
         {
-            shoreOn = true;
+            if (_gameManager.shore)
+            {
+                shoreOn = true;
+            }
         }
     }
 
     public void changeColour()
+    {
+        photonView.RPC("RPCchangeColour", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RPCchangeColour()
     {
         if(shoreOn)
         {
@@ -84,12 +97,26 @@ public class LubricationScript : MonoBehaviour
             }
         }
     }
+
     public void MELoPump1On()
+    {
+        photonView.RPC("RPCMELoPump1On", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RPCMELoPump1On()
     {
         MeLoPump1B = true;
         CheckPump();
     }
+
     public void MELoPump1Off()
+    {
+        photonView.RPC("RPCMELoPump1Off", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RPCMELoPump1Off()
     {
         MeLoPump1B = false;
         CheckPump();
@@ -97,16 +124,36 @@ public class LubricationScript : MonoBehaviour
 
     public void TurbochargerOn()
     {
+        photonView.RPC("RPCTurbochargerOn", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RPCTurbochargerOn()
+    {
         TurbochargerB = true;
         CheckPump();
     }
+
+
     public void TurbochargerOff()
+    {
+        photonView.RPC("RPCTurbochargerOff", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RPCTurbochargerOff()
     {
         TurbochargerB = false;
         CheckPump();
     }
 
     public void MeLoIntakeButtonPressOn()
+    {
+        photonView.RPC("RPCMeLoIntakeButtonPressOn",RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RPCMeLoIntakeButtonPressOn()
     {
         if (shoreOn)
         {
@@ -120,6 +167,12 @@ public class LubricationScript : MonoBehaviour
 
     public void MeLoIntakeButtonPressOff()
     {
+        photonView.RPC("RPCMeLoIntakeButtonPressOff", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RPCMeLoIntakeButtonPressOff()
+    {
         if (shoreOn)
         {
             check = false;
@@ -132,6 +185,12 @@ public class LubricationScript : MonoBehaviour
 
     public void DgLoButtonPressOn()
     {
+        photonView.RPC("RPCDgLoButtonPressOn", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RPCDgLoButtonPressOn()
+    {
         if (shoreOn)
         {
             check = true;
@@ -143,6 +202,12 @@ public class LubricationScript : MonoBehaviour
     }
 
     public void DgLoButtonPressOff()
+    {
+        photonView.RPC("RPCDgLoButtonPressOff", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RPCDgLoButtonPressOff()
     {
         if (shoreOn)
         {
