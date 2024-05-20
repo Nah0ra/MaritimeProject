@@ -15,6 +15,7 @@ public class PowerPlantScript : MonoBehaviour
     private LubricationScript _lubricationScript;
     private CoolingScript _coolingScript;
     private CompressedAirScript _compressedAirScript;
+    private MiscScript _miscScript;
     private bool shoreOn;
     public Button Dg1;
     public Button Dg2;
@@ -42,6 +43,7 @@ public class PowerPlantScript : MonoBehaviour
         _lubricationScript=GameObject.Find("LubricationManager").GetComponent<LubricationScript>();
         _coolingScript= GameObject.Find("CoolingManager").GetComponent<CoolingScript>();
         _compressedAirScript = GameObject.Find("CompressedAirManager").GetComponent<CompressedAirScript>();
+        _miscScript= GameObject.Find("MiscManager").GetComponent<MiscScript>();
         Dg1.interactable = false;
         Dg2.interactable = false;
         Dg3.interactable = false;
@@ -56,7 +58,7 @@ public class PowerPlantScript : MonoBehaviour
     void Update()
     {
         if (_gameManager.AllClients) {
-            if ((_lubricationScript.gaugeFullMe && _lubricationScript.gaugeFullDg && _gameManager.shore && _lubricationScript.LoHeaterCheck && _coolingScript.SWpumpOn && _compressedAirScript.AC1 && _compressedAirScript.AC2))
+            if ((_lubricationScript.gaugeFullMe && _lubricationScript.gaugeFullDg && _gameManager.shore && _lubricationScript.LoHeaterCheck && _coolingScript.SWpumpOn && _compressedAirScript.AC1 && _compressedAirScript.AC2 && _miscScript.ask3))
             {
                 Dg1.interactable = true;
                 Dg2.interactable = true;
