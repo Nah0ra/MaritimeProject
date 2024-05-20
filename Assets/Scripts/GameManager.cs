@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     private GameObject MiscOBJ;
     private GameObject SaveGUI_OBJ;
 
-    private GameObject ShorePower;
+    public GameObject ShorePower;
 
     //UI
     private GameObject MainUI;
@@ -118,9 +118,9 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             shore = true;
             ShoreButton.GetComponent<Image>().color = Color.green;
-            Debug.Log("Shore on");
+            Debug.Log("Shore on " + shore);
         }
-        else
+        else if(!shore)
         {
             shore = false;
             ShoreButton.GetComponent<Image>().color = Color.red;

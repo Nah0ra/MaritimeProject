@@ -21,6 +21,7 @@ public class PowerPlantScript : MonoBehaviour
     public bool DG1;
     public bool DG2;
     public bool DG3;
+    public bool Reset;
     
     [SerializeField] private GameObject DG1_Dial;
     [SerializeField] private GameObject DG2_Dial;
@@ -58,26 +59,26 @@ public class PowerPlantScript : MonoBehaviour
             generator = false;
             changeColourRed();
         }
-        
+
         if (!generator)
         {
             DG1 = false;
             DG1_Dial.GetComponent<GaugeScript>().Active = true;
             DG1_Dial.GetComponent<GaugeScript>().Forward = false;
             DG1_Dial.GetComponent<GaugeScript>().Value = 0;
-            
+
             DG2 = false;
             DG2_Dial.GetComponent<GaugeScript>().Active = true;
             DG2_Dial.GetComponent<GaugeScript>().Forward = false;
             DG2_Dial.GetComponent<GaugeScript>().Value = 0;
-            
+
             DG3 = false;
             DG3_Dial.GetComponent<GaugeScript>().Active = true;
             DG3_Dial.GetComponent<GaugeScript>().Forward = false;
             DG3_Dial.GetComponent<GaugeScript>().Value = 0;
         }
 
-        if (!generator && !shoreOn)
+        if (!generator && !DG1 && !DG2 && !DG3 && !_gameManager.shore)
         {
             _lubricationScript.gaugeFullMe = false;
             _lubricationScript.gaugeFullDg = false;
@@ -85,7 +86,14 @@ public class PowerPlantScript : MonoBehaviour
             _coolingScript.SWpumpOn = false;
             _compressedAirScript.AC1 = false;
             _compressedAirScript.AC2 = false;
+            _gameManager.ShorePower.SetActive(true);
+        }
 
+        if(!_gameManager.shore) 
+        {
+            _gameManager.shore = false;
+            _gameManager.ShoreButton.GetComponent<Image>().color = Color.red;
+            Debug.Log("Shore off");
         }
     }
     public void changeColourGreen(string buttonName)
@@ -105,6 +113,7 @@ public class PowerPlantScript : MonoBehaviour
                 break;
         }
     }
+
     public void changeColourRed()
     {
        Dg1.GetComponent<Image>().color = Color.red;
@@ -119,6 +128,8 @@ public class PowerPlantScript : MonoBehaviour
             DG1 = true;
             DG1_Dial.GetComponent<GaugeScript>().Active = true;
             DG1_Dial.GetComponent<GaugeScript>().Forward = true;
+            _gameManager.ShorePower.SetActive(false);
+
         }
     }
     
@@ -130,6 +141,7 @@ public class PowerPlantScript : MonoBehaviour
             DG1_Dial.GetComponent<GaugeScript>().Active = true;
             DG1_Dial.GetComponent<GaugeScript>().Forward = false;
             DG1_Dial.GetComponent<GaugeScript>().Value = 0;
+            _gameManager.shore = false;
         }
     }
     
@@ -140,6 +152,7 @@ public class PowerPlantScript : MonoBehaviour
             DG2 = true;
             DG2_Dial.GetComponent<GaugeScript>().Active = true;
             DG2_Dial.GetComponent<GaugeScript>().Forward = true;
+            _gameManager.ShorePower.SetActive(false);
         }
     }
     
@@ -151,6 +164,7 @@ public class PowerPlantScript : MonoBehaviour
             DG2_Dial.GetComponent<GaugeScript>().Active = true;
             DG2_Dial.GetComponent<GaugeScript>().Forward = false;
             DG2_Dial.GetComponent<GaugeScript>().Value = 0;
+            _gameManager.shore = false;
         }
     }
     
@@ -161,6 +175,7 @@ public class PowerPlantScript : MonoBehaviour
             DG3 = true;
             DG3_Dial.GetComponent<GaugeScript>().Active = true;
             DG3_Dial.GetComponent<GaugeScript>().Forward = true;
+            _gameManager.ShorePower.SetActive(false);
         }
     }
     
@@ -172,6 +187,7 @@ public class PowerPlantScript : MonoBehaviour
             DG3_Dial.GetComponent<GaugeScript>().Active = true;
             DG3_Dial.GetComponent<GaugeScript>().Forward = false;
             DG3_Dial.GetComponent<GaugeScript>().Value = 0;
+            _gameManager.shore = false;
         }
     }
 }
