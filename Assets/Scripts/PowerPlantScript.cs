@@ -134,12 +134,12 @@ public class PowerPlantScript : MonoBehaviour
 
             }
 
-/*            if (!_gameManager.shore)
+            if (!_gameManager.shore)
             {
                 _gameManager.shore = false;
                 _gameManager.ShoreButton.GetComponent<Image>().color = Color.red;
-                Debug.Log("Shore off");
-            }*/
+                //Debug.Log("Shore off");
+            }
         }
     }
 
