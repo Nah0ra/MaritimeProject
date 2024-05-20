@@ -35,22 +35,25 @@ public class CompressedAirScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_gameManager.shore)
+        if (_gameManager.AllClients)
         {
-            shoreOn = true;
-        }
+            if (_gameManager.shore)
+            {
+                shoreOn = true;
+            }
 
-        if (AC1 && AC2)
-         {
-             SA.GetComponent<GaugeScript>().Active = true;
-             SA.GetComponent<GaugeScript>().Forward = true;
-         }
-         else
-         {
-             SA.GetComponent<GaugeScript>().Active = true;
-             SA.GetComponent<GaugeScript>().Forward = false;
-             SA.GetComponent<GaugeScript>().Value = 0;
-         }
+            if (AC1 && AC2)
+            {
+                SA.GetComponent<GaugeScript>().Active = true;
+                SA.GetComponent<GaugeScript>().Forward = true;
+            }
+            else
+            {
+                SA.GetComponent<GaugeScript>().Active = true;
+                SA.GetComponent<GaugeScript>().Forward = false;
+                SA.GetComponent<GaugeScript>().Value = 0;
+            }
+        }
     }
     
     public void onAir1ButtonPressOn()
