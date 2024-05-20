@@ -7,18 +7,25 @@ using UnityEngine.UI;
 public class LubricationScript : MonoBehaviour
 {
     private GameManager _gameManager;
+    public PowerPlantScript _powerPlantScript;
     private bool shoreOn;
     [SerializeField]
-    private Button LoHeater;
+    public Button LoHeater;
     public Slider MeLoSlider;
     public Slider DgLoSlider;
-    bool DgLoSliderOn;
-    private bool check;
+    public bool DgLoSliderOn;
+    public bool check;
     public bool LoHeaterCheck;
     public bool gaugeFullMe;
     public bool gaugeFullDg;
     [SerializeField]
-    private GameObject LO;
+    public GameObject LO;
+
+    public GameObject MELoPump1;
+    public GameObject Turbocharger;
+
+    public bool MeLoPump1B;
+    public bool TurbochargerB;
     // Start is called before the first frame update
     void Start()
     {
@@ -55,13 +62,56 @@ public class LubricationScript : MonoBehaviour
         }
         
     }
-    
+    private void CheckPump()
+    {
+        if (_powerPlantScript.DG1 || _powerPlantScript.DG2 || _powerPlantScript.DG3)
+        {
+            if (MeLoPump1B && TurbochargerB)
+            {
+                MELoPump1.GetComponent<GaugeScript>().Active = true;
+                MELoPump1.GetComponent<GaugeScript>().Forward = true;
+                Turbocharger.GetComponent<GaugeScript>().Active = true;
+                Turbocharger.GetComponent<GaugeScript>().Forward = true;
+            }
+            else if (!MeLoPump1B && !TurbochargerB)
+            {
+                Debug.Log(MeLoPump1B);
+                Debug.Log(Turbocharger);
+                Turbocharger.GetComponent<GaugeScript>().Active = true;
+                MELoPump1.GetComponent<GaugeScript>().Active = true;
+                MELoPump1.GetComponent<GaugeScript>().Forward = false;
+                Turbocharger.GetComponent<GaugeScript>().Forward = false;
+            }
+        }
+    }
+    public void MELoPump1On()
+    {
+        MeLoPump1B = true;
+        CheckPump();
+    }
+    public void MELoPump1Off()
+    {
+        MeLoPump1B = false;
+        CheckPump();
+    }
+
+    public void TurbochargerOn()
+    {
+        TurbochargerB = true;
+        CheckPump();
+    }
+    public void TurbochargerOff()
+    {
+        TurbochargerB = false;
+        CheckPump();
+    }
+
     public void MeLoIntakeButtonPressOn()
     {
         if (shoreOn)
         {
             check = true;
-            Debug.Log("Lub Tank ON");
+            //Debug.Log("Lub Tank ON");
             StopCoroutine(MeLoTankOff());
             StartCoroutine(MeLoTankOn());
             DgLoSliderOn = true;
@@ -73,7 +123,7 @@ public class LubricationScript : MonoBehaviour
         if (shoreOn)
         {
             check = false;
-            Debug.Log("Lub Tank OFF");
+            //Debug.Log("Lub Tank OFF");
             StopCoroutine(MeLoTankOn());
             StartCoroutine(MeLoTankOff());
             DgLoSliderOn = false;
@@ -85,7 +135,7 @@ public class LubricationScript : MonoBehaviour
         if (shoreOn)
         {
             check = true;
-            Debug.Log("DgLo Tank ON");
+            //Debug.Log("DgLo Tank ON");
             StopCoroutine(DgLoTankOff());
             StartCoroutine(DgLoTankOn());
             DgLoSliderOn=true;
@@ -97,7 +147,7 @@ public class LubricationScript : MonoBehaviour
         if (shoreOn)
         {
             check= false;
-            Debug.Log("Lub Tank OFF");
+            //Debug.Log("Lub Tank OFF");
             StopCoroutine(DgLoTankOn());
             StartCoroutine(DgLoTankOff());
             DgLoSliderOn=false;

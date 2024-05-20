@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     private GameObject MiscOBJ;
     private GameObject SaveGUI_OBJ;
 
+    public GameObject Overlay;
+
     public GameObject ShorePower;
 
     //UI
@@ -35,7 +37,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     private GameObject SaveGUI;
 
     //Dials
-    private GameObject MainDials;
+    public GameObject MainDials;
     private GameObject FuelDials;
     private GameObject LubeDials;
     private GameObject LubeTanks;
@@ -67,6 +69,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     public bool shore = false;
     PhotonView photonView;
 
+    private GameObject SpeedDial;
+
     private void Awake()
     {
         Initialise();
@@ -74,6 +78,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         photonView = PhotonView.Get(this);
         ShorePower.SetActive(false);
         ShoreButton.GetComponent<Image>().color = Color.red;
+        SpeedDial = GameObject.Find("45");
 
         Connect();
     }
@@ -93,10 +98,20 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         while (PhotonNetwork.PlayerList.Length != 2)
         {
+            MainDials.SetActive(false);
+            SpeedDial.SetActive(false);
+            Overlay.SetActive(true);
             Debug.Log("Waiting for clients");
             yield return new WaitForSeconds(1f);
         }
+        SpeedDial.SetActive(true);
+        MainDials.SetActive(true);
+        Overlay.SetActive(false);
     }
+
+    
+
+
     public void Connect()
     {
         if (PhotonNetwork.IsConnected)
@@ -118,13 +133,13 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             shore = true;
             ShoreButton.GetComponent<Image>().color = Color.green;
-            Debug.Log("Shore on " + shore);
+            //Debug.Log("Shore on " + shore);
         }
-        else if(!shore)
-        {
+        else
+        { 
             shore = false;
             ShoreButton.GetComponent<Image>().color = Color.red;
-            Debug.Log("Shore off");
+            //Debug.Log("Shore off");
         }
     }
 
@@ -465,7 +480,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                 break;
 
             default:
-                Debug.Log("Button Unassigned");
+                //Debug.Log("Button Unassigned");
                 break;
         }
 
@@ -566,20 +581,19 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     private void CheckInputField()
     {
-        Debug.Log("fjisjfies");
         // InputField saveInputField = GameObject.FindGameObjectWithTag("InputField").GetComponent<InputField>().text;
         string inputValue = GameObject.FindGameObjectWithTag("InputField").GetComponent<TMP_InputField>().text;
         string currentTag = EventSystem.current.currentSelectedGameObject.tag;
 
         if (string.IsNullOrEmpty(inputValue))
         {
-            Debug.Log("Error: Input field cannot be empty!");
+            //Debug.Log("Error: Input field cannot be empty!");
             // errorMessageText.text = "Error: Input field cannot be empty!";
         }
         else
         {
             // errorMessageText.text = "";
-            Debug.Log("InputField Value: " + inputValue);
+            //Debug.Log("InputField Value: " + inputValue);
             switch (currentTag)
             {
                 case "SaveButton":
