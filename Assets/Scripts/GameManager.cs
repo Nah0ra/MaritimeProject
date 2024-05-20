@@ -610,8 +610,15 @@ public class GameManager : MonoBehaviourPunCallbacks
             }
         }
     }
-        
+
+
     public void EnableLubeTanks()
+    {
+        photonView.RPC("RPCEnableLubeTanks", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RPCEnableLubeTanks()
     {
         if (!LubeTanks.activeSelf)
         {
