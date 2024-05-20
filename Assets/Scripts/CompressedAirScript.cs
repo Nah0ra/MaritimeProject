@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CompressedAirScript : MonoBehaviour
 {
     private GameManager _gameManager;
+
+    private PhotonView photonView;
+
     private bool shoreOn;
     public bool AC1;
     public bool AC2;
@@ -24,6 +28,7 @@ public class CompressedAirScript : MonoBehaviour
     void Start()
     {
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        photonView.GetComponent<PhotonView>();
     }
 
     // Update is called once per frame
@@ -49,6 +54,12 @@ public class CompressedAirScript : MonoBehaviour
     
     public void onAir1ButtonPressOn()
     {
+        photonView.RPC("RPConAir1ButtonPressOn", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RPConAir1ButtonPressOn()
+    {
         if (shoreOn)
         {
             //Debug.Log("Air Compressor 1 ON");
@@ -63,6 +74,13 @@ public class CompressedAirScript : MonoBehaviour
     
     public void onAir2ButtonPressOn()
     {
+        photonView.RPC("RPConAir2ButtonPressOn", RpcTarget.All);
+    }
+
+
+    [PunRPC]
+    public void RPConAir2ButtonPressOn()
+    {
         if (shoreOn)
         {
             //Debug.Log("Air Compressor 2 ON");
@@ -74,7 +92,14 @@ public class CompressedAirScript : MonoBehaviour
         }
     }
     
+
     public void onAir1ButtonPressOff()
+    {
+        photonView.RPC("RPConAir1ButtonPressOff", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RPConAir1ButtonPressOff()
     {
         if (shoreOn)
         {
@@ -89,7 +114,13 @@ public class CompressedAirScript : MonoBehaviour
         }
     }
     
-    public void onAir2ButtonPressOff()
+    public void onAirButtonPressOff()
+    {
+        photonView.RPC("RPConAir2ButtonPressOff", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RPConAir2ButtonPressOff()
     {
         if (shoreOn)
         {
