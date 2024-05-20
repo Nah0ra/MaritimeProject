@@ -41,74 +41,76 @@ public class PowerPlantScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if((_lubricationScript.gaugeFullMe && _lubricationScript.gaugeFullDg && _gameManager.shore && _lubricationScript.LoHeaterCheck && _coolingScript.SWpumpOn && _compressedAirScript.AC1 && _compressedAirScript.AC2))
-        {
-            Dg1.interactable = true;
-            Dg2.interactable = true;
-            Dg3.interactable = true;
+        if (_gameManager.AllClients) {
+            if ((_lubricationScript.gaugeFullMe && _lubricationScript.gaugeFullDg && _gameManager.shore && _lubricationScript.LoHeaterCheck && _coolingScript.SWpumpOn && _compressedAirScript.AC1 && _compressedAirScript.AC2))
+            {
+                Dg1.interactable = true;
+                Dg2.interactable = true;
+                Dg3.interactable = true;
 
-            generator = true;
-            //Debug.Log("Power On");
-        }
-        else if((!_lubricationScript.gaugeFullMe || !_lubricationScript.gaugeFullDg || !_gameManager.shore || !_lubricationScript.LoHeaterCheck || !_coolingScript.SWpumpOn || !_compressedAirScript.AC1 || !_compressedAirScript.AC2))
-        {
-            Dg1.interactable = false;
-            Dg2.interactable = false;
-            Dg3.interactable = false;
-            
-            generator = false;
-            changeColourRed();
-        }
+                generator = true;
+                //Debug.Log("Power On");
+            }
+            else if ((!_lubricationScript.gaugeFullMe || !_lubricationScript.gaugeFullDg || !_gameManager.shore || !_lubricationScript.LoHeaterCheck || !_coolingScript.SWpumpOn || !_compressedAirScript.AC1 || !_compressedAirScript.AC2))
+            {
+                Dg1.interactable = false;
+                Dg2.interactable = false;
+                Dg3.interactable = false;
 
-        if (!generator)
-        {
-            DG1 = false;
-            DG1_Dial.GetComponent<GaugeScript>().Active = true;
-            DG1_Dial.GetComponent<GaugeScript>().Forward = false;
-            DG1_Dial.GetComponent<GaugeScript>().Value = 0;
+                generator = false;
+                changeColourRed();
+            }
 
-            DG2 = false;
-            DG2_Dial.GetComponent<GaugeScript>().Active = true;
-            DG2_Dial.GetComponent<GaugeScript>().Forward = false;
-            DG2_Dial.GetComponent<GaugeScript>().Value = 0;
+            if (!generator)
+            {
+                DG1 = false;
+                DG1_Dial.GetComponent<GaugeScript>().Active = true;
+                DG1_Dial.GetComponent<GaugeScript>().Forward = false;
+                DG1_Dial.GetComponent<GaugeScript>().Value = 0;
 
-            DG3 = false;
-            DG3_Dial.GetComponent<GaugeScript>().Active = true;
-            DG3_Dial.GetComponent<GaugeScript>().Forward = false;
-            DG3_Dial.GetComponent<GaugeScript>().Value = 0;
-        }
+                DG2 = false;
+                DG2_Dial.GetComponent<GaugeScript>().Active = true;
+                DG2_Dial.GetComponent<GaugeScript>().Forward = false;
+                DG2_Dial.GetComponent<GaugeScript>().Value = 0;
 
-        if (!generator && !DG1 && !DG2 && !DG3 && !_gameManager.shore)
-        {
-            //Lubrication
-            _lubricationScript.LO.GetComponent<GaugeScript>().Forward = false;
-            _lubricationScript.LoHeater.GetComponent<Image>().color = Color.red;
-            _lubricationScript.check = false;
+                DG3 = false;
+                DG3_Dial.GetComponent<GaugeScript>().Active = true;
+                DG3_Dial.GetComponent<GaugeScript>().Forward = false;
+                DG3_Dial.GetComponent<GaugeScript>().Value = 0;
+            }
 
-            _lubricationScript.MeLoIntakeButtonPressOff();
-            _lubricationScript.DgLoButtonPressOff();
+            if (!generator && !DG1 && !DG2 && !DG3 && !_gameManager.shore)
+            {
+                //Lubrication
+                _lubricationScript.LO.GetComponent<GaugeScript>().Forward = false;
+                _lubricationScript.LoHeater.GetComponent<Image>().color = Color.red;
+                _lubricationScript.check = false;
 
-
-            //Cooling
-            _coolingScript.SWpump1Off();
-            _coolingScript.SWpump2Off();
-            _coolingScript.DGFWpump1Off();
-            _coolingScript.DGFWpump2Off();
+                _lubricationScript.MeLoIntakeButtonPressOff();
+                _lubricationScript.DgLoButtonPressOff();
 
 
-            //Compressed Air
-            _compressedAirScript.onAir2ButtonPressOff();
-            _compressedAirScript.onAir1ButtonPressOff();
+                //Cooling
+                _coolingScript.SWpump1Off();
+                _coolingScript.SWpump2Off();
+                _coolingScript.DGFWpump1Off();
+                _coolingScript.DGFWpump2Off();
 
-            //GameManager
-            _gameManager.ShorePower.SetActive(true);
-        }
 
-        if(!_gameManager.shore) 
-        {
-            _gameManager.shore = false;
-            _gameManager.ShoreButton.GetComponent<Image>().color = Color.red;
-            Debug.Log("Shore off");
+                //Compressed Air
+                _compressedAirScript.onAir2ButtonPressOff();
+                _compressedAirScript.onAir1ButtonPressOff();
+
+                //GameManager
+                _gameManager.ShorePower.SetActive(true);
+            }
+
+            if (!_gameManager.shore)
+            {
+                _gameManager.shore = false;
+                _gameManager.ShoreButton.GetComponent<Image>().color = Color.red;
+                Debug.Log("Shore off");
+            }
         }
     }
     public void changeColourGreen(string buttonName)

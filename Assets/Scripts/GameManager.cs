@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     private Button CoolButton;
     private Button MiscButton;
     private Button SaveGUIButton;
+    public bool AllClients;
     // private Button SaveButton;
     // private Button LoadButton;
 
@@ -98,12 +99,14 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         while (PhotonNetwork.PlayerList.Length != 2)
         {
+            AllClients = false;
             MainDials.SetActive(false);
             SpeedDial.SetActive(false);
             Overlay.SetActive(true);
             Debug.Log("Waiting for clients");
             yield return new WaitForSeconds(1f);
         }
+        AllClients = true;
         SpeedDial.SetActive(true);
         MainDials.SetActive(true);
         Overlay.SetActive(false);
@@ -125,7 +128,14 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
+
     public void onButtonPress()
+    {
+        photonView.RPC("RPConButtonPress",RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RPConButtonPress()
     {
         shore = !shore;
 
@@ -603,8 +613,15 @@ public class GameManager : MonoBehaviourPunCallbacks
             }
         }
     }
-        
+
+
     public void EnableLubeTanks()
+    {
+        photonView.RPC("RPCEnableLubeTanks", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RPCEnableLubeTanks()
     {
         if (!LubeTanks.activeSelf)
         {
