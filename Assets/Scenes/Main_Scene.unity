@@ -4910,6 +4910,7 @@ GameObject:
   m_Component:
   - component: {fileID: 304162215}
   - component: {fileID: 304162216}
+  - component: {fileID: 304162217}
   m_Layer: 0
   m_Name: CompressedAirManager
   m_TagString: Untagged
@@ -4951,6 +4952,28 @@ MonoBehaviour:
   AAC2: {fileID: 6363453202024923904}
   AR2: {fileID: 6363453201521220538}
   SA: {fileID: 254917270}
+--- !u!114 &304162217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304162214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 3
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &308947529
 GameObject:
   m_ObjectHideFlags: 0
@@ -17828,6 +17851,7 @@ GameObject:
   m_Component:
   - component: {fileID: 996920198}
   - component: {fileID: 996920199}
+  - component: {fileID: 996920200}
   m_Layer: 0
   m_Name: AlarmsManager
   m_TagString: Untagged
@@ -17864,6 +17888,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alarm: 0
   _alarmImage: {fileID: 0}
+--- !u!114 &996920200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996920197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 4
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1005210216
 GameObject:
   m_ObjectHideFlags: 0
@@ -18782,6 +18828,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1083278317}
   - component: {fileID: 1083278318}
+  - component: {fileID: 1083278319}
   m_Layer: 0
   m_Name: LubricationManager
   m_TagString: Untagged
@@ -18830,6 +18877,28 @@ MonoBehaviour:
   Turbocharger: {fileID: 7014769024788976954}
   MeLoPump1B: 0
   TurbochargerB: 0
+--- !u!114 &1083278319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083278316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 5
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1088259996
 GameObject:
   m_ObjectHideFlags: 0
@@ -20754,6 +20823,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1253660062}
   - component: {fileID: 1253660063}
+  - component: {fileID: 1253660064}
   m_Layer: 0
   m_Name: CoolingManager
   m_TagString: Untagged
@@ -20801,6 +20871,28 @@ MonoBehaviour:
   DGFW: {fileID: 1775370600850874767}
   FWbef1: {fileID: 1775370601076356914}
   FWbef2: {fileID: 1775370601206478256}
+--- !u!114 &1253660064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253660061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 7
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1257210444
 GameObject:
   m_ObjectHideFlags: 0
@@ -30014,6 +30106,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1777898240}
   - component: {fileID: 1777898241}
+  - component: {fileID: 1777898242}
   m_Layer: 0
   m_Name: PowerPlant
   m_TagString: Untagged
@@ -30059,6 +30152,28 @@ MonoBehaviour:
   DG1_Dial: {fileID: 5027314173222535253}
   DG2_Dial: {fileID: 5027314172203172594}
   DG3_Dial: {fileID: 57318967}
+--- !u!114 &1777898242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777898239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 6
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1783605342
 GameObject:
   m_ObjectHideFlags: 0
