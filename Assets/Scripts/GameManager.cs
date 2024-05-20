@@ -125,7 +125,14 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
+
     public void onButtonPress()
+    {
+        photonView.RPC("RPConButtonPress",RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RPConButtonPress()
     {
         shore = !shore;
 
