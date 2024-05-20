@@ -120,8 +120,8 @@ public class GameManager : MonoBehaviourPunCallbacks
             ShoreButton.GetComponent<Image>().color = Color.green;
             Debug.Log("Shore on " + shore);
         }
-        else if(!shore)
-        {
+        else
+        { 
             shore = false;
             ShoreButton.GetComponent<Image>().color = Color.red;
             Debug.Log("Shore off");

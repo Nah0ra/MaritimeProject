@@ -18268,6 +18268,8 @@ MonoBehaviour:
   LoHeater: {fileID: 2098421484}
   MeLoSlider: {fileID: 1915668239}
   DgLoSlider: {fileID: 264556167}
+  DgLoSliderOn: 0
+  check: 0
   LoHeaterCheck: 0
   gaugeFullMe: 0
   gaugeFullDg: 0
@@ -27831,6 +27833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1844181c36185bd4c84af99ba76154b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShorePower: {fileID: 0}
   ShoreButton: {fileID: 1203023915}
   shore: 0
 --- !u!4 &1720985173
@@ -28954,6 +28957,7 @@ MonoBehaviour:
   DG1: 0
   DG2: 0
   DG3: 0
+  Reset: 0
   DG1_Dial: {fileID: 5027314173222535253}
   DG2_Dial: {fileID: 5027314172203172594}
   DG3_Dial: {fileID: 57318967}

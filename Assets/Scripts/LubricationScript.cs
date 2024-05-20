@@ -9,16 +9,16 @@ public class LubricationScript : MonoBehaviour
     private GameManager _gameManager;
     private bool shoreOn;
     [SerializeField]
-    private Button LoHeater;
+    public Button LoHeater;
     public Slider MeLoSlider;
     public Slider DgLoSlider;
-    bool DgLoSliderOn;
-    private bool check;
+    public bool DgLoSliderOn;
+    public bool check;
     public bool LoHeaterCheck;
     public bool gaugeFullMe;
     public bool gaugeFullDg;
     [SerializeField]
-    private GameObject LO;
+    public GameObject LO;
     // Start is called before the first frame update
     void Start()
     {

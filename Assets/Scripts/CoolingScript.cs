@@ -67,20 +67,21 @@ public class CoolingScript : MonoBehaviour
                 SWbeforeME2.GetComponent<GaugeScript>().Forward = true;
                 SWpumpOn = true;
             }
-            else if ((SWpump1 == false && SWpump2 == false)){
+        }
 
-                Debug.Log("Sea Water Off");
-                SWafterME.GetComponent<GaugeScript>().Active = true;
-                SWafterME.GetComponent<GaugeScript>().Forward = false;
+        if ((SWpump1 == false && SWpump2 == false))
+        {
 
-                SWbeforeME1.GetComponent<GaugeScript>().Active = true;
-                SWbeforeME1.GetComponent<GaugeScript>().Forward = false;
+            Debug.Log("Sea Water Off");
+            SWafterME.GetComponent<GaugeScript>().Active = true;
+            SWafterME.GetComponent<GaugeScript>().Forward = false;
 
-                SWbeforeME2.GetComponent<GaugeScript>().Active = true;
-                SWbeforeME2.GetComponent<GaugeScript>().Forward = false;
-                SWpumpOn = false;
-            }
+            SWbeforeME1.GetComponent<GaugeScript>().Active = true;
+            SWbeforeME1.GetComponent<GaugeScript>().Forward = false;
 
+            SWbeforeME2.GetComponent<GaugeScript>().Active = true;
+            SWbeforeME2.GetComponent<GaugeScript>().Forward = false;
+            SWpumpOn = false;
         }
     }
      public void SWpump1On()
