@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using JetBrains.Annotations;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,8 @@ public class PowerPlantScript : MonoBehaviour
 {
     // Start is called before the first frame update
     private GameManager _gameManager;
+
+    private PhotonView photonView;
     private LubricationScript _lubricationScript;
     private CoolingScript _coolingScript;
     private CompressedAirScript _compressedAirScript;
@@ -42,6 +45,7 @@ public class PowerPlantScript : MonoBehaviour
         Dg1.interactable = false;
         Dg2.interactable = false;
         Dg3.interactable = false;
+        photonView = gameObject.GetComponent<PhotonView>();
         _PPAlarm = _PPAlarm.GetComponent<Alarms>();
         _CoolingAlarm = _CoolingAlarm.GetComponent<Alarms>();
         _LubAlarm = _LubAlarm.GetComponent<Alarms>();
@@ -138,7 +142,16 @@ public class PowerPlantScript : MonoBehaviour
             }*/
         }
     }
+
+
     public void changeColourGreen(string buttonName)
+    {
+        photonView.RPC("RPCchangeColourGreen", RpcTarget.All, buttonName);
+    }   
+
+
+    [PunRPC]
+    public void RPCchangeColourGreen(string buttonName)
     {
         switch (buttonName)
         {
@@ -158,12 +171,27 @@ public class PowerPlantScript : MonoBehaviour
 
     public void changeColourRed()
     {
+       photonView.RPC("RPCchangeColourRed", RpcTarget.All);  
+    }
+
+
+    [PunRPC]
+    public void RPCchangeColourRed()
+    {
        Dg1.GetComponent<Image>().color = Color.red;
        Dg2.GetComponent<Image>().color = Color.red;
        Dg3.GetComponent<Image>().color = Color.red;     
     }
     
     public void onDG1BTNOn()
+    {
+        photonView.RPC("RPConDG1BTNOn", RpcTarget.All);
+    }
+
+
+
+    [PunRPC]
+    public void RPConDG1BTNOn()
     {
         if (generator)
         {
@@ -175,7 +203,14 @@ public class PowerPlantScript : MonoBehaviour
         }
     }
     
+
     public void onDG1BTNOff()
+    {
+        photonView.RPC("RPConDG1BTNOff", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RPConDG1BTNOff()
     {
         if (generator)
         {
@@ -189,6 +224,12 @@ public class PowerPlantScript : MonoBehaviour
     
     public void onDG2BTNOn()
     {
+        photonView.RPC("RPConDG2BTNOn",RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RPConDG2BTNOn()
+    {
         if (generator)
         {
             DG2 = true;
@@ -199,6 +240,12 @@ public class PowerPlantScript : MonoBehaviour
     }
     
     public void onDG2BTNOff()
+    {
+       photonView.RPC("RPConDG2BTNOff", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RPConDG2BTNOff()
     {
         if (generator)
         {
@@ -212,6 +259,12 @@ public class PowerPlantScript : MonoBehaviour
     
     public void onDG3BTNOn()
     {
+        photonView.RPC("RPConDG3BTNOn", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RPConDG3BTNOn()
+    {
         if (generator)
         {
             DG3 = true;
@@ -222,6 +275,12 @@ public class PowerPlantScript : MonoBehaviour
     }
     
     public void onDG3BTNOff()
+    {
+        photonView.RPC("RPConDG3BTNOff", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RPConDG3BTNOff()
     {
         if (generator)
         {
