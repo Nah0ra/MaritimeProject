@@ -140,7 +140,7 @@ MonoBehaviour:
   idealValue: 0
   Active: 0
   IdealReached: 0
-  RateOfChange: 1
+  RateOfChange: 0.75
 --- !u!1 &11032174
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,7 +631,7 @@ MonoBehaviour:
   idealValue: 0
   Active: 0
   IdealReached: 0
-  RateOfChange: 0
+  RateOfChange: 0.75
 --- !u!114 &57318970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1726,7 +1726,7 @@ MonoBehaviour:
   idealValue: 0
   Active: 0
   IdealReached: 0
-  RateOfChange: 0
+  RateOfChange: 0.75
 --- !u!1 &118527540
 GameObject:
   m_ObjectHideFlags: 0
@@ -10294,7 +10294,7 @@ MonoBehaviour:
   idealValue: 0
   Active: 0
   IdealReached: 0
-  RateOfChange: 0
+  RateOfChange: 0.75
 --- !u!1 &607819039
 GameObject:
   m_ObjectHideFlags: 0
@@ -13454,7 +13454,7 @@ MonoBehaviour:
   idealValue: 0
   Active: 0
   IdealReached: 0
-  RateOfChange: 1
+  RateOfChange: 0.75
 --- !u!1 &772779335
 GameObject:
   m_ObjectHideFlags: 0
@@ -13953,7 +13953,7 @@ MonoBehaviour:
   idealValue: 0
   Active: 0
   IdealReached: 0
-  RateOfChange: 1
+  RateOfChange: 0.75
 --- !u!1 &790348588
 GameObject:
   m_ObjectHideFlags: 0
@@ -14760,7 +14760,7 @@ MonoBehaviour:
   idealValue: 0
   Active: 0
   IdealReached: 0
-  RateOfChange: 0
+  RateOfChange: 0.75
 --- !u!1 &810540788
 GameObject:
   m_ObjectHideFlags: 0
@@ -17535,7 +17535,7 @@ MonoBehaviour:
   idealValue: 0
   Active: 0
   IdealReached: 0
-  RateOfChange: 0
+  RateOfChange: 0.75
 --- !u!1 &980438780
 GameObject:
   m_ObjectHideFlags: 0
@@ -19146,7 +19146,7 @@ MonoBehaviour:
   idealValue: 0
   Active: 0
   IdealReached: 0
-  RateOfChange: 1
+  RateOfChange: 0.75
 --- !u!1 &1097234653
 GameObject:
   m_ObjectHideFlags: 0
@@ -21309,7 +21309,7 @@ MonoBehaviour:
   idealValue: 0
   Active: 0
   IdealReached: 0
-  RateOfChange: 1
+  RateOfChange: 0.75
 --- !u!114 &1284542622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22004,7 +22004,7 @@ MonoBehaviour:
   idealValue: 0
   Active: 0
   IdealReached: 0
-  RateOfChange: 0
+  RateOfChange: 0.75
 --- !u!1 &1330486777
 GameObject:
   m_ObjectHideFlags: 0
@@ -25689,7 +25689,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1522906060
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25763,7 +25763,7 @@ MonoBehaviour:
   idealValue: 0
   Active: 0
   IdealReached: 0
-  RateOfChange: 1
+  RateOfChange: 0.75
 --- !u!1 &1537972616
 GameObject:
   m_ObjectHideFlags: 0
@@ -25940,7 +25940,7 @@ MonoBehaviour:
   idealValue: 0
   Active: 0
   IdealReached: 0
-  RateOfChange: 0
+  RateOfChange: 0.75
 --- !u!1 &1565031987
 GameObject:
   m_ObjectHideFlags: 0
@@ -26633,7 +26633,7 @@ MonoBehaviour:
   idealValue: 0
   Active: 0
   IdealReached: 0
-  RateOfChange: 0
+  RateOfChange: 0.75
 --- !u!1 &1585357805
 GameObject:
   m_ObjectHideFlags: 0
@@ -27912,7 +27912,7 @@ MonoBehaviour:
   idealValue: 0
   Active: 0
   IdealReached: 0
-  RateOfChange: 0
+  RateOfChange: 0.75
 --- !u!1 &1644667274
 GameObject:
   m_ObjectHideFlags: 0
@@ -29024,6 +29024,7 @@ MonoBehaviour:
   Overlay: {fileID: 1522906059}
   ShorePower: {fileID: 0}
   MainDials: {fileID: 0}
+  AllClients: 0
   ShoreButton: {fileID: 1203023915}
   shore: 0
 --- !u!4 &1720985173
@@ -34525,7 +34526,7 @@ MonoBehaviour:
   idealValue: 0
   Active: 0
   IdealReached: 0
-  RateOfChange: 0
+  RateOfChange: 0.75
 --- !u!1 &2085151949
 GameObject:
   m_ObjectHideFlags: 0
@@ -60019,7 +60020,7 @@ MonoBehaviour:
   idealValue: 0
   Active: 0
   IdealReached: 0
-  RateOfChange: 1
+  RateOfChange: 0.75
 --- !u!1 &6363453202024923904
 GameObject:
   m_ObjectHideFlags: 0
