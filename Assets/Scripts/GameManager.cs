@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     private GameObject MiscOBJ;
     private GameObject SaveGUI_OBJ;
 
+    public GameObject Overlay;
+
     public GameObject ShorePower;
 
     //UI
@@ -35,7 +37,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     private GameObject SaveGUI;
 
     //Dials
-    private GameObject MainDials;
+    public GameObject MainDials;
     private GameObject FuelDials;
     private GameObject LubeDials;
     private GameObject LubeTanks;
@@ -67,6 +69,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     public bool shore = false;
     PhotonView photonView;
 
+    private GameObject SpeedDial;
+
     private void Awake()
     {
         Initialise();
@@ -74,6 +78,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         photonView = PhotonView.Get(this);
         ShorePower.SetActive(false);
         ShoreButton.GetComponent<Image>().color = Color.red;
+        SpeedDial = GameObject.Find("45");
 
         Connect();
     }
@@ -93,10 +98,20 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         while (PhotonNetwork.PlayerList.Length != 2)
         {
+            MainDials.SetActive(false);
+            SpeedDial.SetActive(false);
+            Overlay.SetActive(true);
             Debug.Log("Waiting for clients");
             yield return new WaitForSeconds(1f);
         }
+        SpeedDial.SetActive(true);
+        MainDials.SetActive(true);
+        Overlay.SetActive(false);
     }
+
+    
+
+
     public void Connect()
     {
         if (PhotonNetwork.IsConnected)
