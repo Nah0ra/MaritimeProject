@@ -28,7 +28,7 @@ public class CompressedAirScript : MonoBehaviour
     void Start()
     {
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        photonView.GetComponent<PhotonView>();
+        photonView = gameObject.GetComponent<PhotonView>();
     }
 
     // Update is called once per frame
@@ -114,7 +114,7 @@ public class CompressedAirScript : MonoBehaviour
         }
     }
     
-    public void onAirButtonPressOff()
+    public void onAir2ButtonPressOff()
     {
         photonView.RPC("RPConAir2ButtonPressOff", RpcTarget.All);
     }
