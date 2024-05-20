@@ -92,6 +92,8 @@ public class PowerPlantScript : MonoBehaviour
             //Cooling
             _coolingScript.SWpump1Off();
             _coolingScript.SWpump2Off();
+            _coolingScript.DGFWpump1Off();
+            _coolingScript.DGFWpump2Off();
 
 
             //Compressed Air

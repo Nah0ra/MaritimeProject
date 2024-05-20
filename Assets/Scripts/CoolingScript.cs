@@ -5,15 +5,18 @@ using UnityEngine;
 public class CoolingScript : MonoBehaviour
 {
     private GameManager _gameManager;
-
+    public PowerPlantScript _powerPlantScript;
     private bool shoreOn;
 
     // buttons
     public bool SWpump1;
     public bool SWpump2;
+    public bool SWpumpOn;
+
     public bool DGFWpump1;
     public bool DGFWpump2;
-    public bool SWpumpOn;
+    public bool DGFWpumpOn;
+
     // gauges
 
     [SerializeField]
@@ -56,7 +59,7 @@ public class CoolingScript : MonoBehaviour
         {
             if (SWpump1 == true && SWpump2 == true)
             {
-                Debug.Log("Sea Water On");
+                //Debug.Log("Sea Water On");
                 SWafterME.GetComponent<GaugeScript>().Active = true;
                 SWafterME.GetComponent<GaugeScript>().Forward = true;
 
@@ -67,12 +70,13 @@ public class CoolingScript : MonoBehaviour
                 SWbeforeME2.GetComponent<GaugeScript>().Forward = true;
                 SWpumpOn = true;
             }
+
         }
 
         if ((SWpump1 == false && SWpump2 == false))
         {
 
-            Debug.Log("Sea Water Off");
+            //Debug.Log("Sea Water Off");
             SWafterME.GetComponent<GaugeScript>().Active = true;
             SWafterME.GetComponent<GaugeScript>().Forward = false;
 
@@ -83,6 +87,36 @@ public class CoolingScript : MonoBehaviour
             SWbeforeME2.GetComponent<GaugeScript>().Forward = false;
             SWpumpOn = false;
         }
+
+        if (_powerPlantScript.DG1 || _powerPlantScript.DG2 || _powerPlantScript.DG3)
+        {
+            if (DGFWpump1 == true && DGFWpump2 == true)
+            {
+                //Debug.Log("DGFW on");
+                DGFW.GetComponent<GaugeScript>().Active = true;
+                DGFW.GetComponent<GaugeScript>().Forward = true;
+
+                FWbef1.GetComponent<GaugeScript>().Active = true;
+                FWbef1.GetComponent<GaugeScript>().Forward = true;
+
+                FWbef2.GetComponent<GaugeScript>().Active = true;
+                FWbef2.GetComponent<GaugeScript>().Forward = true;
+            }
+
+            if (DGFWpump1 == false && DGFWpump2 == false)
+            {
+                //Debug.Log("DGFW off");
+                DGFW.GetComponent<GaugeScript>().Active = true;
+                DGFW.GetComponent<GaugeScript>().Forward = false;
+
+                FWbef1.GetComponent<GaugeScript>().Active = true;
+                FWbef1.GetComponent<GaugeScript>().Forward = false;
+
+                FWbef2.GetComponent<GaugeScript>().Active = true;
+                FWbef2.GetComponent<GaugeScript>().Forward = false;
+            }
+        }
+        
     }
      public void SWpump1On()
     {
@@ -92,6 +126,30 @@ public class CoolingScript : MonoBehaviour
     public void SWpump2On()
     {
         SWpump2 = true;
+        seaWaterOn();
+    }
+
+    public void DGFWpump1On()
+    {
+        DGFWpump1 = true;
+        seaWaterOn();
+    }
+
+    public void DGFWpump2On()
+    {
+        DGFWpump2 = true;
+        seaWaterOn();
+    }
+
+    public void DGFWpump1Off()
+    {
+        DGFWpump1 = false;
+        seaWaterOn();
+    }
+
+    public void DGFWpump2Off()
+    {
+        DGFWpump2 = false;
         seaWaterOn();
     }
 
@@ -105,5 +163,4 @@ public class CoolingScript : MonoBehaviour
         SWpump2 = false;
         seaWaterOn();
     }
-
 }
