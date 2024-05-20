@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        //StartCoroutine(WaitForClients());
+        StartCoroutine(WaitForClients());
     }
 
     private IEnumerator WaitForClients()
