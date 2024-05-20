@@ -66,16 +66,19 @@ public class LubricationScript : MonoBehaviour
     {
         if (_powerPlantScript.DG1 || _powerPlantScript.DG2 || _powerPlantScript.DG3)
         {
-            Debug.Log("CheckPump1");
             if (MeLoPump1B && TurbochargerB)
             {
-                Debug.Log("CheckPump true");
+                MELoPump1.GetComponent<GaugeScript>().Active = true;
                 MELoPump1.GetComponent<GaugeScript>().Forward = true;
+                Turbocharger.GetComponent<GaugeScript>().Active = true;
                 Turbocharger.GetComponent<GaugeScript>().Forward = true;
             }
-            else if (!MeLoPump1B && !Turbocharger)
+            else if (!MeLoPump1B && !TurbochargerB)
             {
-                Debug.Log("CheckPump false");
+                Debug.Log(MeLoPump1B);
+                Debug.Log(Turbocharger);
+                Turbocharger.GetComponent<GaugeScript>().Active = true;
+                MELoPump1.GetComponent<GaugeScript>().Active = true;
                 MELoPump1.GetComponent<GaugeScript>().Forward = false;
                 Turbocharger.GetComponent<GaugeScript>().Forward = false;
             }

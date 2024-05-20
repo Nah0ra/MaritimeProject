@@ -313,7 +313,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &23274323
 Transform:
   m_ObjectHideFlags: 0
@@ -2285,7 +2285,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &152523907
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3541,7 +3541,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1083278318}
         m_TargetAssemblyTypeName: LubricationScript, Assembly-CSharp
-        m_MethodName: changeColour
+        m_MethodName: TurbochargerOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5350,7 +5350,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &334526960
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7733,7 +7733,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1083278318}
         m_TargetAssemblyTypeName: LubricationScript, Assembly-CSharp
-        m_MethodName: changeColour
+        m_MethodName: MELoPump1Off
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15309,7 +15309,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1083278318}
         m_TargetAssemblyTypeName: LubricationScript, Assembly-CSharp
-        m_MethodName: changeColour
+        m_MethodName: TurbochargerOn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18801,6 +18801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e18c969ae52c7c84da35fc7200b1d157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _powerPlantScript: {fileID: 1777898241}
   LoHeater: {fileID: 2098421484}
   MeLoSlider: {fileID: 1915668239}
   DgLoSlider: {fileID: 264556167}
@@ -18810,6 +18811,10 @@ MonoBehaviour:
   gaugeFullMe: 0
   gaugeFullDg: 0
   LO: {fileID: 7014769024677093677}
+  MELoPump1: {fileID: 7014769025923399705}
+  Turbocharger: {fileID: 7014769024788976954}
+  MeLoPump1B: 0
+  TurbochargerB: 0
 --- !u!1 &1088259996
 GameObject:
   m_ObjectHideFlags: 0
@@ -27189,7 +27194,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1626505055
 Transform:
   m_ObjectHideFlags: 0
@@ -27753,7 +27758,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1083278318}
         m_TargetAssemblyTypeName: LubricationScript, Assembly-CSharp
-        m_MethodName: changeColour
+        m_MethodName: MELoPump1On
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
