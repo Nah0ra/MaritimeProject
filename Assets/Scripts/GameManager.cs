@@ -118,13 +118,13 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             shore = true;
             ShoreButton.GetComponent<Image>().color = Color.green;
-            Debug.Log("Shore on " + shore);
+            //Debug.Log("Shore on " + shore);
         }
-        else if(!shore)
-        {
+        else
+        { 
             shore = false;
             ShoreButton.GetComponent<Image>().color = Color.red;
-            Debug.Log("Shore off");
+            //Debug.Log("Shore off");
         }
     }
 
@@ -465,7 +465,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                 break;
 
             default:
-                Debug.Log("Button Unassigned");
+                //Debug.Log("Button Unassigned");
                 break;
         }
 
@@ -566,20 +566,19 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     private void CheckInputField()
     {
-        Debug.Log("fjisjfies");
         // InputField saveInputField = GameObject.FindGameObjectWithTag("InputField").GetComponent<InputField>().text;
         string inputValue = GameObject.FindGameObjectWithTag("InputField").GetComponent<TMP_InputField>().text;
         string currentTag = EventSystem.current.currentSelectedGameObject.tag;
 
         if (string.IsNullOrEmpty(inputValue))
         {
-            Debug.Log("Error: Input field cannot be empty!");
+            //Debug.Log("Error: Input field cannot be empty!");
             // errorMessageText.text = "Error: Input field cannot be empty!";
         }
         else
         {
             // errorMessageText.text = "";
-            Debug.Log("InputField Value: " + inputValue);
+            //Debug.Log("InputField Value: " + inputValue);
             switch (currentTag)
             {
                 case "SaveButton":

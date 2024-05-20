@@ -51,7 +51,7 @@ public class CompressedAirScript : MonoBehaviour
     {
         if (shoreOn)
         {
-            Debug.Log("Air Compressor 1 ON");
+            //Debug.Log("Air Compressor 1 ON");
             AAC1.GetComponent<GaugeScript>().Active = true;
             AR1.GetComponent<GaugeScript>().Active = true;
             AAC1.GetComponent<GaugeScript>().Forward = true;
@@ -65,7 +65,7 @@ public class CompressedAirScript : MonoBehaviour
     {
         if (shoreOn)
         {
-            Debug.Log("Air Compressor 2 ON");
+            //Debug.Log("Air Compressor 2 ON");
             AAC2.GetComponent<GaugeScript>().Active = true;
             AR2.GetComponent<GaugeScript>().Active = true;
             AAC2.GetComponent<GaugeScript>().Forward = true;
@@ -78,7 +78,7 @@ public class CompressedAirScript : MonoBehaviour
     {
         if (shoreOn)
         {
-            Debug.Log("Air Compressor 1 OFF");
+            //Debug.Log("Air Compressor 1 OFF");
             AAC1.GetComponent<GaugeScript>().Active = true;
             AR1.GetComponent<GaugeScript>().Active = true;
             AAC1.GetComponent<GaugeScript>().Forward = false;
@@ -93,7 +93,7 @@ public class CompressedAirScript : MonoBehaviour
     {
         if (shoreOn)
         {
-            Debug.Log("Air Compressor 2 OFF");
+            //Debug.Log("Air Compressor 2 OFF");
             AAC2.GetComponent<GaugeScript>().Active = true;
             AR2.GetComponent<GaugeScript>().Active = true;
             AAC2.GetComponent<GaugeScript>().Forward = false;

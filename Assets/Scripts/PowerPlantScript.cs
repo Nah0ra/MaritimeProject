@@ -80,12 +80,27 @@ public class PowerPlantScript : MonoBehaviour
 
         if (!generator && !DG1 && !DG2 && !DG3 && !_gameManager.shore)
         {
-            _lubricationScript.gaugeFullMe = false;
-            _lubricationScript.gaugeFullDg = false;
-            _lubricationScript.LoHeaterCheck = false;
-            _coolingScript.SWpumpOn = false;
-            _compressedAirScript.AC1 = false;
-            _compressedAirScript.AC2 = false;
+            //Lubrication
+            _lubricationScript.LO.GetComponent<GaugeScript>().Forward = false;
+            _lubricationScript.LoHeater.GetComponent<Image>().color = Color.red;
+            _lubricationScript.check = false;
+
+            _lubricationScript.MeLoIntakeButtonPressOff();
+            _lubricationScript.DgLoButtonPressOff();
+
+
+            //Cooling
+            _coolingScript.SWpump1Off();
+            _coolingScript.SWpump2Off();
+            _coolingScript.DGFWpump1Off();
+            _coolingScript.DGFWpump2Off();
+
+
+            //Compressed Air
+            _compressedAirScript.onAir2ButtonPressOff();
+            _compressedAirScript.onAir1ButtonPressOff();
+
+            //GameManager
             _gameManager.ShorePower.SetActive(true);
         }
 
