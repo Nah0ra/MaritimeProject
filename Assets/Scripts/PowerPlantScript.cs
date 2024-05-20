@@ -27,6 +27,12 @@ public class PowerPlantScript : MonoBehaviour
     [SerializeField] private GameObject DG2_Dial;
     [SerializeField] private GameObject DG3_Dial;
 
+    //Alarms 
+    [SerializeField] private Alarms _PPAlarm;
+    [SerializeField] private Alarms _CoolingAlarm;
+    [SerializeField] private Alarms _LubAlarm;
+    [SerializeField] private Alarms _CAAlarm;
+
     void Start()
     {
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -36,6 +42,10 @@ public class PowerPlantScript : MonoBehaviour
         Dg1.interactable = false;
         Dg2.interactable = false;
         Dg3.interactable = false;
+        _PPAlarm = _PPAlarm.GetComponent<Alarms>();
+        _CoolingAlarm = _CoolingAlarm.GetComponent<Alarms>();
+        _LubAlarm = _LubAlarm.GetComponent<Alarms>();
+        _CAAlarm = _CAAlarm.GetComponent<Alarms>();
     }
 
     // Update is called once per frame
@@ -101,16 +111,31 @@ public class PowerPlantScript : MonoBehaviour
                 _compressedAirScript.onAir2ButtonPressOff();
                 _compressedAirScript.onAir1ButtonPressOff();
 
+
+                //Alarms
+                _CoolingAlarm.alarm = true;
+                _LubAlarm.alarm = true;
+                _CAAlarm.alarm = true;
+                _PPAlarm.alarm = true;
+
                 //GameManager
                 _gameManager.ShorePower.SetActive(true);
             }
+            else if (generator || DG1 || DG2 || DG3 || _gameManager.shore)
+            {
+                _CoolingAlarm.alarm = false;
+                _LubAlarm.alarm = false;
+                _CAAlarm.alarm = false;
+                _PPAlarm.alarm = false;
 
-            if (!_gameManager.shore)
+            }
+
+/*            if (!_gameManager.shore)
             {
                 _gameManager.shore = false;
                 _gameManager.ShoreButton.GetComponent<Image>().color = Color.red;
                 Debug.Log("Shore off");
-            }
+            }*/
         }
     }
     public void changeColourGreen(string buttonName)

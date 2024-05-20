@@ -6,6 +6,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
 using ExitGames.Client.Photon.StructWrapping;
+using TMPro.EditorUtilities;
 
 
 public class GameManager : MonoBehaviourPunCallbacks
@@ -59,6 +60,9 @@ public class GameManager : MonoBehaviourPunCallbacks
     private Button MiscButton;
     private Button SaveGUIButton;
     public bool AllClients;
+
+
+
     // private Button SaveButton;
     // private Button LoadButton;
 
@@ -92,7 +96,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        StartCoroutine(WaitForClients());
+        //StartCoroutine(WaitForClients());
     }
 
     private IEnumerator WaitForClients()
