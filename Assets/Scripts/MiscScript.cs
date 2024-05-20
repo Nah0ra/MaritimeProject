@@ -62,7 +62,16 @@ public class MiscScript : MonoBehaviour
         }
 
     }
+    public void Ask3On()
+    {
+        photonview.RPC("RPCAsk3On", RpcTarget.All);
+    }
 
+    [PunRPC]
+    public void RPCAsk3On()
+    {
+        ask1 = true;
+    }
 
     public void SlowTurningOn()
     {
