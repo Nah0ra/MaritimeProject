@@ -6,7 +6,6 @@ using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
 using ExitGames.Client.Photon.StructWrapping;
-using TMPro.EditorUtilities;
 
 
 public class GameManager : MonoBehaviourPunCallbacks
@@ -101,7 +100,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     private IEnumerator WaitForClients()
     {
-        while (PhotonNetwork.PlayerList.Length != 4)
+        while (PhotonNetwork.PlayerList.Length != 2)
         {
             AllClients = false;
             MainDials.SetActive(false);
