@@ -58,7 +58,7 @@ public class PowerPlantScript : MonoBehaviour
     void Update()
     {
         if (_gameManager.AllClients) {
-            if ((_lubricationScript.gaugeFullMe && _lubricationScript.gaugeFullDg && _gameManager.shore && _lubricationScript.LoHeaterCheck && _coolingScript.SWpumpOn && _compressedAirScript.AC1 && _compressedAirScript.AC2 && _miscScript.ask3))
+            if ((_lubricationScript.gaugeFullMe && _lubricationScript.gaugeFullDg && _gameManager.shore && _lubricationScript.LoHeaterCheck && _coolingScript.SWpumpOn && _compressedAirScript.AC1 && _compressedAirScript.AC2))
             {
                 Dg1.interactable = true;
                 Dg2.interactable = true;
