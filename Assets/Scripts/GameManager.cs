@@ -6,7 +6,6 @@ using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
 using ExitGames.Client.Photon.StructWrapping;
-using TMPro.EditorUtilities;
 
 
 public class GameManager : MonoBehaviourPunCallbacks
