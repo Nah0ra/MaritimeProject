@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     private IEnumerator WaitForClients()
     {
-        while (PhotonNetwork.PlayerList.Length != 4)
+        while (PhotonNetwork.PlayerList.Length != 2)
         {
             AllClients = false;
             MainDials.SetActive(false);
