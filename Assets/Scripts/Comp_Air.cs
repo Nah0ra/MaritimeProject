@@ -5,7 +5,7 @@ public class Comp_Air : NetworkBehaviour
 {
     GameObject Air_Comp1, Air_Comp2, Air_Rec_1, Air_Rec_2, Air_Bef_StartVal, Air_Control, Air_Stop, Air_Bef_Me;
 
-    private GameManager gameManager;
+    private Game_Manager gameManager;
 
     [Networked, SerializeField]
     bool AC1 {get; set;} = false;
@@ -73,7 +73,7 @@ public class Comp_Air : NetworkBehaviour
     void Init()
     {
         // Get a reference to the game manager
-        gameManager = GameObject.Find("Game_Manager").GetComponent<GameManager>();
+        gameManager = GameObject.Find("Game_Manager").GetComponent<Game_Manager>();
 
         //Assign the dials
         Air_Comp1 = GameObject.Find("Air_Comp_1");

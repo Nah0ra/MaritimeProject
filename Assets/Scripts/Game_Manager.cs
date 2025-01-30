@@ -3,9 +3,8 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Fusion;
 using System.Linq;
-using ExitGames.Client.Photon.StructWrapping;
 
-public class GameManager : NetworkBehaviour
+public class Game_Manager : NetworkBehaviour
 {
 
     // Panels

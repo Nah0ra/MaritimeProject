@@ -482,8 +482,8 @@ MonoBehaviour:
   Min_Value: 0
   Current_Value: 0
   Rate_Of_Change: 0.1
-  Inc: 0
-  Active: 0
+  _Inc: 0
+  _Active: 0
 --- !u!1 &61655242
 GameObject:
   m_ObjectHideFlags: 0
@@ -3780,8 +3780,8 @@ MonoBehaviour:
   Min_Value: 0
   Current_Value: 0
   Rate_Of_Change: 0.75
-  Inc: 0
-  Active: 0
+  _Inc: 0
+  _Active: 0
 --- !u!1 &264556165
 GameObject:
   m_ObjectHideFlags: 0
@@ -4433,8 +4433,8 @@ MonoBehaviour:
   Min_Value: 0
   Current_Value: 0
   Rate_Of_Change: 0
-  Inc: 0
-  Active: 0
+  _Inc: 0
+  _Active: 0
 --- !u!1 &324685481
 GameObject:
   m_ObjectHideFlags: 0
@@ -7892,16 +7892,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CoolingScript, Assembly-CSharp
-        m_MethodName: SWpump1On
-        m_Mode: 1
+      - m_Target: {fileID: 1338552033}
+        m_TargetAssemblyTypeName: Cooling, Assembly-CSharp
+        m_MethodName: Pump_On_RPC
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: SW_1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &472731346
@@ -10787,16 +10787,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CoolingScript, Assembly-CSharp
-        m_MethodName: DGFWpump2On
-        m_Mode: 1
+      - m_Target: {fileID: 1338552033}
+        m_TargetAssemblyTypeName: Cooling, Assembly-CSharp
+        m_MethodName: Pump_On_RPC
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: DG_2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &702579617
@@ -16634,16 +16634,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CoolingScript, Assembly-CSharp
-        m_MethodName: SWpump1Off
-        m_Mode: 1
+      - m_Target: {fileID: 1338552033}
+        m_TargetAssemblyTypeName: Cooling, Assembly-CSharp
+        m_MethodName: Pump_Off_RPC
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: SW_1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &981140562
@@ -19362,16 +19362,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CoolingScript, Assembly-CSharp
-        m_MethodName: DGFWpump1Off
-        m_Mode: 1
+      - m_Target: {fileID: 1338552033}
+        m_TargetAssemblyTypeName: Cooling, Assembly-CSharp
+        m_MethodName: Pump_Off_RPC
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: DG_1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1241292928
@@ -20583,6 +20583,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1338552031}
   - component: {fileID: 1338552032}
+  - component: {fileID: 1338552033}
   m_Layer: 5
   m_Name: Cool_Panel
   m_TagString: Untagged
@@ -20628,6 +20629,7 @@ MonoBehaviour:
   Flags: 262145
   NestedObjects: []
   NetworkedBehaviours:
+  - {fileID: 1338552033}
   - {fileID: 1775370600850874768}
   - {fileID: 1775370601788460540}
   - {fileID: 1775370601270239096}
@@ -20635,6 +20637,23 @@ MonoBehaviour:
   - {fileID: 1775370601206478259}
   - {fileID: 1775370601076356916}
   ForceRemoteRenderTimeframe: 0
+--- !u!114 &1338552033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338552030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beda3539b2869eb49b70e89b24635efa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Sea_Water_Pump_1: 0
+  _Sea_Water_Pump_2: 0
+  _Sea_Water_Fill: 0
+  _DG_FW_Pump1: 0
+  _DG_FW_Pump2: 0
 --- !u!1 &1346980222
 GameObject:
   m_ObjectHideFlags: 0
@@ -21741,16 +21760,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CoolingScript, Assembly-CSharp
-        m_MethodName: SWpump2Off
-        m_Mode: 1
+      - m_Target: {fileID: 1338552033}
+        m_TargetAssemblyTypeName: Cooling, Assembly-CSharp
+        m_MethodName: Pump_Off_RPC
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: SW_2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1384837445
@@ -22321,8 +22340,8 @@ MonoBehaviour:
   Min_Value: 0
   Current_Value: 0
   Rate_Of_Change: 0.02
-  Inc: 0
-  Active: 0
+  _Inc: 0
+  _Active: 0
 --- !u!1 &1414671254
 GameObject:
   m_ObjectHideFlags: 0
@@ -25792,16 +25811,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CoolingScript, Assembly-CSharp
-        m_MethodName: SWpump2On
-        m_Mode: 1
+      - m_Target: {fileID: 1338552033}
+        m_TargetAssemblyTypeName: Cooling, Assembly-CSharp
+        m_MethodName: Pump_On_RPC
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: SW_2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1604271589
@@ -25939,8 +25958,8 @@ MonoBehaviour:
   Min_Value: 0
   Current_Value: 0
   Rate_Of_Change: 0
-  Inc: 0
-  Active: 0
+  _Inc: 0
+  _Active: 0
 --- !u!1 &1610959850
 GameObject:
   m_ObjectHideFlags: 0
@@ -27393,16 +27412,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CoolingScript, Assembly-CSharp
-        m_MethodName: DGFWpump1On
-        m_Mode: 1
+      - m_Target: {fileID: 1338552033}
+        m_TargetAssemblyTypeName: Cooling, Assembly-CSharp
+        m_MethodName: Pump_On_RPC
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: DG_1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1689069234
@@ -28251,16 +28270,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CoolingScript, Assembly-CSharp
-        m_MethodName: DGFWpump2Off
-        m_Mode: 1
+      - m_Target: {fileID: 1338552033}
+        m_TargetAssemblyTypeName: Cooling, Assembly-CSharp
+        m_MethodName: Pump_Off_RPC
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: DG_2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1754183459
@@ -28602,6 +28621,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1767460919}
   - component: {fileID: 1767460920}
+  - component: {fileID: 1767460921}
   m_Layer: 0
   m_Name: Power_Panel
   m_TagString: Untagged
@@ -28643,10 +28663,26 @@ MonoBehaviour:
   Flags: 262145
   NestedObjects: []
   NetworkedBehaviours:
+  - {fileID: 1767460921}
   - {fileID: 5027314173222535276}
   - {fileID: 5027314172203172595}
   - {fileID: 57318971}
   ForceRemoteRenderTimeframe: 0
+--- !u!114 &1767460921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767460918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb9c7d8b4ede15e1ca5217a0ba690b7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _DieselGen1_On: 0
+  _DieselGen2_On: 0
+  _DieselGen3_On: 0
 --- !u!1 &1767462764
 GameObject:
   m_ObjectHideFlags: 0
@@ -29789,8 +29825,8 @@ MonoBehaviour:
   Min_Value: 0
   Current_Value: 0
   Rate_Of_Change: 0.05
-  Inc: 0
-  Active: 0
+  _Inc: 0
+  _Active: 0
 --- !u!1 &1838681838
 GameObject:
   m_ObjectHideFlags: 0
@@ -29888,8 +29924,8 @@ MonoBehaviour:
   Min_Value: 0
   Current_Value: 0
   Rate_Of_Change: 0
-  Inc: 0
-  Active: 0
+  _Inc: 0
+  _Active: 0
 --- !u!1 &1841067701
 GameObject:
   m_ObjectHideFlags: 0
@@ -38515,8 +38551,8 @@ MonoBehaviour:
   Min_Value: 0
   Current_Value: 0
   Rate_Of_Change: 0
-  Inc: 0
-  Active: 0
+  _Inc: 0
+  _Active: 0
 --- !u!1 &1747730744702723473
 GameObject:
   m_ObjectHideFlags: 0
@@ -38614,8 +38650,8 @@ MonoBehaviour:
   Min_Value: 0
   Current_Value: 0
   Rate_Of_Change: 0
-  Inc: 0
-  Active: 0
+  _Inc: 0
+  _Active: 0
 --- !u!1 &1747730744777783160
 GameObject:
   m_ObjectHideFlags: 0
@@ -38713,8 +38749,8 @@ MonoBehaviour:
   Min_Value: 0
   Current_Value: 0
   Rate_Of_Change: 0
-  Inc: 0
-  Active: 0
+  _Inc: 0
+  _Active: 0
 --- !u!4 &1747730744935617880
 Transform:
   m_ObjectHideFlags: 0
@@ -38812,8 +38848,8 @@ MonoBehaviour:
   Min_Value: 0
   Current_Value: 0
   Rate_Of_Change: 0
-  Inc: 0
-  Active: 0
+  _Inc: 0
+  _Active: 0
 --- !u!1 &1747730745151730761
 GameObject:
   m_ObjectHideFlags: 0
@@ -38911,8 +38947,8 @@ MonoBehaviour:
   Min_Value: 0
   Current_Value: 0
   Rate_Of_Change: 0
-  Inc: 0
-  Active: 0
+  _Inc: 0
+  _Active: 0
 --- !u!4 &1747730745718761610
 Transform:
   m_ObjectHideFlags: 0
@@ -39083,8 +39119,8 @@ MonoBehaviour:
   Min_Value: 0
   Current_Value: 0
   Rate_Of_Change: 0.75
-  Inc: 0
-  Active: 0
+  _Inc: 0
+  _Active: 0
 --- !u!114 &1775370601076356812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39182,8 +39218,8 @@ MonoBehaviour:
   Min_Value: 0
   Current_Value: 0
   Rate_Of_Change: 0.75
-  Inc: 0
-  Active: 0
+  _Inc: 0
+  _Active: 0
 --- !u!1 &1775370601206478256
 GameObject:
   m_ObjectHideFlags: 0
@@ -39196,7 +39232,7 @@ GameObject:
   - component: {fileID: 1775370601206478258}
   - component: {fileID: 1775370601206478259}
   m_Layer: 0
-  m_Name: FW_Bef_Clr1
+  m_Name: FW_Bef_Clr
   m_TagString: Dial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39281,8 +39317,8 @@ MonoBehaviour:
   Min_Value: 0
   Current_Value: 0
   Rate_Of_Change: 0.75
-  Inc: 0
-  Active: 0
+  _Inc: 0
+  _Active: 0
 --- !u!114 &1775370601270239088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39380,8 +39416,8 @@ MonoBehaviour:
   Min_Value: 0
   Current_Value: 0
   Rate_Of_Change: 0.75
-  Inc: 0
-  Active: 0
+  _Inc: 0
+  _Active: 0
 --- !u!1 &1775370601375348579
 GameObject:
   m_ObjectHideFlags: 0
@@ -39394,7 +39430,7 @@ GameObject:
   - component: {fileID: 1775370601375348605}
   - component: {fileID: 1775370601375348606}
   m_Layer: 0
-  m_Name: Sw_Aft_Me
+  m_Name: SW_Aft_ME
   m_TagString: Dial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39479,8 +39515,8 @@ MonoBehaviour:
   Min_Value: 0
   Current_Value: 0
   Rate_Of_Change: 0.75
-  Inc: 0
-  Active: 0
+  _Inc: 0
+  _Active: 0
 --- !u!4 &1775370601788460532
 Transform:
   m_ObjectHideFlags: 0
@@ -39556,7 +39592,7 @@ GameObject:
   - component: {fileID: 1775370601788460534}
   - component: {fileID: 1775370601788460540}
   m_Layer: 0
-  m_Name: SW_Bef_ME1
+  m_Name: SW_Bef_ME
   m_TagString: Dial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39578,8 +39614,8 @@ MonoBehaviour:
   Min_Value: 0
   Current_Value: 0
   Rate_Of_Change: 0.75
-  Inc: 0
-  Active: 0
+  _Inc: 0
+  _Active: 0
 --- !u!1 &2536359691504437081
 GameObject:
   m_ObjectHideFlags: 0
@@ -44185,8 +44221,8 @@ MonoBehaviour:
   Min_Value: 0
   Current_Value: 0
   Rate_Of_Change: 0
-  Inc: 0
-  Active: 0
+  _Inc: 0
+  _Active: 0
 --- !u!1 &2680932241182795979
 GameObject:
   m_ObjectHideFlags: 0
@@ -44284,8 +44320,8 @@ MonoBehaviour:
   Min_Value: 0
   Current_Value: 0
   Rate_Of_Change: 0
-  Inc: 0
-  Active: 0
+  _Inc: 0
+  _Active: 0
 --- !u!1 &2680932241717429024
 GameObject:
   m_ObjectHideFlags: 0
@@ -44383,8 +44419,8 @@ MonoBehaviour:
   Min_Value: 0
   Current_Value: 0
   Rate_Of_Change: 0
-  Inc: 0
-  Active: 0
+  _Inc: 0
+  _Active: 0
 --- !u!1 &2908627023678120983
 GameObject:
   m_ObjectHideFlags: 0
@@ -54162,8 +54198,8 @@ MonoBehaviour:
   Min_Value: 0
   Current_Value: 0
   Rate_Of_Change: 0.1
-  Inc: 0
-  Active: 0
+  _Inc: 0
+  _Active: 0
 --- !u!4 &5027314173222535252
 Transform:
   m_ObjectHideFlags: 0
@@ -54261,8 +54297,8 @@ MonoBehaviour:
   Min_Value: 0
   Current_Value: 0
   Rate_Of_Change: 0.1
-  Inc: 0
-  Active: 0
+  _Inc: 0
+  _Active: 0
 --- !u!1 &5212666986441872401
 GameObject:
   m_ObjectHideFlags: 0
@@ -58110,8 +58146,8 @@ MonoBehaviour:
   Min_Value: 0
   Current_Value: 0
   Rate_Of_Change: 0
-  Inc: 0
-  Active: 0
+  _Inc: 0
+  _Active: 0
 --- !u!1 &6363453200861574104
 GameObject:
   m_ObjectHideFlags: 0
@@ -58209,8 +58245,8 @@ MonoBehaviour:
   Min_Value: 0
   Current_Value: 0
   Rate_Of_Change: 0
-  Inc: 0
-  Active: 0
+  _Inc: 0
+  _Active: 0
 --- !u!1 &6363453201268926869
 GameObject:
   m_ObjectHideFlags: 0
@@ -58308,8 +58344,8 @@ MonoBehaviour:
   Min_Value: 0
   Current_Value: 0
   Rate_Of_Change: 0
-  Inc: 0
-  Active: 0
+  _Inc: 0
+  _Active: 0
 --- !u!4 &6363453201381650080
 Transform:
   m_ObjectHideFlags: 0
@@ -58407,8 +58443,8 @@ MonoBehaviour:
   Min_Value: 0
   Current_Value: 0
   Rate_Of_Change: 0
-  Inc: 0
-  Active: 0
+  _Inc: 0
+  _Active: 0
 --- !u!1 &6363453201448599369
 GameObject:
   m_ObjectHideFlags: 0
@@ -58506,8 +58542,8 @@ MonoBehaviour:
   Min_Value: 0
   Current_Value: 0
   Rate_Of_Change: 0.75
-  Inc: 0
-  Active: 0
+  _Inc: 0
+  _Active: 0
 --- !u!1 &6363453201521220538
 GameObject:
   m_ObjectHideFlags: 0
@@ -58605,8 +58641,8 @@ MonoBehaviour:
   Min_Value: 0
   Current_Value: 0
   Rate_Of_Change: 0.75
-  Inc: 0
-  Active: 0
+  _Inc: 0
+  _Active: 0
 --- !u!1 &6363453201582880088
 GameObject:
   m_ObjectHideFlags: 0
@@ -58704,8 +58740,8 @@ MonoBehaviour:
   Min_Value: 0
   Current_Value: 0
   Rate_Of_Change: 0.75
-  Inc: 0
-  Active: 0
+  _Inc: 0
+  _Active: 0
 --- !u!1 &6363453202024923904
 GameObject:
   m_ObjectHideFlags: 0
@@ -58803,8 +58839,8 @@ MonoBehaviour:
   Min_Value: 0
   Current_Value: 0
   Rate_Of_Change: 0.75
-  Inc: 0
-  Active: 0
+  _Inc: 0
+  _Active: 0
 --- !u!4 &6417636904997431674
 Transform:
   m_ObjectHideFlags: 0
@@ -58934,8 +58970,8 @@ MonoBehaviour:
   Min_Value: 0
   Current_Value: 0
   Rate_Of_Change: 0.75
-  Inc: 0
-  Active: 0
+  _Inc: 0
+  _Active: 0
 --- !u!114 &7014769024788976948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59033,8 +59069,8 @@ MonoBehaviour:
   Min_Value: 0
   Current_Value: 0
   Rate_Of_Change: 0.75
-  Inc: 0
-  Active: 0
+  _Inc: 0
+  _Active: 0
 --- !u!1 &7014769025923399705
 GameObject:
   m_ObjectHideFlags: 0
@@ -59132,8 +59168,8 @@ MonoBehaviour:
   Min_Value: 0
   Current_Value: 0
   Rate_Of_Change: 0.75
-  Inc: 0
-  Active: 0
+  _Inc: 0
+  _Active: 0
 --- !u!114 &7014769025977712272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59231,8 +59267,8 @@ MonoBehaviour:
   Min_Value: 0
   Current_Value: 0
   Rate_Of_Change: 0
-  Inc: 0
-  Active: 0
+  _Inc: 0
+  _Active: 0
 --- !u!1 &7014769026308786112
 GameObject:
   m_ObjectHideFlags: 0
