@@ -3,19 +3,17 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Fusion;
 using System.Linq;
+using ExitGames.Client.Photon.StructWrapping;
 
 public class GameManager : NetworkBehaviour
 {
 
-    [SerializeField]
     // Panels
     GameObject MainUI, FuelUI, LubeUI, CompUI, PowerUI, SteamUI, CoolUI, MiscUI;
  
-    [SerializeField]
     // Buttons
     Button MainButton, FuelButton, LubeButton, CompButton, PowerButton, SteamButton, CoolButton, MiscButton;
 
-    [SerializeField]
     // Dials
     GameObject MainDials, FuelDials, LubeDials, CompDials, PowerDials, SteamDials, CoolDials;
 
@@ -59,6 +57,8 @@ public class GameManager : NetworkBehaviour
             MainUI.SetActive(true);
             foreach (Transform child in MainDials.transform)
                 child.GetComponent<SimpleGaugeMaker>().Hide = false;
+
+            SpeedDial.GetComponent<SimpleGaugeMaker>().Hide = false;
         }
     }
 
