@@ -18,7 +18,6 @@ public class Comp_Air : NetworkBehaviour
         Init();
     }
 
-
     [Rpc(RpcSources.All, RpcTargets.All)]
     public void AC1_On_RPC()
     {

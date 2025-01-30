@@ -13,10 +13,15 @@ public class Gauge_Script : NetworkBehaviour
     [SerializeField, Tooltip("How much the unit should increase by every second")]
     float Rate_Of_Change;
 
-    public bool Inc, Active;
+    [Networked]
+    public bool Inc {get; set;} = false ;
 
-    void Awake()
+    [Networked]
+    public bool Active {get; set;} = false ;
+
+    public override void Spawned()
     {
+        base.Spawned();
         // Assing a reference to the gauge makert and the min, max and current value of the dials
         gaugemaker = gameObject.GetComponent<SimpleGaugeMaker>();
         Current_Value = gaugemaker.gaugeInputs[0].value;

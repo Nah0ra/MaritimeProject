@@ -25,7 +25,7 @@ public class GameManager : NetworkBehaviour
 
     // This is used to keep track of whether the shore power is on
     [Networked]
-    public bool ShorePower {get; set;} = false;
+    public bool ShorePower {get; set;} = true;
 
     // This is used to keep track of the number of connected players, across all clients
     [Networked]
@@ -50,7 +50,7 @@ public class GameManager : NetworkBehaviour
     private void CheckForPlayersRPC()
     {
         PlayerNumber = Runner.ActivePlayers.Count();
-        if (PlayerNumber == 1)
+        if (PlayerNumber == 2)
         {
             // If player count has been reached, disable the overlay and enable the main UI and dials
             Overlay.SetActive(false);
