@@ -4626,6 +4626,7 @@ GameObject:
   m_Component:
   - component: {fileID: 334526960}
   - component: {fileID: 334526961}
+  - component: {fileID: 334526962}
   m_Layer: 5
   m_Name: Fuel_Panel
   m_TagString: Untagged
@@ -4677,6 +4678,18 @@ MonoBehaviour:
   - {fileID: 1747730745151730768}
   - {fileID: 1747730743746754096}
   ForceRemoteRenderTimeframe: 0
+--- !u!114 &334526962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 334526959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dce077f4e0c78a26e91633395e5aed85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &335643582
 GameObject:
   m_ObjectHideFlags: 0
@@ -19855,7 +19868,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1262152464
 Transform:
   m_ObjectHideFlags: 0
@@ -20590,7 +20603,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1338552031
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20649,6 +20662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beda3539b2869eb49b70e89b24635efa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  power_plant: {fileID: 0}
   _Sea_Water_Pump_1: 0
   _Sea_Water_Pump_2: 0
   _Sea_Water_Fill: 0
@@ -24524,7 +24538,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1522906060
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26358,7 +26372,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1626505055
 Transform:
   m_ObjectHideFlags: 0
@@ -27285,7 +27299,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1687930610
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27479,7 +27493,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1690669177
 Transform:
   m_ObjectHideFlags: 0
@@ -27827,7 +27841,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1720271544
 Transform:
   m_ObjectHideFlags: 0
@@ -28628,7 +28642,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1767460919
 Transform:
   m_ObjectHideFlags: 0
