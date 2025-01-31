@@ -3198,9 +3198,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: LubricationScript, Assembly-CSharp
-        m_MethodName: TurbochargerOff
+      - m_Target: {fileID: 1626505057}
+        m_TargetAssemblyTypeName: Lube, Assembly-CSharp
+        m_MethodName: Turbo_Off_RPC
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4690,6 +4690,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce077f4e0c78a26e91633395e5aed85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _runner: {fileID: 0}
+  _object: {fileID: 0}
+  InvokeRpc: 0
+  ObjectIndex: 0
+  WordOffset: 0
+  WordCount: 0
+  DefaultReplicated: 1
 --- !u!1 &335643582
 GameObject:
   m_ObjectHideFlags: 0
@@ -7206,9 +7213,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: LubricationScript, Assembly-CSharp
-        m_MethodName: MELoPump1Off
+      - m_Target: {fileID: 1626505057}
+        m_TargetAssemblyTypeName: Lube, Assembly-CSharp
+        m_MethodName: ME_Lo_Pump_Off_RPC
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11426,7 +11433,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &734841674
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11444,7 +11451,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1199.9954, y: 198.00009}
+  m_AnchoredPosition: {x: 1346.2, y: 198.00009}
   m_SizeDelta: {x: 131.59, y: 125.82}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &734841675
@@ -14218,9 +14225,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: LubricationScript, Assembly-CSharp
-        m_MethodName: TurbochargerOn
+      - m_Target: {fileID: 1626505057}
+        m_TargetAssemblyTypeName: Lube, Assembly-CSharp
+        m_MethodName: Turbo_On_RPC
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19868,7 +19875,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1262152464
 Transform:
   m_ObjectHideFlags: 0
@@ -20603,7 +20610,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1338552031
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24538,7 +24545,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1522906060
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26366,13 +26373,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1626505055}
   - component: {fileID: 1626505056}
+  - component: {fileID: 1626505057}
   m_Layer: 0
   m_Name: Lube_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1626505055
 Transform:
   m_ObjectHideFlags: 0
@@ -26407,11 +26415,29 @@ MonoBehaviour:
   Flags: 262145
   NestedObjects: []
   NetworkedBehaviours:
+  - {fileID: 1626505057}
   - {fileID: 7014769025977712280}
   - {fileID: 7014769024677093680}
   - {fileID: 7014769025923399708}
   - {fileID: 7014769024788976956}
   ForceRemoteRenderTimeframe: 0
+--- !u!114 &1626505057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626505054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6a3a9687a1a569696c8deb4a1cdcff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Me_Lo_Slider: {fileID: 1915668239}
+  Dg_Lo_Slider: {fileID: 264556167}
+  LO: {fileID: 1558399520}
+  ME_lo_Pump_1: {fileID: 0}
+  Turbocharger: {fileID: 0}
 --- !u!1 &1633262280
 GameObject:
   m_ObjectHideFlags: 0
@@ -26975,9 +27001,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: LubricationScript, Assembly-CSharp
-        m_MethodName: MELoPump1On
+      - m_Target: {fileID: 1626505057}
+        m_TargetAssemblyTypeName: Lube, Assembly-CSharp
+        m_MethodName: ME_Lo_Pump_On_RPC
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -27299,7 +27325,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1687930610
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27493,7 +27519,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1690669177
 Transform:
   m_ObjectHideFlags: 0
@@ -27841,7 +27867,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1720271544
 Transform:
   m_ObjectHideFlags: 0
@@ -28642,7 +28668,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1767460919
 Transform:
   m_ObjectHideFlags: 0
@@ -33055,7 +33081,7 @@ GameObject:
   - component: {fileID: 2098421485}
   - component: {fileID: 2098421484}
   m_Layer: 5
-  m_Name: OFF_Button
+  m_Name: LO_Heater_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33149,7 +33175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9254902, g: 0.4117647, b: 0.4117647, a: 1}
+  m_Color: {r: 0.531211, g: 1, b: 0.3160377, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
