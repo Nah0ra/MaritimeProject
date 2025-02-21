@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using System.Threading;
 using Fusion;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
@@ -15,125 +17,137 @@ public class Lube : NetworkBehaviour
     [SerializeField]
     Slider Me_Lo_Slider, Dg_Lo_Slider;
 
-    // Setting bools
-    [Networked]
-    bool check {get; set;} = false;
+
+    // Bools
+    bool openTanks = false;
 
     [Networked]
-    bool Lo_Heater_Check {get; set;} = false;
+    bool filledTanks {get; set;} = false;
 
-    [Networked]
-    bool gauge_Full_Me {get; set;} = false;
 
-    [Networked]
-    bool gauge_Full_Dg {get; set;} = false;
-
-    [Networked]
-    bool MeLo_Pump_1B {get; set;} = false;
-
-    [Networked]
-    bool TurbochargerB {get; set;} = false;
-
+    //Dials
     [SerializeField]
-    GameObject LO, ME_lo_Pump_1, Turbocharger;
+    GameObject Co_Storage_Tank_Level, Lo_After_Trans_1, Lo_After_Pistons, Lo_Before_Shaft, Lo_Before_ME;
+    
+    //Librication tanks
+    [SerializeField]
+    GameObject LubeTanks;
 
     public override void Spawned()
     {
         base.Spawned();
         Init();
-        StartCoroutine(CheckPump());
     }
 
-    [Rpc(RpcSources.All, RpcTargets.All)]
-    public void Me_Lo_Intake_On_RPC()
+
+
+
+    public void toggleTanks()
     {
-        if (game_Manager.ShorePower)
+        GameObject dials = GameObject.Find("Lube_Dials");
+        
+        if (openTanks == false)
         {
-            check = true;
-        }
-    }
+            LubeTanks.SetActive(true);
 
-    [Rpc(RpcSources.All, RpcTargets.All)]
-    public void Me_Lo_Intake_Off_RPC()
-    {
-        if (game_Manager.ShorePower)
+            foreach (Transform child in dials.transform)
+                child.GetComponent<SimpleGaugeMaker>().Hide = true;
+
+            openTanks = true;
+        }
+        else if (openTanks == true)
         {
-            check = true;
+            LubeTanks.SetActive(false);
+
+            foreach (Transform child in dials.transform)
+                child.GetComponent<SimpleGaugeMaker>().Hide = false;
+
+            openTanks = false;
         }
+        
     }
 
     [Rpc(RpcSources.All, RpcTargets.All)]
-    public void Dg_Lo_Intake_On_RPC()
+    public void FillTankOnRpc()
     {
-        if (game_Manager.ShorePower)
-        {
-            check = true;
-        }
+        StartCoroutine(FillTanks());
     }
 
     [Rpc(RpcSources.All, RpcTargets.All)]
-    public void Dg_Lo_Intake_Off_RPC()
+    public void DrainTankOnRpc()
     {
-        if (game_Manager.ShorePower)
-        {
-            check = true;
-        }
+        StartCoroutine(DrainTanks());
     }
 
     [Rpc(RpcSources.All, RpcTargets.All)]
-    public void Turbo_On_RPC()
+    public void StopTanksRpc()
     {
-        TurbochargerB = true;
+        StopAllCoroutines();
     }
 
-    [Rpc(RpcSources.All, RpcTargets.All)]
-    public void Turbo_Off_RPC()
-    {
-        TurbochargerB = false;
-    }
 
-    [Rpc(RpcSources.All, RpcTargets.All)]
-    public void ME_Lo_Pump_On_RPC()
-    {
-        MeLo_Pump_1B = true;
-    }
-
-    [Rpc(RpcSources.All, RpcTargets.All)]
-    public void ME_Lo_Pump_Off_RPC()
-    {
-        MeLo_Pump_1B = false;
-    }
-
-    IEnumerator CheckPump()
+    public IEnumerator FillTanks()
     {
         while (true)
         {
-            // Check if the diesel generators in the power plant are on
-            if (power_Plant.DieselGen1_On && power_Plant.DieselGen2_On && power_Plant.DieselGen3_On)
+
+            if (Me_Lo_Slider.value == Me_Lo_Slider.maxValue && Dg_Lo_Slider.value == Dg_Lo_Slider.maxValue)
             {
-                // If Me_Le_Pump_1B and Turbocharger are switched on, enable dials
-                if (MeLo_Pump_1B && TurbochargerB)
-                {
-                    ME_lo_Pump_1.GetComponent<Gauge_Script>().Active = true;
-                    ME_lo_Pump_1.GetComponent<Gauge_Script>().Inc = true;
-                    Turbocharger.GetComponent<Gauge_Script>().Active = true;
-                    Turbocharger.GetComponent<Gauge_Script>().Inc = true;
-                }
-                else
-                {
-                    ME_lo_Pump_1.GetComponent<Gauge_Script>().Active = true;
-                    ME_lo_Pump_1.GetComponent<Gauge_Script>().Inc = false;
-                    Turbocharger.GetComponent<Gauge_Script>().Active = true;
-                    Turbocharger.GetComponent<Gauge_Script>().Inc = false;
-                }
+                filledTanks = true;
+                print(filledTanks);
+                break;
+            }
+
+            print("Triggered");
+
+            if (Me_Lo_Slider.value != Me_Lo_Slider.maxValue)
+            {
+                Me_Lo_Slider.value += 0.1f;
+            }
+
+            if (Dg_Lo_Slider.value != Dg_Lo_Slider.maxValue)
+            {
+                Dg_Lo_Slider.value += 0.1f;
             }
             yield return new WaitForSeconds(1f);
         }
     }
 
+    public IEnumerator DrainTanks()
+    {
+        filledTanks = false;
+
+        while (true)
+        {
+
+            if (Me_Lo_Slider.value == Me_Lo_Slider.minValue && Dg_Lo_Slider.value == Dg_Lo_Slider.minValue)
+            {
+                print(filledTanks);
+                break;
+            }
+
+            print("Triggered");
+
+            if (Me_Lo_Slider.value != Me_Lo_Slider.minValue)
+            {
+                Me_Lo_Slider.value -= 0.1f;
+            }
+
+            if (Dg_Lo_Slider.value != Dg_Lo_Slider.minValue)
+            {
+                Dg_Lo_Slider.value -= 0.1f;
+            }
+            yield return new WaitForSeconds(1f);
+        }
+    }
+
+
+
     void Init()
     {
         game_Manager = GameObject.Find("Game_Manager").GetComponent<Game_Manager>();
         power_Plant = GameObject.Find("Power_Panel").GetComponent<Power_Plant>();
+
+        LubeTanks.SetActive(false);
     }
 }

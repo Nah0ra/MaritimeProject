@@ -254,7 +254,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &23274323
 Transform:
   m_ObjectHideFlags: 0
@@ -4626,14 +4626,13 @@ GameObject:
   m_Component:
   - component: {fileID: 334526960}
   - component: {fileID: 334526961}
-  - component: {fileID: 334526962}
   m_Layer: 5
   m_Name: Fuel_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &334526960
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4678,25 +4677,6 @@ MonoBehaviour:
   - {fileID: 1747730745151730768}
   - {fileID: 1747730743746754096}
   ForceRemoteRenderTimeframe: 0
---- !u!114 &334526962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 334526959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dce077f4e0c78a26e91633395e5aed85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _runner: {fileID: 0}
-  _object: {fileID: 0}
-  InvokeRpc: 0
-  ObjectIndex: 0
-  WordOffset: 0
-  WordCount: 0
-  DefaultReplicated: 1
 --- !u!1 &335643582
 GameObject:
   m_ObjectHideFlags: 0
@@ -4920,7 +4900,7 @@ GameObject:
   - component: {fileID: 346287208}
   - component: {fileID: 346287207}
   m_Layer: 5
-  m_Name: Sectioning_LO_after_pistons
+  m_Name: ME_LO_Tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6395,6 +6375,78 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 421022468}
+  m_CullTransparentMesh: 1
+--- !u!1 &421231643
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 421231644}
+  - component: {fileID: 421231646}
+  - component: {fileID: 421231645}
+  m_Layer: 5
+  m_Name: Background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &421231644
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421231643}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1389823644}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 540.3, y: -332.84}
+  m_SizeDelta: {x: 1513.99, y: 988.05}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &421231645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421231643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &421231646
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421231643}
   m_CullTransparentMesh: 1
 --- !u!1 &423426608
 GameObject:
@@ -11433,7 +11485,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &734841674
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11451,7 +11503,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1346.2, y: 198.00009}
+  m_AnchoredPosition: {x: 1346.1953, y: 198.00009}
   m_SizeDelta: {x: 131.59, y: 125.82}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &734841675
@@ -11498,9 +11550,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: EnableLubeTanks
+      - m_Target: {fileID: 1626505057}
+        m_TargetAssemblyTypeName: Lube, Assembly-CSharp
+        m_MethodName: toggleTanks
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14437,9 +14489,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: LubricationScript, Assembly-CSharp
-        m_MethodName: DgLoButtonPressOn
+      - m_Target: {fileID: 1626505057}
+        m_TargetAssemblyTypeName: Lube, Assembly-CSharp
+        m_MethodName: DrainTankOnRpc
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18935,9 +18987,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: ToggleShoreRpc
+      - m_Target: {fileID: 1767460921}
+        m_TargetAssemblyTypeName: Power_Plant, Assembly-CSharp
+        m_MethodName: toggleShorePowerRpc
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19875,7 +19927,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1262152464
 Transform:
   m_ObjectHideFlags: 0
@@ -20610,7 +20662,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1338552031
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20895,9 +20947,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: LubricationScript, Assembly-CSharp
-        m_MethodName: MeLoIntakeButtonPressOff
+      - m_Target: {fileID: 1626505057}
+        m_TargetAssemblyTypeName: Lube, Assembly-CSharp
+        m_MethodName: StopTanksRpc
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -21859,6 +21911,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 421231644}
   - {fileID: 346287206}
   - {fileID: 1558399521}
   - {fileID: 1766697192}
@@ -24545,7 +24598,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1522906060
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24652,7 +24705,7 @@ GameObject:
   - component: {fileID: 1558399523}
   - component: {fileID: 1558399522}
   m_Layer: 5
-  m_Name: Sectioning_DG_Lub_Tank
+  m_Name: DG_LO_TANK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26380,7 +26433,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1626505055
 Transform:
   m_ObjectHideFlags: 0
@@ -26435,9 +26488,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Me_Lo_Slider: {fileID: 1915668239}
   Dg_Lo_Slider: {fileID: 264556167}
-  LO: {fileID: 1558399520}
-  ME_lo_Pump_1: {fileID: 0}
-  Turbocharger: {fileID: 0}
+  Co_Storage_Tank_Level: {fileID: 7014769026308786112}
+  Lo_After_Trans_1: {fileID: 7014769025977712278}
+  Lo_After_Pistons: {fileID: 7014769024677093677}
+  Lo_Before_Shaft: {fileID: 7014769025923399705}
+  Lo_Before_ME: {fileID: 7014769024788976954}
+  LubeTanks: {fileID: 23274322}
 --- !u!1 &1633262280
 GameObject:
   m_ObjectHideFlags: 0
@@ -27325,7 +27381,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1687930610
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27519,7 +27575,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1690669177
 Transform:
   m_ObjectHideFlags: 0
@@ -27867,7 +27923,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1720271544
 Transform:
   m_ObjectHideFlags: 0
@@ -27948,7 +28004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1844181c36185bd4c84af99ba76154b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ShorePower: 1
+  _ShorePower: 0
   _PlayerNumber: 0
 --- !u!1 &1723704776
 GameObject:
@@ -28723,6 +28779,8 @@ MonoBehaviour:
   _DieselGen1_On: 0
   _DieselGen2_On: 0
   _DieselGen3_On: 0
+  _Generator: 0
+  _Reset: 0
 --- !u!1 &1767462764
 GameObject:
   m_ObjectHideFlags: 0
@@ -30721,9 +30779,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: LubricationScript, Assembly-CSharp
-        m_MethodName: MeLoIntakeButtonPressOn
+      - m_Target: {fileID: 1626505057}
+        m_TargetAssemblyTypeName: Lube, Assembly-CSharp
+        m_MethodName: FillTankOnRpc
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -30731,7 +30789,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1947296920
 MonoBehaviour:
@@ -33455,9 +33513,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: LubricationScript, Assembly-CSharp
-        m_MethodName: DgLoButtonPressOff
+      - m_Target: {fileID: 1626505057}
+        m_TargetAssemblyTypeName: Lube, Assembly-CSharp
+        m_MethodName: StopTanksRpc
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -54385,8 +54443,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5514907130526831619}
-  - {fileID: 734841674}
   - {fileID: 23274323}
+  - {fileID: 734841674}
   m_Father: {fileID: 1626505055}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5514907128924806476

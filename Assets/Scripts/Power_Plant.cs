@@ -1,4 +1,5 @@
 using Fusion;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Power_Plant : NetworkBehaviour
@@ -33,9 +34,27 @@ public class Power_Plant : NetworkBehaviour
     public override void Spawned()
     {
         base.Spawned();
+        game_Manager = GameObject.Find("Game_Manager").GetComponent<Game_Manager>();
         DieselGen1_On = true;
         DieselGen2_On = true;
         DieselGen3_On = true;
     }
+
+    [Rpc(RpcSources.All, RpcTargets.All)]
+    public void toggleShorePowerRpc()
+    {
+        print("Test");
+        print(game_Manager);
+
+        if (game_Manager.ShorePower == false)
+        {
+            game_Manager.ShorePower = true;
+        }
+        else
+        {
+            game_Manager.ShorePower = false;
+        }
+    }
+
 }
 
