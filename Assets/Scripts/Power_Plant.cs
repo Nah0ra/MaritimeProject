@@ -1,3 +1,4 @@
+using ExitGames.Client.Photon.StructWrapping;
 using Fusion;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,45 +17,49 @@ public class Power_Plant : NetworkBehaviour
     Button Dg1, DG2, Dg3;
 
     //Bools
-    [Networked]
-    public bool DieselGen1_On {get; set;} = true;
+    public bool DieselGen1_On = false;
 
-    [Networked]
-    public bool DieselGen2_On {get; set;} = true;
+    public bool DieselGen2_On = false;
 
-    [Networked]
-    public bool DieselGen3_On {get; set;} = true;
+    public bool DieselGen3_On = false;
 
-    [Networked]
-    public bool Generator {get; set;} = false;
 
-    [Networked]
-    public bool Reset {get; set;} = false;
+    public bool Generator = false ;
+
+    public bool Reset = false;
+
+   
+
+    
+    public bool ShorePower = false;
 
     public override void Spawned()
     {
         base.Spawned();
         game_Manager = GameObject.Find("Game_Manager").GetComponent<Game_Manager>();
-        DieselGen1_On = true;
-        DieselGen2_On = true;
-        DieselGen3_On = true;
     }
 
     [Rpc(RpcSources.All, RpcTargets.All)]
     public void toggleShorePowerRpc()
     {
-        print("Test");
-        print(game_Manager);
 
-        if (game_Manager.ShorePower == false)
+        Image PowerButton = transform.GetChild(0).GetChild(1).gameObject.GetComponent<Image>();
+
+        if (ShorePower == false)
         {
-            game_Manager.ShorePower = true;
+            PowerButton.color = Color.green;
+            ShorePower = true;
+            print(ShorePower);
         }
-        else
+        else if (ShorePower == true)
         {
-            game_Manager.ShorePower = false;
+            PowerButton.color = Color.red;
+            ShorePower = false;
+            print(ShorePower);
         }
     }
+
+    
 
 }
 

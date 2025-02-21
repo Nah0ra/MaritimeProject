@@ -22,10 +22,6 @@ public class Game_Manager : NetworkBehaviour
     // Main Engine Speed dial
     GameObject SpeedDial;
 
-    // This is used to keep track of whether the shore power is on
-    [Networked]
-    public bool ShorePower {get; set;} = false;
-
     // This is used to keep track of the number of connected players, across all clients
     [Networked]
     public int PlayerNumber {get; set;} = 0;

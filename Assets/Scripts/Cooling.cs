@@ -40,7 +40,7 @@ public class Cooling : NetworkBehaviour
    public void Sea_Water_RPC()
    {
         // If shore power is on
-        if (game_manager.ShorePower)
+        if (power_plant.ShorePower)
         {
             // If both sea water pumps are on
             if(Sea_Water_Pump_1 && Sea_Water_Pump_2)

@@ -6,6 +6,7 @@ public class Comp_Air : NetworkBehaviour
     GameObject Air_Comp1, Air_Comp2, Air_Rec_1, Air_Rec_2, Air_Bef_StartVal, Air_Control, Air_Stop, Air_Bef_Me;
 
     private Game_Manager gameManager;
+    private Power_Plant power_Plant;
 
     [Networked, SerializeField]
     bool AC1 {get; set;} = false;
@@ -22,7 +23,7 @@ public class Comp_Air : NetworkBehaviour
     public void AC1_On_RPC()
     {
         // If the ship has shore power, enable air compressor 1
-        if (gameManager.ShorePower)
+        if (power_Plant.ShorePower)
         {
             Air_Comp1.GetComponent<Gauge_Script>().Active = true;
             Air_Comp1.GetComponent<Gauge_Script>().Inc = true;
@@ -48,7 +49,7 @@ public class Comp_Air : NetworkBehaviour
     public void AC2_On_RPC()
     {
         // If the ship has shore power, enable air compressor 1
-        if (gameManager.ShorePower)
+        if (power_Plant.ShorePower)
         {
             Air_Comp2.GetComponent<Gauge_Script>().Active = true;
             Air_Comp2.GetComponent<Gauge_Script>().Inc = true;
@@ -74,6 +75,7 @@ public class Comp_Air : NetworkBehaviour
     {
         // Get a reference to the game manager
         gameManager = GameObject.Find("Game_Manager").GetComponent<Game_Manager>();
+        power_Plant = GameObject.Find("Power_Panel").GetComponent<Power_Plant>();
 
         //Assign the dials
         Air_Comp1 = GameObject.Find("Air_Comp_1");
