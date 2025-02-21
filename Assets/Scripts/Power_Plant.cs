@@ -5,16 +5,14 @@ using UnityEngine.UI;
 
 public class Power_Plant : NetworkBehaviour
 {
-    Game_Manager game_Manager;
+    Lube _lube;
 
-    Lube lube;
-    
     Cooling cooling;
     
     Comp_Air comp_Air;
 
     // Buttons
-    Button Dg1, DG2, Dg3;
+    public GameObject Dg1, Dg2, Dg3;
 
     //Bools
     public bool DieselGen1_On = false;
@@ -23,12 +21,9 @@ public class Power_Plant : NetworkBehaviour
 
     public bool DieselGen3_On = false;
 
-
-    public bool Generator = false ;
-
-    public bool Reset = false;
-
-   
+    public bool DG1Lube = false;
+    public bool DG2Lube = false;
+    public bool DG3Lube = false;
 
     
     public bool ShorePower = false;
@@ -36,7 +31,7 @@ public class Power_Plant : NetworkBehaviour
     public override void Spawned()
     {
         base.Spawned();
-        game_Manager = GameObject.Find("Game_Manager").GetComponent<Game_Manager>();
+        _lube = GameObject.Find("Lube_Panel").GetComponent<Lube>();
     }
 
     [Rpc(RpcSources.All, RpcTargets.All)]
@@ -56,6 +51,58 @@ public class Power_Plant : NetworkBehaviour
             PowerButton.color = Color.red;
             ShorePower = false;
             print(ShorePower);
+        }
+    }
+
+
+    [Rpc(RpcSources.All, RpcTargets.All)]
+    public void ToggleGen1LubeRpc()
+    {
+        Image button = GameObject.Find("Sectioning_Pre_lub_pump").transform.GetChild(2).GetChild(1).GetComponent<Image>();
+
+        if (_lube.filledTanks && ShorePower && !DG1Lube)
+        {
+            DG1Lube = true;
+            button.color = Color.green;
+        }
+        else if (DG1Lube)
+        {
+            DG1Lube = false;
+            button.color = Color.red;
+        }
+    }
+
+    [Rpc(RpcSources.All, RpcTargets.All)]
+    public void ToggleGen2LubeRpc()
+    {
+        Image button = GameObject.Find("Sectioning_Pre_lub_pump_2").transform.GetChild(2).GetChild(1).GetComponent<Image>();
+
+        if (_lube.filledTanks && ShorePower && !DG2Lube)
+        {
+            DG2Lube = true;
+            button.color = Color.green;
+        }
+        else if (DG2Lube)
+        {
+            DG2Lube = false;
+            button.color = Color.red;
+        }
+    }
+
+    [Rpc(RpcSources.All, RpcTargets.All)]
+    public void ToggleGen3LubeRpc()
+    {
+        Image button = GameObject.Find("Sectioning_Pre_lub_pump_3").transform.GetChild(2).GetChild(1).GetComponent<Image>();
+
+        if (_lube.filledTanks && ShorePower && !DG3Lube)
+        {
+            DG3Lube = true;
+            button.color = Color.green;
+        }
+        else if (DG3Lube)
+        {
+            DG3Lube = false;
+            button.color = Color.red;
         }
     }
 

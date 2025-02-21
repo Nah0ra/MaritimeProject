@@ -481,7 +481,7 @@ MonoBehaviour:
   Max_Value: 0
   Min_Value: 0
   Current_Value: 0
-  Rate_Of_Change: 0.1
+  Rate_Of_Change: 10
   _Inc: 0
   _Active: 0
 --- !u!1 &61655242
@@ -9355,10 +9355,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PowerPlantScript, Assembly-CSharp
-        m_MethodName: changeColourGreen
-        m_Mode: 5
+      - m_Target: {fileID: 1767460921}
+        m_TargetAssemblyTypeName: Power_Plant, Assembly-CSharp
+        m_MethodName: ToggleGen2LubeRpc
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -13002,10 +13002,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PowerPlantScript, Assembly-CSharp
-        m_MethodName: changeColourGreen
-        m_Mode: 5
+      - m_Target: {fileID: 1767460921}
+        m_TargetAssemblyTypeName: Power_Plant, Assembly-CSharp
+        m_MethodName: ToggleGen1LubeRpc
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -26191,10 +26191,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PowerPlantScript, Assembly-CSharp
-        m_MethodName: changeColourGreen
-        m_Mode: 5
+      - m_Target: {fileID: 1767460921}
+        m_TargetAssemblyTypeName: Power_Plant, Assembly-CSharp
+        m_MethodName: ToggleGen3LubeRpc
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -28777,11 +28777,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9c7d8b4ede15e1ca5217a0ba690b7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Dg1: {fileID: 5027314173222535253}
+  Dg2: {fileID: 5027314172203172594}
+  Dg3: {fileID: 57318967}
   DieselGen1_On: 0
   DieselGen2_On: 0
   DieselGen3_On: 0
-  Generator: 0
-  Reset: 0
+  DG1Lube: 0
+  DG2Lube: 0
+  DG3Lube: 0
   ShorePower: 0
 --- !u!1 &1767462764
 GameObject:
@@ -54297,7 +54301,7 @@ MonoBehaviour:
   Max_Value: 0
   Min_Value: 0
   Current_Value: 0
-  Rate_Of_Change: 0.1
+  Rate_Of_Change: 10
   _Inc: 0
   _Active: 0
 --- !u!4 &5027314173222535252
@@ -54396,7 +54400,7 @@ MonoBehaviour:
   Max_Value: 0
   Min_Value: 0
   Current_Value: 0
-  Rate_Of_Change: 0.1
+  Rate_Of_Change: 10
   _Inc: 0
   _Active: 0
 --- !u!1 &5212666986441872401
@@ -54430,7 +54434,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5334757348582893954
 Transform:
   m_ObjectHideFlags: 0
