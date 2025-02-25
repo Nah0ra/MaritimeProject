@@ -237,5 +237,8 @@ public class Game_Manager : NetworkBehaviour
 
     }
 
-
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }

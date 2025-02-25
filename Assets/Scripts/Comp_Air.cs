@@ -8,11 +8,11 @@ public class Comp_Air : NetworkBehaviour
     private Game_Manager gameManager;
     private Power_Plant power_Plant;
 
-    [Networked, SerializeField]
-    bool AC1 {get; set;} = false;
+    [SerializeField]
+    bool AC1 = false;
 
-    [Networked, SerializeField]
-    bool AC2 {get; set;} = false;
+    [SerializeField]
+    bool AC2 = false;
 
     void Awake()
     {
