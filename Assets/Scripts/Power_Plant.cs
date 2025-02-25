@@ -60,7 +60,7 @@ public class Power_Plant : NetworkBehaviour
     [Rpc(RpcSources.All, RpcTargets.All)]
     public void ToggleGen1LubeRpc()
     {
-        Image button = GameObject.Find("Sectioning_Pre_lub_pump").transform.GetChild(2).GetChild(1).GetComponent<Image>();
+        Image button = GameObject.Find("Sectioning_Pre_lub_pump").transform.GetChild(2).GetComponent<Image>();
 
         if (_lube.filledTanks && ShorePower && !DG1Lube)
         {
