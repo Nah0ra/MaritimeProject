@@ -115,6 +115,7 @@ public class Power_Plant : NetworkBehaviour
         {
             Dg1.GetComponent<Gauge_Script>().Active = true;
             Dg1.GetComponent<Gauge_Script>().Inc = true;
+            DieselGen1_On = true;
         }
     }
 
@@ -123,6 +124,7 @@ public class Power_Plant : NetworkBehaviour
     {
         Dg1.GetComponent<Gauge_Script>().Active = true;
         Dg1.GetComponent<Gauge_Script>().Inc = false;
+        DieselGen1_On = false;
     }
 
     [Rpc(RpcSources.All, RpcTargets.All)]
@@ -132,6 +134,7 @@ public class Power_Plant : NetworkBehaviour
         {
             Dg2.GetComponent<Gauge_Script>().Active = true;
             Dg2.GetComponent<Gauge_Script>().Inc = true;
+            DieselGen2_On = true;
         }
     }
 
@@ -140,6 +143,7 @@ public class Power_Plant : NetworkBehaviour
     {
         Dg2.GetComponent<Gauge_Script>().Active = true;
         Dg2.GetComponent<Gauge_Script>().Inc = false;
+        DieselGen2_On = false;
     }
 
     [Rpc(RpcSources.All, RpcTargets.All)]
@@ -149,6 +153,7 @@ public class Power_Plant : NetworkBehaviour
         {
             Dg3.GetComponent<Gauge_Script>().Active = true;
             Dg3.GetComponent<Gauge_Script>().Inc = true;
+            DieselGen3_On = true;
         }
     }
 
@@ -157,6 +162,7 @@ public class Power_Plant : NetworkBehaviour
     {
         Dg3.GetComponent<Gauge_Script>().Active = true;
         Dg3.GetComponent<Gauge_Script>().Inc = false;
+        DieselGen3_On = false;
     }
 
 

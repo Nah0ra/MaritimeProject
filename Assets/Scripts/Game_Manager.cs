@@ -26,10 +26,18 @@ public class Game_Manager : NetworkBehaviour
     [Networked]
     public int PlayerNumber {get; set;} = 0;
 
+    public bool IndicatorCocks = false;
+    public bool SlowTurn = false;
+
+    public bool PreLubPump = false;
+
+    Power_Plant power_Plant;
+
     public void Awake()
     {   
         // Initialising the UI
         InitialiseUI();
+        power_Plant = GameObject.Find("Power_Panel").GetComponent<Power_Plant>();
     }
 
     // This is executed once the level loads
@@ -142,6 +150,56 @@ public class Game_Manager : NetworkBehaviour
 
         SpeedDial.GetComponent<SimpleGaugeMaker>().Hide = true;
     }
+
+
+    [Rpc(RpcSources.All, RpcTargets.All)]
+    public void CocksOpenRpc()
+    {
+        if (power_Plant.Dg1 && power_Plant.Dg2 && power_Plant.Dg3 && !power_Plant.ShorePower)
+        {
+            IndicatorCocks = true;
+        }
+    }
+
+     [Rpc(RpcSources.All, RpcTargets.All)]
+    public void CocksClosedRpc()
+    {
+        IndicatorCocks = false;
+    }
+
+    [Rpc(RpcSources.All, RpcTargets.All)]
+    public void SlowTurnOnRpc()
+    {
+        if (power_Plant.Dg1 && power_Plant.Dg2 && power_Plant.Dg3 && !power_Plant.ShorePower)
+        {
+            SlowTurn = true;
+        }
+    }
+
+
+    [Rpc(RpcSources.All, RpcTargets.All)]
+    public void SlowTurnOffRpc()
+    {
+        SlowTurn = false;
+    }
+
+    [Rpc(RpcSources.All, RpcTargets.All)]
+    public void PreLubOnRpc()
+    {
+        if (power_Plant.Dg1 && power_Plant.Dg2 && power_Plant.Dg3 && !power_Plant.ShorePower)
+        {
+            PreLubPump = true;
+        }
+    }
+
+    [Rpc(RpcSources.All, RpcTargets.All)]
+    public void PreLubOffRpc()
+    {
+        PreLubPump = false;
+    }
+
+
+
 
     public void LoadPanel()
     {

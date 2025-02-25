@@ -1,9 +1,6 @@
-using System;
 using System.Collections;
-using System.Threading;
 using Fusion;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
 public class Lube : NetworkBehaviour
@@ -26,6 +23,10 @@ public class Lube : NetworkBehaviour
     
     public bool filledTanks = false;
 
+    public bool ME_LO = false;
+
+    public bool Turbocharger = false;
+
 
     //Dials
     [SerializeField]
@@ -40,9 +41,6 @@ public class Lube : NetworkBehaviour
         base.Spawned();
         Init();
     }
-
-
-
 
     public void toggleTanks()
     {
@@ -171,6 +169,41 @@ public class Lube : NetworkBehaviour
         }
     }
 
+
+    [Rpc(RpcSources.All,RpcTargets.All)]    
+    public void MELoOnRpc()
+    {
+        if (!power_Plant.ShorePower && power_Plant.Dg1 && power_Plant.Dg2 && power_Plant.Dg3)
+        {
+            Lo_Before_ME.GetComponent<Gauge_Script>().Active = true;
+            Lo_Before_ME.GetComponent<Gauge_Script>().Inc = true;
+            ME_LO = true;
+        }
+    }
+
+    [Rpc(RpcSources.All,RpcTargets.All)]    
+    public void MELoOffRpc()
+    {
+        Lo_Before_ME.GetComponent<Gauge_Script>().Active = true;
+        Lo_Before_ME.GetComponent<Gauge_Script>().Inc = true;
+        ME_LO = false;
+    }
+
+
+    [Rpc(RpcSources.All,RpcTargets.All)]    
+    public void TurboOnRpc()
+    {
+        if (!power_Plant.ShorePower && power_Plant.Dg1 && power_Plant.Dg2 && power_Plant.Dg3)
+        {
+            Turbocharger = true;
+        }
+    }
+
+     [Rpc(RpcSources.All,RpcTargets.All)]    
+    public void TurboOffRpc()
+    {
+        Turbocharger = false;
+    }
 
     void Init()
     {

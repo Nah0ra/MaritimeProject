@@ -73,7 +73,7 @@ public class Cooling : NetworkBehaviour
             }
         }
 
-        if (power_plant.DieselGen1_On && power_plant.DieselGen2_On && power_plant.DieselGen3_On)
+        if (power_plant.DieselGen1_On && power_plant.DieselGen2_On && power_plant.DieselGen3_On & !power_plant.ShorePower)
         {
             if (DG_FW_Pump1 && DG_FW_Pump2)
             {
@@ -164,6 +164,8 @@ public class Cooling : NetworkBehaviour
         base.Spawned();
         StartCoroutine(CheckPumps());
     }
+
+
 
     void Init()
    {

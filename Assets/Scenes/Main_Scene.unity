@@ -1280,9 +1280,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MiscScript, Assembly-CSharp
-        m_MethodName: MEPreLubPumpOn
+      - m_Target: {fileID: 1720985175}
+        m_TargetAssemblyTypeName: Game_Manager, Assembly-CSharp
+        m_MethodName: PreLubOnRpc
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3333,7 +3333,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1626505057}
         m_TargetAssemblyTypeName: Lube, Assembly-CSharp
-        m_MethodName: Turbo_Off_RPC
+        m_MethodName: TurboOffRpc
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7532,7 +7532,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1626505057}
         m_TargetAssemblyTypeName: Lube, Assembly-CSharp
-        m_MethodName: ME_Lo_Pump_Off_RPC
+        m_MethodName: MELoOffRpc
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14676,7 +14676,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1626505057}
         m_TargetAssemblyTypeName: Lube, Assembly-CSharp
-        m_MethodName: Turbo_On_RPC
+        m_MethodName: TurboOnRpc
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15410,9 +15410,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MiscScript, Assembly-CSharp
-        m_MethodName: IndicatorCocksOff
+      - m_Target: {fileID: 1720985175}
+        m_TargetAssemblyTypeName: Game_Manager, Assembly-CSharp
+        m_MethodName: CocksClosedRpc
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19383,9 +19383,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MiscScript, Assembly-CSharp
-        m_MethodName: IndicatorCocksOn
+      - m_Target: {fileID: 1720985175}
+        m_TargetAssemblyTypeName: Game_Manager, Assembly-CSharp
+        m_MethodName: CocksOpenRpc
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22799,9 +22799,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MiscScript, Assembly-CSharp
-        m_MethodName: MEPreLubPumpOff
+      - m_Target: {fileID: 1720985175}
+        m_TargetAssemblyTypeName: Game_Manager, Assembly-CSharp
+        m_MethodName: PreLubOffRpc
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -25185,9 +25185,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MiscScript, Assembly-CSharp
-        m_MethodName: SlowTurningOn
+      - m_Target: {fileID: 1720985175}
+        m_TargetAssemblyTypeName: Game_Manager, Assembly-CSharp
+        m_MethodName: SlowTurnOnRpc
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -27416,6 +27416,8 @@ MonoBehaviour:
   Dg_Lo_Slider: {fileID: 264556167}
   Heater: 0
   filledTanks: 0
+  ME_LO: 0
+  Turbocharger: 0
   Co_Storage_Tank_Level: {fileID: 7014769026308786112}
   Lo_After_Trans_1: {fileID: 7014769025977712278}
   Lo_After_Pistons: {fileID: 7014769024677093677}
@@ -27853,9 +27855,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MiscScript, Assembly-CSharp
-        m_MethodName: SlowTurningOff
+      - m_Target: {fileID: 1720985175}
+        m_TargetAssemblyTypeName: Game_Manager, Assembly-CSharp
+        m_MethodName: SlowTurnOffRpc
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -27987,7 +27989,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1626505057}
         m_TargetAssemblyTypeName: Lube, Assembly-CSharp
-        m_MethodName: ME_Lo_Pump_On_RPC
+        m_MethodName: MELoOnRpc
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -28933,6 +28935,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _PlayerNumber: 0
+  IndicatorCocks: 0
+  SlowTurn: 0
+  PreLubPump: 0
 --- !u!1 &1723704776
 GameObject:
   m_ObjectHideFlags: 0
