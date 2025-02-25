@@ -6801,7 +6801,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1767460921}
         m_TargetAssemblyTypeName: Power_Plant, Assembly-CSharp
-        m_MethodName: ToggleGen1LubeRpc
+        m_MethodName: Gen2OnRpc
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11394,7 +11394,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1767460921}
         m_TargetAssemblyTypeName: Power_Plant, Assembly-CSharp
-        m_MethodName: ToggleGen1LubeRpc
+        m_MethodName: Gen3OnRpc
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18290,7 +18290,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1767460921}
         m_TargetAssemblyTypeName: Power_Plant, Assembly-CSharp
-        m_MethodName: ToggleGen1LubeRpc
+        m_MethodName: Gen3OffRpc
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -23175,7 +23175,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1767460921}
         m_TargetAssemblyTypeName: Power_Plant, Assembly-CSharp
-        m_MethodName: ToggleGen1LubeRpc
+        m_MethodName: Gen2OffRpc
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -111,7 +111,7 @@ public class Power_Plant : NetworkBehaviour
     [Rpc(RpcSources.All, RpcTargets.All)]
     public void Gen1OnRpc()
     {
-        if (comp_Air.AC1 && comp_Air.AC2 && DG1Lube && DG2Lube && DG3Lube && cooling.Sea_Water_Pump_1 && cooling.Sea_Water_Pump_2)
+        if (comp_Air.AC1 && comp_Air.AC2 && DG1Lube && cooling.Sea_Water_Pump_1 && cooling.Sea_Water_Pump_2)
         {
             Dg1.GetComponent<Gauge_Script>().Active = true;
             Dg1.GetComponent<Gauge_Script>().Inc = true;
@@ -123,6 +123,40 @@ public class Power_Plant : NetworkBehaviour
     {
         Dg1.GetComponent<Gauge_Script>().Active = true;
         Dg1.GetComponent<Gauge_Script>().Inc = false;
+    }
+
+    [Rpc(RpcSources.All, RpcTargets.All)]
+    public void Gen2OnRpc()
+    {
+        if (comp_Air.AC1 && comp_Air.AC2 && DG2Lube && cooling.Sea_Water_Pump_1 && cooling.Sea_Water_Pump_2)
+        {
+            Dg2.GetComponent<Gauge_Script>().Active = true;
+            Dg2.GetComponent<Gauge_Script>().Inc = true;
+        }
+    }
+
+    [Rpc(RpcSources.All, RpcTargets.All)]
+    public void Gen2OffRpc()
+    {
+        Dg2.GetComponent<Gauge_Script>().Active = true;
+        Dg2.GetComponent<Gauge_Script>().Inc = false;
+    }
+
+    [Rpc(RpcSources.All, RpcTargets.All)]
+    public void Gen3OnRpc()
+    {
+        if (comp_Air.AC1 && comp_Air.AC2 && DG3Lube && cooling.Sea_Water_Pump_1 && cooling.Sea_Water_Pump_2)
+        {
+            Dg3.GetComponent<Gauge_Script>().Active = true;
+            Dg3.GetComponent<Gauge_Script>().Inc = true;
+        }
+    }
+
+    [Rpc(RpcSources.All, RpcTargets.All)]
+    public void Gen3OffRpc()
+    {
+        Dg3.GetComponent<Gauge_Script>().Active = true;
+        Dg3.GetComponent<Gauge_Script>().Inc = false;
     }
 
 
