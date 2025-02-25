@@ -32,6 +32,8 @@ public class Power_Plant : NetworkBehaviour
     {
         base.Spawned();
         _lube = GameObject.Find("Lube_Panel").GetComponent<Lube>();
+        comp_Air = GameObject.Find("Comp_Panel").GetComponent<Comp_Air>();
+        cooling = GameObject.Find("Cool_Panel").GetComponent<Cooling>();
     }
 
     [Rpc(RpcSources.All, RpcTargets.All)]
@@ -106,7 +108,24 @@ public class Power_Plant : NetworkBehaviour
         }
     }
 
-    
+    [Rpc(RpcSources.All, RpcTargets.All)]
+    public void Gen1OnRpc()
+    {
+        if (comp_Air.AC1 && comp_Air.AC2 && DG1Lube && DG2Lube && DG3Lube && cooling.Sea_Water_Pump_1 && cooling.Sea_Water_Pump_2)
+        {
+            Dg1.GetComponent<Gauge_Script>().Active = true;
+            Dg1.GetComponent<Gauge_Script>().Inc = true;
+        }
+    }
+
+    [Rpc(RpcSources.All, RpcTargets.All)]
+    public void Gen1OffRpc()
+    {
+        Dg1.GetComponent<Gauge_Script>().Active = true;
+        Dg1.GetComponent<Gauge_Script>().Inc = false;
+    }
+
+
 
 }
 

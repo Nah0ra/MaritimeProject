@@ -9,10 +9,10 @@ public class Comp_Air : NetworkBehaviour
     private Power_Plant power_Plant;
 
     [SerializeField]
-    bool AC1 = false;
+    public bool AC1 = false;
 
     [SerializeField]
-    bool AC2 = false;
+    public bool AC2 = false;
 
     void Awake()
     {

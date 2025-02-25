@@ -10,20 +10,20 @@ public class Cooling : NetworkBehaviour
    [SerializeField]
    Power_Plant power_plant;
 
-   [Networked]
-   public bool Sea_Water_Pump_1 {get; set;} = false;
+   
+   public bool Sea_Water_Pump_1 = false;
 
-   [Networked]
-   public bool Sea_Water_Pump_2 {get; set;} = false;
+   
+   public bool Sea_Water_Pump_2 = false;
 
-   [Networked]
-   public bool Sea_Water_Fill {get; set;} = false;
+   
+   public bool Sea_Water_Fill = false;
 
-   [Networked]
-   public bool DG_FW_Pump1 {get; set;} = false;
+  
+   public bool DG_FW_Pump1 = false;
 
-   [Networked]
-   public bool DG_FW_Pump2 {get; set;} = false;
+   
+   public bool DG_FW_Pump2 = false;
 
     // Dials
    GameObject Sea_Water_After_Me, Sea_Water_Before_Me, Sea_Water_Before_Me_2, DG_FW_Bef_Clr, FW_Bef_Clr, FW_Bef_Clr_2;
