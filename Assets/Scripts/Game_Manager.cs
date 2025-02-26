@@ -53,7 +53,7 @@ public class Game_Manager : NetworkBehaviour
     private void CheckForPlayersRPC()
     {
         PlayerNumber = Runner.ActivePlayers.Count();
-        if (PlayerNumber == 2)
+        if (PlayerNumber == 4)
         {
             // If player count has been reached, disable the overlay and enable the main UI and dials
             Overlay.SetActive(false);
